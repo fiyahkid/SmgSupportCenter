@@ -1,0 +1,20 @@
+<?php echo $this->doctype('HTML5'); ?>
+<html lang='de'>
+<head>
+	<?php $this->headMeta()->setCharset('UTF-8'); ?>
+	<?php $this->headLink()->prependStylesheet($this->baseUrl() . '/styles/style.css'); ?>
+	<?php $this->headLink()->prependStylesheet($this->baseUrl() . '/styles/jquery.css'); ?>
+	<?php $this->headMeta()->appendHttpEquiv('X-UA-Compatible','IE=egde,chrome=1'); ?>
+	<?php $this->headScript()->appendFile($this->baseUrl() . '/scripts/jquery.js'); ?>
+	<?php $this->headScript()->appendFile($this->baseUrl() . '/scripts/jquery-ui.js'); ?>
+	<?php $this->headScript()->appendFile('http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'); ?>
+	
+	<?php echo $this->headMeta(); ?>
+	<?php echo $this->headStyle(); ?>
+	<?php echo $this->headScript(); ?>
+	<?php echo $this->headLink(); ?>
+</head>
+<body>
+	<?php echo $this->layout()->content; ?>
+</body>
+</html>

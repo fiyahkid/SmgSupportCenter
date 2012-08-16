@@ -1,0 +1,25 @@
+<header>
+	<hgroup>
+		<h1>Support Center</h1>
+	</hgroup>
+	<nav>
+		<button type="button" name="ticketsystem" data-value="ticketsystem">Ticketsystem</button>
+		<button type="button" name="kalender" data-value="kalender">Kalender</button>
+		<button type="button" name="terminverwaltung" data-value="terminverwaltung">Terminverwaltung</button>
+		<button type="button" name="instant messaging" data-value="instant messaging">Instant Messaging</button>
+		<button type="button" name="statistik" data-value="statistik">Statistik</button>
+	</nav>
+</header>
+<section>
+	
+</section>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('button[name=ticketsystem]').on('click', alert('Ticketsystem'));
+		$('button[name=kalender]').on('click', alert('Kalender'));
+		$('button[name=terminverwaltung]').on('click', alert('Terminverwaltung'));
+		$('button[name=instant messaging]').on('click', alert('Instant Messaging'));
+		$('button[name=statistik]').on('click', alert('Statistik'));
+	});
+		
+</script>

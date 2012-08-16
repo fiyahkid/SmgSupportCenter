@@ -1,0 +1,41 @@
+html, body {
+	background-color: #888888;
+	color: #FFFFFF;
+}
+header {
+	height: 200px;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+header hgroup {
+	
+}
+header hgroup h1 {
+	margin-left: 2px;
+}
+header nav {
+	height: 20px;
+	width: 100%;
+	position: absolute;
+	top: 80px;
+	left: 0;
+	right: 0;
+}
+header nav button {
+	border: 2px solid #AAAAAA;
+	background-color: #888888;
+	widht: 100px;
+	height: 21px;
+	font-size: 13px;
+	color: #FFFFFF;
+}
+section {
+	border-top: 2px solid #AAAAAA;
+	position: absolute;
+	top: 100px;
+	left: 0;
+	right: 0;
+}

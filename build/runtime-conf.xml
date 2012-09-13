@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <!-- Uncomment this if you have PEAR Log installed
+  <log>
+    <type>file</type>
+    <name>/path/to/propel.log</name>
+    <ident>propel-example</ident>
+    <level>7</level>
+  </log>
+  -->
+  <propel>
+    <datasources default="SmgSupportCenter">
+      <datasource id="SmgSupportCenter">
+        <adapter>mysql</adapter> <!-- sqlite, mysql, myssql, oracle, or pgsql -->
+        <connection>
+          <dsn>mysql:host=roundel.de;dbname=d01324f7</dsn>
+          <user>d01324f7</user>
+          <password>VkPof7bhLeg3uLUJ</password>
+        </connection>
+      </datasource>
+    </datasources>
+  </propel>
+</config>

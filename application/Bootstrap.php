@@ -2,25 +2,35 @@
 
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
+	protected function _initAutoLoad() {
+		require_once 'vendor/autoload.php';
+//die(var_dump(Propel));
+	//	Propel::init($this->getOption('propelconfig');
+	}
+
+	protected function _initPropel() {
+		Propel::init($this->getOption('propelconfig'));
+	}
+
 	protected function _initDb() {
-		require_once 'Zend/Loader/Autoloader.php';
-		require_once '../application/models/RequestModel.php';
+	//	require_once 'Zend/Loader/Autoloader.php';
+	//	require_once '../application/models/RequestModel.php';
 		
 		//-- Setup Autoload
-		Zend_Loader_Autoloader::getInstance();
+	//	Zend_Loader_Autoloader::getInstance();
 		
 		//-- Include Pfade setzen
-		set_include_path('.' . PATH_SEPARATOR .
-						 '../library' . PATH_SEPARATOR .
-						 '../application/models/' . PATH_SEPARATOR .
-						 get_include_path());
+	//	set_include_path('.' . PATH_SEPARATOR .
+	//					 '../library' . PATH_SEPARATOR .
+	//					 '../application/models/' . PATH_SEPARATOR .
+	//					 get_include_path());
 		
 		
 		//-- Roundel.de - support_center "without Zend"
-		$params = array('host'		=> 'roundel.de',
-						'username'	=> 'd01324f7',
-						'password'	=> 'VkPof7bhLeg3uLUJ',
-						'dbname'	=> 'd01324f7');
+	//	$params = array('host'		=> 'roundel.de',
+	//					'username'	=> 'd01324f7',
+	//					'password'	=> 'VkPof7bhLeg3uLUJ',
+	//					'dbname'	=> 'd01324f7');
 		
 		
 		//-- Test-DB
@@ -29,14 +39,14 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 // 						'password'	=> '',
 // 						'dbname'	=> 'ticketsystem');
 		
-		$db = Zend_Db::factory('PDO_MYSQL', $params);
-		Zend_Db_Table::setDefaultAdapter($db);
+	//	$db = Zend_Db::factory('PDO_MYSQL', $params);
+	//	Zend_Db_Table::setDefaultAdapter($db);
 		
 		//require_once '../application/models/TicketoverviewModel.php';
 		
 		//-- Setup Controller
-		$frontController = Zend_Controller_Front::getInstance();
-		$frontController->setControllerDirectory('../application/controllers');
+	//	$frontController = Zend_Controller_Front::getInstance();
+	//	$frontController->setControllerDirectory('../application/controllers');
 		
 		
 	}

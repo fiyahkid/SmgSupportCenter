@@ -13,7 +13,31 @@ class IndexController extends Zend_Controller_Action
         // action body
     }
 
-
+	public function ticketsystemAction()
+	{
+		// $this->_helper->layout->disableLayout(); //nur einblenden, wenn kein 'wrapper'-DIV in unterseiten verwendet
+		// action body
+	}
+	public function kalenderAction()
+	{
+		// $this->_helper->layout->disableLayout(); //nur einblenden, wenn kein 'wrapper'-DIV in unterseiten verwendet
+		// action body
+	}
+	public function terminverwaltungAction()
+	{
+		// $this->_helper->layout->disableLayout(); //nur einblenden, wenn kein 'wrapper'-DIV in unterseiten verwendet
+		// action body
+	}
+	public function instantmessagingAction()
+	{
+		// $this->_helper->layout->disableLayout(); //nur einblenden, wenn kein 'wrapper'-DIV in unterseiten verwendet
+		// action body
+	}
+	public function statistikAction()
+	{
+		// $this->_helper->layout->disableLayout(); //nur einblenden, wenn kein 'wrapper'-DIV in unterseiten verwendet
+		// action body
+	}
 }
 
 ?>

@@ -1,41 +1,475 @@
 html, body {
 	background-color: #888888;
 	color: #FFFFFF;
+	font-family: verdana;
 }
+
 header {
-	height: 200px;
+	/*
+	height: 100px;
 	width: 100%;
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
+	background: none repeat scroll 0 0 #888888;
+    color: #DDDDDD;
+    text-shadow: 0 -2px 2px #777777, 0 2px 2px #AAAAAA;
+    */
 }
 header hgroup {
 	
 }
 header hgroup h1 {
-	margin-left: 2px;
+	text-align: left;
 }
 header nav {
-	height: 20px;
-	width: 100%;
+	height: 30px;
+	width: 750px;
 	position: absolute;
-	top: 80px;
+	top: 86px;
 	left: 0;
 	right: 0;
+	/*margin-left: -375px;*/
 }
-header nav button {
-	border: 2px solid #AAAAAA;
-	background-color: #888888;
-	widht: 100px;
-	height: 21px;
+header nav a:link, header nav a:visited {
+	display: block;
+	background-color: none repeat scroll 0 0 #888888;
+	width: 150px;
+	height: 20px;
+	font-size: 13px;
+	color: #AAAAAA;
+	float: left;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 0 -2px 2px #777777, 0 2px 2px #AAAAAA;
+}
+header nav a:hover, header nav a.active {
+	display: block;
+	background-color: none repeat scroll 0 0 #888888;
+	width: 150px;
+	height: 20px;
+	font-size: 13px;
+	color: #DDDDDD;
+	float: left;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 0 -2px 2px #555555, 0 5px 5px #555555;
+}
+header nav a.active {
+	display: block;
+	background-color: none repeat scroll 0 0 #888888;
+	width: 150px;
+	height: 20px;
+	font-size: 13px;
+	color: #DDDDDD;
+	float: left;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 0 -2px 2px #555555, 0 5px 5px #555555;
+	
+/* Box Shadow */ 
+	-moz-box-shadow: inset 0 0 2px 2px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 0 0 2px 2px rgba(0,0,0,0.5);
+	box-shadow: inset 0 0 2px 2px rgba(0,0,0,0.5);
+
+	
+/* Background */
+ 	background-color: 	#999999;
+
+	/* FireFox */
+		background-image: 	-moz-linear-gradient(
+								right top , 
+								transparent, 
+								transparent 15%, 
+								rgba(136, 136, 136, 1) 15%, 
+								rgba(136, 136, 136, 1) 50%, 
+								transparent 50%, 
+								transparent 65%, 
+								rgba(136, 136, 136, 1) 65%, 
+								rgba(136, 136, 136, 1)
+							);
+	
+	 /* Chrome 10+, Saf5.1+, iOS 5+ */
+		background-image: 	-webkit-linear-gradient(
+								right top , 
+								transparent, 
+								transparent 15%, 
+								rgba(136, 136, 136, 1) 15%, 
+								rgba(136, 136, 136, 1) 50%, 
+								transparent 50%, 
+								transparent 65%, 
+								rgba(136, 136, 136, 1) 65%, 
+								rgba(136, 136, 136, 1)
+							); 
+	
+	/* IE10 */
+		background-image: 	-ms-linear-gradient(
+								right top , 
+								transparent, 
+								transparent 15%, 
+								rgba(136, 136, 136, 1) 15%, 
+								rgba(136, 136, 136, 1) 50%, 
+								transparent 50%, 
+								transparent 65%, 
+								rgba(136, 136, 136, 1) 65%, 
+								rgba(136, 136, 136, 1)
+							);
+	
+	/* Opera 11.10+ */
+		background-image:  -o-linear-gradient(
+								right top , 
+								transparent, 
+								transparent 15%, 
+								rgba(136, 136, 136, 1) 15%, 
+								rgba(136, 136, 136, 1) 50%, 
+								transparent 50%, 
+								transparent 65%, 
+								rgba(136, 136, 136, 1) 65%, 
+								rgba(136, 136, 136, 1)
+							);
+	
+		background-size: 	14px 14px;
+
+}
+header #login {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 255px;
+	height: 100px;
+	/*background-color: #000000;*/
+	font-size: 12px;
+}
+.zend_form {
+	font-size: 12px;
+	width: 250px;
+}
+.zend_form #username-label {
+	float: left;
+}
+.zend_form #username {
+	float: right;
+	width: 150px;
+	height: 10px;
+}
+.zend_form #password-label {
+	float: left;
+	margin-top: 2px;
+}
+.zend_form #password {
+	float: right;
+	width: 150px;
+	height: 10px;
+	margin-top: 2px;
+}
+.zend_form #submit-label {
+	float: left;
+	margin-top: 2px;
+}
+.zend_form #submit {
+	margin-top: 2px;
+	float: right;
+	display: block;
+	background-color: none repeat scroll 0 0 #000000;
+	width: 250px;
+	height: 20px;
+	font-size: 12px;
+	color: #AAAAAA;
+	text-align: center;
+	text-decoration: none;
+	border: solid 1px #AAAAAA;
+}
+header #login a:link, header #login a:visited {
+	display: block;
+	background-color: none repeat scroll 0 0 #888888;
+	width: 150px;
+	height: 20px;
+	font-size: 13px;
+	color: #AAAAAA;
+	float: left;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 0 -2px 2px #777777, 0 2px 2px #AAAAAA;
+}
+header #login a:hover, header #login a.active {
+	display: block;
+	background-color: none repeat scroll 0 0 #888888;
+	width: 150px;
+	height: 20px;
+	font-size: 13px;
+	color: #DDDDDD;
+	float: left;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 0 -2px 2px #555555, 0 5px 5px #555555;
+}
+header #login a.active {
+	display: block;
+	background-color: none repeat scroll 0 0 #888888;
+	width: 150px;
+	height: 20px;
+	font-size: 13px;
+	color: #DDDDDD;
+	float: left;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 0 -2px 2px #555555, 0 5px 5px #555555;
+	
+/* Box Shadow */ 
+	-moz-box-shadow: inset 0 0 2px 2px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 0 0 2px 2px rgba(0,0,0,0.5);
+	box-shadow: inset 0 0 2px 2px rgba(0,0,0,0.5);
+
+	
+/* Background */
+ 	background-color: 	#999999;
+
+	/* FireFox */
+		background-image: 	-moz-linear-gradient(
+								right top , 
+								transparent, 
+								transparent 15%, 
+								rgba(136, 136, 136, 1) 15%, 
+								rgba(136, 136, 136, 1) 50%, 
+								transparent 50%, 
+								transparent 65%, 
+								rgba(136, 136, 136, 1) 65%, 
+								rgba(136, 136, 136, 1)
+							);
+	
+	 /* Chrome 10+, Saf5.1+, iOS 5+ */
+		background-image: 	-webkit-linear-gradient(
+								right top , 
+								transparent, 
+								transparent 15%, 
+								rgba(136, 136, 136, 1) 15%, 
+								rgba(136, 136, 136, 1) 50%, 
+								transparent 50%, 
+								transparent 65%, 
+								rgba(136, 136, 136, 1) 65%, 
+								rgba(136, 136, 136, 1)
+							); 
+	
+	/* IE10 */
+		background-image: 	-ms-linear-gradient(
+								right top , 
+								transparent, 
+								transparent 15%, 
+								rgba(136, 136, 136, 1) 15%, 
+								rgba(136, 136, 136, 1) 50%, 
+								transparent 50%, 
+								transparent 65%, 
+								rgba(136, 136, 136, 1) 65%, 
+								rgba(136, 136, 136, 1)
+							);
+	
+	/* Opera 11.10+ */
+		background-image:  -o-linear-gradient(
+								right top , 
+								transparent, 
+								transparent 15%, 
+								rgba(136, 136, 136, 1) 15%, 
+								rgba(136, 136, 136, 1) 50%, 
+								transparent 50%, 
+								transparent 65%, 
+								rgba(136, 136, 136, 1) 65%, 
+								rgba(136, 136, 136, 1)
+							);
+	
+		background-size: 	14px 14px;
+}
+header hr {
+	height: 5px;
+	border: 0;
+	
+/* Box Shadow */
+	-moz-box-shadow: inset 0 5px 5px -5px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 0 5px 5px -5px rgba(0,0,0,0.5);
+	box-shadow: inset 0 5px 5px -5px rgba(0,0,0,0.5);
+}
+#left nav#menu {
+	position: absolute;
+	top: 110px;
+	left: 0;
+	bottom: 0;
+
+	width: 20%;
+
+	background-color: #999999;
+
+/* Box Shadow */
+	-moz-box-shadow: inset 0 0 2px 2px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 0 0 2px 2px rgba(0,0,0,0.5);
+	box-shadow: inset 0 0 2px 2px rgba(0,0,0,0.5);
+
+/* Background */
+ 	background-color: 	#999999;
+
+	/* FireFox */
+		background-image: 	-moz-linear-gradient(
+								right top , 
+								transparent, 
+								transparent 15%, 
+								rgba(136, 136, 136, 1) 15%, 
+								rgba(136, 136, 136, 1) 50%, 
+								transparent 50%, 
+								transparent 65%, 
+								rgba(136, 136, 136, 1) 65%, 
+								rgba(136, 136, 136, 1)
+							);
+	
+	 /* Chrome 10+, Saf5.1+, iOS 5+ */
+		background-image: 	-webkit-linear-gradient(
+								right top , 
+								transparent, 
+								transparent 15%, 
+								rgba(136, 136, 136, 1) 15%, 
+								rgba(136, 136, 136, 1) 50%, 
+								transparent 50%, 
+								transparent 65%, 
+								rgba(136, 136, 136, 1) 65%, 
+								rgba(136, 136, 136, 1)
+							); 
+	
+	/* IE10 */
+		background-image: 	-ms-linear-gradient(
+								right top , 
+								transparent, 
+								transparent 15%, 
+								rgba(136, 136, 136, 1) 15%, 
+								rgba(136, 136, 136, 1) 50%, 
+								transparent 50%, 
+								transparent 65%, 
+								rgba(136, 136, 136, 1) 65%, 
+								rgba(136, 136, 136, 1)
+							);
+	
+	/* Opera 11.10+ */
+		background-image:  -o-linear-gradient(
+								right top , 
+								transparent, 
+								transparent 15%, 
+								rgba(136, 136, 136, 1) 15%, 
+								rgba(136, 136, 136, 1) 50%, 
+								transparent 50%, 
+								transparent 65%, 
+								rgba(136, 136, 136, 1) 65%, 
+								rgba(136, 136, 136, 1)
+							);
+	
+		background-size: 	14px 14px;
+
+}
+
+#left nav#menu a:link, #left nav#menu a:visited {
+	display: block;
+	
+	width: 100%;
+	height: 15px;
 	font-size: 13px;
 	color: #FFFFFF;
+	float: left;
+	text-align: center;
+	text-decoration: none;
 }
-section {
-	border-top: 2px solid #AAAAAA;
+#left nav#menu a:hover, #left nav#menu a.active {
+	display: block;
+	
+	width: 100%;
+	height: 15px;
+	font-size: 13px;
+	color: #FFFFFF;
+	float: left;
+	text-align: center;
+	text-decoration: underline;
+}
+#left nav#menu a.active {
+	display: block;
+	
+	width: 100%;
+	height: 15px;
+	font-size: 13px;
+	color: #FFFFFF;
+	float: left;
+	text-align: center;
+	text-decoration: underline;
+}
+
+
+#content {
+
+	border: 0;
 	position: absolute;
-	top: 100px;
+	top: 41px;
+	bottom: 0;
 	left: 0;
+	
+
 	right: 0;
+	z-index: -1;
+
+	width: 100%;
+	
+/* Box Shadow */
+	-moz-box-shadow: inset 0 0 2px 2px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 0 0 2px 2px rgba(0,0,0,0.5);
+	box-shadow: inset 0 0 2px 2px rgba(0,0,0,0.5);
+
+/* Background */
+ 	background-color: 	#999999;
+
+	/* FireFox */
+		background-image: 	-moz-linear-gradient(
+								right top , 
+								transparent, 
+								transparent 15%, 
+								rgba(136, 136, 136, 1) 15%, 
+								rgba(136, 136, 136, 1) 50%, 
+								transparent 50%, 
+								transparent 65%, 
+								rgba(136, 136, 136, 1) 65%, 
+								rgba(136, 136, 136, 1)
+							);
+	
+	 /* Chrome 10+, Saf5.1+, iOS 5+ */
+		background-image: 	-webkit-linear-gradient(
+								right top , 
+								transparent, 
+								transparent 15%, 
+								rgba(136, 136, 136, 1) 15%, 
+								rgba(136, 136, 136, 1) 50%, 
+								transparent 50%, 
+								transparent 65%, 
+								rgba(136, 136, 136, 1) 65%, 
+								rgba(136, 136, 136, 1)
+							); 
+	
+	/* IE10 */
+		background-image: 	-ms-linear-gradient(
+								right top , 
+								transparent, 
+								transparent 15%, 
+								rgba(136, 136, 136, 1) 15%, 
+								rgba(136, 136, 136, 1) 50%, 
+								transparent 50%, 
+								transparent 65%, 
+								rgba(136, 136, 136, 1) 65%, 
+								rgba(136, 136, 136, 1)
+							);
+	
+	/* Opera 11.10+ */
+		background-image:  -o-linear-gradient(
+								right top , 
+								transparent, 
+								transparent 15%, 
+								rgba(136, 136, 136, 1) 15%, 
+								rgba(136, 136, 136, 1) 50%, 
+								transparent 50%, 
+								transparent 65%, 
+								rgba(136, 136, 136, 1) 65%, 
+								rgba(136, 136, 136, 1)
+							);
+	
+		background-size: 	14px 14px;
 }

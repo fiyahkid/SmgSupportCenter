@@ -1,25 +1,116 @@
 <header>
-	<hgroup>
-		<h1>Support Center</h1>
-	</hgroup>
-	<nav>
-		<button type="button" name="ticketsystem" data-value="ticketsystem">Ticketsystem</button>
-		<button type="button" name="kalender" data-value="kalender">Kalender</button>
-		<button type="button" name="terminverwaltung" data-value="terminverwaltung">Terminverwaltung</button>
-		<button type="button" name="instant messaging" data-value="instant messaging">Instant Messaging</button>
-		<button type="button" name="statistik" data-value="statistik">Statistik</button>
-	</nav>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="#">SupportCenter</a>
+				<div class="nav-collapse">
+					<div class="btn-group pull-left">
+						<button class="btn">Ticketsystem</button>
+						<button class="btn dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<!-- dropdown menu links -->
+							<a class="btn btn-navbar" href="<?php echo $this->baseUrl() . '/request/ticketoverview/'?>" name="ticketsystem">Ticket &Uuml;bersicht</a>
+						</ul>
+					</div>
+					<div class="btn-group pull-left">
+						<button class="btn">Kalender</button>
+						<button class="btn dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<!-- dropdown menu links -->
+						</ul>
+					</div>
+					<div class="btn-group pull-left">
+						<button class="btn">Terminverwaltung</button>
+						<button class="btn dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<!-- dropdown menu links -->
+						</ul>
+					</div>
+					<div class="btn-group pull-left">
+						<button class="btn">Instant Messaging</button>
+						<button class="btn dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<!-- dropdown menu links -->
+						</ul>
+					</div>
+					<div class="btn-group pull-left">
+						<button class="btn">Statistik</button>
+						<button class="btn dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<!-- dropdown menu links -->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="login">
+		<a href="<?php echo $this->baseUrl() . '/auth/login'?>">Login</a>
+	</div>
 </header>
-<section>
+<script>
+$(function() {
+	$( "#left" ).resizable();
+});
+</script>
+<!--
+<div id="left">
+	<nav id="menu">
+		<a href="<?php // echo $this->baseUrl() . '/index/#'?>">menu1</a>
+		<a href="<?php // echo $this->baseUrl() . '/index/#'?>">menu2</a>
+		<a href="<?php // echo $this->baseUrl() . '/index/#'?>">menu3</a>
+		<a href="<?php // echo $this->baseUrl() . '/index/#'?>">menu4</a>
+		<a href="<?php // echo $this->baseUrl() . '/index/#'?>">menu5</a>
+	</nav>
+</div>
+-->
+<div id="content">
 	
-</section>
+</div>
 <script type="text/javascript">
-	$(document).ready(function(){
-		$('button[name=ticketsystem]').on('click', alert('Ticketsystem'));
-		$('button[name=kalender]').on('click', alert('Kalender'));
-		$('button[name=terminverwaltung]').on('click', alert('Terminverwaltung'));
-		$('button[name=instant messaging]').on('click', alert('Instant Messaging'));
-		$('button[name=statistik]').on('click', alert('Statistik'));
-	});
+		$('nav a').click(function( e ){
+			var $this = $(this);
+
+			// remove CSS class "active"
+			$this.parents('nav').find('a').removeClass('active');
+
+			// add CSS class "active"
+			$this.addClass('active');
+
+			// Don't use Browser Default
+			e.preventDefault();
+
+			if($('a[name="ticketsystem"]')){
+				$('#content').load( $(this).attr('href'));
+				ts_get_liste();
+			}
+			
+			// load href-link in DIV ID "content"
+			$('#content').load( $(this).attr('href'));
+			//, ('#wrapper') 
+		});
+		$('div a').click(function( e ){
+			// Don't use Browser Default
+			e.preventDefault();
+			
+			// Load href-link in DIV ID "login"
+			$('#login').load( $(this).attr('href'), ('#loginWrapper'));
+		});
 		
-</script>asdad
+//});
+</script>

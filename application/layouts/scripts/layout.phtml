@@ -1,18 +1,30 @@
 <?php echo $this->doctype('HTML5'); ?>
-<html lang='de'>
+<html lang='de' ng-app>
 <head>
 	<?php $this->headMeta()->setCharset('UTF-8'); ?>
 	<?php $this->headLink()->prependStylesheet($this->baseUrl() . '/styles/style.css'); ?>
-	<?php $this->headLink()->prependStylesheet($this->baseUrl() . '/styles/jquery.css'); ?>
+	<?php $this->headLink()->prependStylesheet($this->baseUrl() . '/styles/bootstrap.css'); ?>
+	<?php $this->headLink()->prependStylesheet($this->baseUrl() . '/styles/ts_uebersicht.css'); ?>
+	<?php //$this->headLink()->prependStylesheet($this->baseUrl() . '/styles/jquery.css'); ?>
 	<?php $this->headMeta()->appendHttpEquiv('X-UA-Compatible','IE=egde,chrome=1'); ?>
-	<?php $this->headScript()->appendFile($this->baseUrl() . '/scripts/jquery.js'); ?>
-	<?php $this->headScript()->appendFile($this->baseUrl() . '/scripts/jquery-ui.js'); ?>
-	<?php $this->headScript()->appendFile('http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'); ?>
+	<?php //$this->headScript()->appendFile($this->baseUrl() . '/scripts/jquery.js'); ?>
+	<?php //$this->headScript()->appendFile($this->baseUrl() . '/scripts/jquery-ui.js'); ?>
+	<?php $this->headScript()->appendFile('http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'); //neueversion benutzen! ?>
+	<?php $this->headScript()->appendFile('http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js'); //neueversion benutzen! ?>
+	<?php $this->headScript()->appendFile($this->baseUrl() . '/scripts/bootstrap.js'); ?>
+	<?php //$this->headScript()->appendFile($this->baseUrl() . '/scripts/development-bundle/jquery-1.8.0.js'); ?>
+	<?php $this->headScript()->appendFile($this->baseUrl() . '/scripts/development-bundle/ui/jquery.ui.core.js'); ?>
+	<?php $this->headScript()->appendFile($this->baseUrl() . '/scripts/development-bundle/ui/jquery.ui.widget.js'); ?>
+	<?php $this->headScript()->appendFile($this->baseUrl() . '/scripts/development-bundle/ui/jquery.ui.mouse.js'); ?>
+	<?php $this->headScript()->appendFile($this->baseUrl() . '/scripts/development-bundle/ui/jquery.ui.resizable.js'); ?>
+	<?php //$this->headScript()->appendFile($this->baseUrl() . '/scripts/tsuebersicht.js'); ?>
 	
 	<?php echo $this->headMeta(); ?>
 	<?php echo $this->headStyle(); ?>
 	<?php echo $this->headScript(); ?>
 	<?php echo $this->headLink(); ?>
+	
+	<?php //echo $this->jQuery(); ?>
 </head>
 <body>
 	<?php echo $this->layout()->content; ?>

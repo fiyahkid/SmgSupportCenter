@@ -1,0 +1,641 @@
+.content2 {
+    height: 100%;
+    left: 0;
+    margin: 0 auto;
+    overflow: auto;
+    position: relative;
+    top: 0;
+    width: 100%;
+    font-family: Tahoma, Arial, "Times New Roman";
+    font-size: 11px;
+}
+.content2 #clear {
+    clear: both;
+}
+.content2 .titel {
+    
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 5px;
+    text-align: center;
+    text-decoration: underline;
+}
+.content2 .lock {
+	background-color: #FFFFFF;
+	width: 100%;
+	height: 100%;
+	display: none;
+	position: absolute;
+	
+}
+.content2 .new_site{
+	display: none;
+	margin-left: 50%;
+	position: absolute;
+}
+.content2 .new_site .close_button{
+	width: 802px;
+	z-index: 3;
+	position: absolute;
+	left: 50%;
+	margin-left: -401px;
+	margin-top: 30px;
+	background-color: #CDDAE5;
+	border-top: 2px solid #00457C;
+	border-left: 2px solid #00457C;
+	border-right: 2px solid #00457C;
+	border-bottom: 2px solid #00457C;
+}
+.content2 .new_site .close_button .cl_button{
+	float: right;
+	width: 20px;
+	height: 16px;
+	border: 0px solid black;
+	border-left: 2px solid #00457C;
+	background-color: #D4D0C8;
+	font-family: arial;
+	font-size: 14px;
+	font-weight: bold;
+	color: black;
+	padding-bottom: 2px;
+	display: inline;
+}
+.content2 .new_site .rahmen{
+	width: 804px;
+	z-index: 2;
+	position: absolute;
+	border: 1px solid black;
+	left: 50%;
+	margin-left: -401px;
+	margin-top: 47px;
+}
+.content2 .inhalt {
+	margin-left: 5px;
+	width: 99%;
+	/*width: 1083.1px;*/
+	z-index: 1;
+}
+.content2 .inhalt .filter {
+    font-weight: bold;
+    margin-top: 5px;
+    position: relative;
+    text-align: left;
+    
+    height: 20px;
+    border: 1px solid #CDDAE5;
+    width: 100%;
+}
+.content2 .inhalt .filter .f_titel{
+	float: left;
+    padding-left: 3px;
+    padding-top: 3px;
+    width: 40px;
+}
+.content2 .inhalt .filter .f_betreff{
+	float: left;
+    width: 350px;
+}
+.content2 .inhalt .filter .f_betreff .f_bez{
+	padding-top: 3px;
+    float: left;
+    width: 100px;
+}
+.content2 .inhalt .filter .f_betreff .f_eingabe{
+	float: left;
+    width: 220px;
+}
+.content2 .inhalt .filter .f_betreff .f_eingabe #f_txt{
+	height: 13px;
+	border: 1px solid #CDDAE5;
+	margin-top: 2px;
+	font-size: 11px;
+}
+.content2 .inhalt .filter .f_tnr{
+	width: 269px;
+	float: left;
+}
+.content2 .inhalt .filter .f_tnr .f_bez{
+	padding-top: 3px;
+    float: left;
+    width: 95px;
+}
+.content2 .inhalt .filter .f_tnr .f_eingabe{
+	
+    float: left;
+    width: 145px;
+}
+.content2 .inhalt .filter .f_tnr .f_eingabe #f_tnr{
+	height: 13px;
+	border: 1px solid #CDDAE5;
+	margin-top: 2px;
+	font-size: 11px;
+}
+.content2 .inhalt .filter .f_produkt{
+	width: 173px;
+	float: left;
+}
+.content2 .inhalt .filter .f_produkt .f_bez{
+	padding-top: 3px;
+    float: left;
+    width: 60px;
+}
+.content2 .inhalt .filter .f_produkt .f_eingabe{
+	float: left;
+    width: 94px;
+}
+.content2 .inhalt .filter .f_produkt .f_eingabe .f_select_prod{
+	border: 1px solid #CDDAE5;
+	height: 17px;
+	margin-top: 2px;
+	font-size: 11px;
+}
+.content2 .inhalt .filter .f_status{
+	width: 148px;
+	float: left;
+}
+.content2 .inhalt .filter .f_status .f_bez{
+	padding-top: 3px;
+    float: left;
+    width: 50px;
+}
+.content2 .inhalt .filter .f_status .f_eingabe{
+	
+    float: left;
+    width: 98px;
+}
+.content2 .inhalt .filter .f_status .f_eingabe .f_select_status{
+	border: 1px solid #CDDAE5;
+	height: 17px;
+	margin-top: 2px;
+	font-size: 11px;
+}
+.content2 .inhalt .filter .f_alle{
+	width: 50px;
+	margin-left: 5px;
+	padding-top: 3px;
+	float: left;
+}
+.content2 .inhalt .filter .f_suche{
+	float: right;
+	width: 100px;
+}
+.content2 .inhalt .filter .f_suche .filter_del{
+	width: 100px;
+	height: 19px;
+	background-color: #00457C;
+	color: white;
+	font-size: 11px;
+}
+.content2 .inhalt .ts_inhalt {
+    position: relative;
+}
+.content2 .inhalt .ts_inhalt .ts_uebersicht {
+    position: relative;
+}
+.content2 .inhalt .ts_inhalt .ts_uebersicht .ts_scrollarea {
+    border-bottom: 1px solid #CDDAE5;
+    border-left: 1px solid #CDDAE5;
+    border-right: 1px solid #CDDAE5;
+    height: 400px;
+    margin: 0 auto 0 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    width: 99.9%;
+}
+.content2 .inhalt .ts_inhalt .ts_uebersicht .ts_scrollarea .ts_table_th {
+    border-bottom: 1px solid #CDDAE5;
+    cursor: pointer;
+    font-weight: bold;
+    height: 15px;
+    overflow: hidden;
+    width: 1067px;
+    z-index: -1;
+}
+.content2 .inhalt .ts_inhalt .ts_uebersicht .ts_scrollarea .ts_table_th.inactive{
+	display: none;
+}
+.content2 .inhalt .ts_inhalt .ts_uebersicht .ts_scrollarea .ts_table_th:hover{
+	background-color: #ddd;
+}
+.content2 .inhalt .ts_inhalt .ts_uebersicht .ts_scrollarea .ts_table_th.active{
+	background-color: #aaa;
+	color: #fff;
+}
+.content2 .inhalt .ts_inhalt .ts_uebersicht .ts_scrollarea .ts_table_th .betreff {
+    height: 15px;
+    overflow: hidden;
+    position: absolute;
+    text-align: left;
+    width: 415px;
+}
+.content2 .inhalt .ts_inhalt .ts_uebersicht .ts_scrollarea .ts_table_th .datum {
+    float: left;
+    height: 15px;
+    margin-left: 691px;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    width: 124px;
+}
+.content2 .inhalt .ts_inhalt .ts_uebersicht .ts_scrollarea .ts_table_th .akt_bearb {
+    float: left;
+    height: 15px;
+    margin-left: 691px;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    width: 124px;
+}
+.content2 .inhalt .ts_inhalt .ts_uebersicht .ts_scrollarea .ts_table_th .status {
+    float: left;
+    height: 15px;
+    margin-left: 885px;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    width: 123px;
+}
+.content2 .inhalt .ts_inhalt .ts_uebersicht .ts_table_th_titel {
+    background-color: #CDDAE5;
+    border: 1px solid #CDDAE5;
+    font-weight: bold;
+    height: 14px;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 7px;
+}
+.content2 .inhalt .ts_inhalt .ts_uebersicht .ts_table_th_titel .betreff_titel {
+    height: 20px;
+    overflow: hidden;
+    position: absolute;
+    text-align: left;
+    vertical-align: middle;
+    width: 415px;
+    padding-left: 2px;
+}
+.content2 .inhalt .ts_inhalt .ts_uebersicht .ts_table_th_titel .betreff_titel .betr_txt{
+	width: 50px;
+	float: left;
+	
+	cursor: pointer;
+}
+.content2 .inhalt .ts_inhalt .ts_uebersicht .ts_table_th_titel .betreff_titel .betr_sort_pfeil{
+	width: 10px;
+	float: left;
+	font-size: 14px;
+	font-weight: bold;
+	margin-left: 40px;
+	margin-top: -5px;
+}
+.content2 .inhalt .ts_inhalt .ts_uebersicht .ts_table_th_titel .datum_titel {
+    float: left;
+    height: 20px;
+    margin-left: 691px;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    width: 124px;
+}
+.content2 .inhalt .ts_inhalt .ts_uebersicht .ts_table_th_titel .datum_titel .dat_txt{
+	width: 50px;
+	float: left;
+	margin-left: 37px;
+	cursor: pointer;
+}
+.content2 .inhalt .ts_inhalt .ts_uebersicht .ts_table_th_titel .datum_titel .dat_sort_pfeil{
+	width: 10px;
+	float: right;
+	font-size: 14px;
+	font-weight: bold;
+	margin-right: 24px;
+	margin-top: -5px;
+}
+.content2 .inhalt .ts_inhalt .ts_uebersicht .ts_table_th_titel .status_titel {
+    float: left;
+    height: 20px;
+    margin-left: 885px;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    width: 123px;
+}
+.content2 .inhalt .ts_inhalt .ts_uebersicht .ts_table_th_titel .status_titel .stat_txt{
+	width: 50px;
+	float: left;
+	margin-left: 37px;
+	cursor: pointer;
+}
+.content2 .inhalt .ts_inhalt .ts_uebersicht .ts_table_th_titel .status_titel .stat_sort_pfeil{
+	width: 10px;
+	float: right;
+	font-size: 14px;
+	font-weight: bold;
+	margin-right: 24px;
+	margin-top: -5px;
+}
+.content2 .inhalt .ts_details_titel {
+    margin-top: 415px;
+    width: 100%;
+    
+    text-align: left;
+}
+.content2 .inhalt .ts_details_titel .ts_details_titel_text {
+    font-size: 15px;
+    font-weight: bold;
+    float: left;
+    width: 190px;
+    position: absolute;
+    text-align: left;
+    text-decoration: underline;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_titel_button {
+    position: relative;
+    float: right;
+    display: none;
+}
+.content2 .inhalt .ts_details_inhalt{
+	width: 100%;
+	
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf{
+	width: 499px;
+	height: 300px;
+	
+	float: left;
+	border: 1px solid #CDDAE5;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_table_th_titel{
+	background-color: #CDDAE5;
+    border-bottom: 1px solid #CDDAE5;
+    font-weight: bold;
+    height: 14px;
+    overflow: hidden;
+    width: 499px;
+    padding-top: 7px;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_table_th_titel .tv_betreff_titel{
+	height: 20px;
+    overflow: hidden;
+    float: left;
+    text-align: left;
+    vertical-align: middle;
+    width: 180px;
+    padding-left: 2px;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_table_th_titel .tv_betreff_titel .tv_betreff_txt{
+	float: left;
+	cursor: pointer;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_table_th_titel .tv_betreff_titel .tv_betreff_sort_pfeil{
+	width: 10px;
+	float: left;
+	font-size: 14px;
+	font-weight: bold;
+	
+	margin-top: -5px;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_table_th_titel .tv_datum_titel{
+	height: 20px;
+    overflow: hidden;
+    width: 52px;
+    padding-left: 33px;
+    float: left;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_table_th_titel .tv_datum_titel .tv_datum_txt{
+	float: left;
+	cursor: pointer;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_table_th_titel .tv_datum_titel .tv_datum_sort_pfeil{
+	width: 10px;
+	float: left;
+	font-size: 14px;
+	font-weight: bold;
+	
+	margin-top: -5px;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_table_th_titel .tv_empfaenger_titel{
+	height: 20px;
+    overflow: hidden;
+    width: 120px;
+    padding-left: 43px;
+    float: left;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_table_th_titel .tv_empfaenger_titel .tv_empfaenger_txt{
+	float: left;
+	cursor: pointer;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_table_th_titel .tv_empfaenger_titel .tv_empfaenger_sort_pfeil{
+	width: 10px;
+	float: left;
+	font-size: 14px;
+	font-weight: bold;
+	
+	margin-top: -5px;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_table_th_titel .tv_status_titel{
+	height: 20px;
+    overflow: hidden;
+    width: 25px;
+    padding-left: 9px;
+    float: left;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_table_th_titel .tv_status_titel .tv_status_txt{
+	
+	float: left;
+	
+	cursor: pointer;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_table_th_titel .tv_status_titel .tv_status_sort_pfeil{
+	width: 10px;
+	float: left;
+	font-size: 14px;
+	font-weight: bold;
+	margin-top: -5px;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_table_th_titel .tv_screenshot_titel {
+	margin-left: 460px;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_scrollarea {
+    height: 278px;
+    margin: 0 auto 0 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    width: 499px;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_scrollarea .tv_table_th {
+    border-bottom: 1px solid #CDDAE5;
+    font-weight: bold;
+    height: 15px;
+    overflow: hidden;
+    width: 482px;
+    z-index: -1;
+    cursor: pointer;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_scrollarea .tv_table_th:hover{
+	background-color: #ddd;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_scrollarea .tv_table_th.active{
+	background-color: #aaa;
+	color: #fff;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_scrollarea .tv_table_th .tv_betreff {
+    height: 15px;
+    overflow: hidden;
+    position: absolute;
+    text-align: left;
+    width: 180px;
+    padding-left: 1px;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_scrollarea .tv_table_th .tv_datum {
+    float: left;
+    height: 15px;
+    margin-left: 180px;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    width: 104px;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_scrollarea .tv_table_th .tv_empfaenger {
+    float: left;
+    height: 15px;
+    margin-left: 284px;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    width: 145px;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_scrollarea .tv_table_th .tv_status {
+    float: left;
+    height: 15px;
+    margin-left: 429px;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    width: 25px;
+    
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_scrollarea .tv_table_th .tv_status.u {
+    float: left;
+    height: 15px;
+    margin-left: 429px;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    width: 25px;
+    background-color: red;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_scrollarea .tv_table_th .tv_status.b {
+    float: left;
+    height: 15px;
+    margin-left: 429px;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    width: 25px;
+    background-color: yellow;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_scrollarea .tv_table_th .tv_status.a {
+    float: left;
+    height: 15px;
+    margin-left: 429px;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    width: 25px;
+    background-color: green;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_verlauf .tv_scrollarea .tv_table_th .tv_screenshot {
+    float: left;
+    height: 15px;
+    margin-left: 454px;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    width: 28px;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_text{
+	width: 61.8%;
+	height: 300px;
+	margin-left: 5px;
+	float: left;
+	border: 1px solid #CDDAE5;
+	
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_text .ts_details_text_th{
+	height: 14px;
+	border-bottom: 1px solid #CDDAE5;
+	background-color: #CDDAE5;
+	padding-top: 7px;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_text .ts_details_text_th .ts_details_text_th_titel{
+	height: 14px;
+	width: 150px;
+	float: left;
+    font-weight: bold;
+    padding-left: 2px;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_text .ts_details_text_th .ts_details_text_th_ticketid{
+	height: 14px;
+	margin-left: 350px;
+	font-weight: bold;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_text .ts_details_text_betreff{
+	height: 17px;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_text .ts_details_text_betreff .ts_details_text_betreff_bez{
+	height: 14px;
+	width: 50px;
+	float: left;
+    font-weight: bold;
+    padding-top: 3px;
+    padding-left: 3px;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_text .ts_details_text_betreff .ts_details_text_betreff_inhalt{
+	height: 14px;
+	width: 525px;
+	margin-left: 55px;
+    font-weight: bold;
+    padding-top: 3px;
+    overflow: hidden;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_text .ts_details_text_auswahl{
+	float: left;
+	
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_text .ts_details_text_auswahl .ts_details_text_auswahl_nachricht{
+	background-color: #CDDAE5;
+    float: left;
+    height: 13px;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 1px;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_text .ts_details_text_auswahl .ts_details_text_auswahl_anhang{
+	float: left;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_text .ts_details_text_auswahl .ts_details_text_auswahl_anhang .tv_anhang{
+	border-left: 1px solid #CDDAE5;
+    border-right: 1px solid #CDDAE5;
+    border-top: 1px solid #CDDAE5;
+    cursor: pointer;
+    float: left;
+    margin-left: 10px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_text .ts_details_text_auswahl .ts_details_text_auswahl_anhang .tv_screenshot{
+	float: left;
+}
+.content2 .inhalt .ts_details_inhalt .ts_details_text .ts_details_text_inhalt{
+	width: 579px;
+	height: 258px;
+	border-top: 1px solid #CDDAE5;
+    font-weight: bold;
+    padding-left: 1px;
+    overflow: auto;
+    
+}

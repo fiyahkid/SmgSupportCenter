@@ -1,0 +1,21 @@
+{
+    "hash": "999f0708d2497004a15dd000ed4e22f7",
+    "packages": [
+        {
+            "package": "phing/phing",
+            "version": "2.4.12"
+        },
+        {
+            "package": "propel/propel1",
+            "version": "1.6.7"
+        }
+    ],
+    "packages-dev": null,
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": [
+
+    ]
+}

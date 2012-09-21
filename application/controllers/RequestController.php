@@ -2,6 +2,14 @@
 
 class RequestController extends Zend_Controller_Action
 {
+	public function init() {
+
+	}
+
+	public function indexAction () {
+		die('test');
+	}
+
 	public function ticketoverviewAction(){
 		
 	}
@@ -11,12 +19,12 @@ class RequestController extends Zend_Controller_Action
 		$query = TicketsystemQuery::create();
 		$tickets = $query->find();
 
+		$results = array();
 		foreach($tickets as $ticket){
-			echo $ticket->toJSON();
+			$results[] = $ticket->toArray();
 		}
 
-		$this->_helper->layout()->disableLayout();
- 		$this->_helper->viewRenderer()->setNoRender(true);
+		$this->_helper->json($results);
 
 	}
 

@@ -17,7 +17,7 @@
 						<ul class="dropdown-menu" >
 							<!-- dropdown menu links -->
                             <li>
-                                <a href="<?php echo $this->baseUrl() . '/request/ticketOverview'?>">Ticket &Uuml;bersicht</a>
+                                <a href="<?php echo $this->baseUrl() . '/request/ticketOverview'?>" ng-click="getlist()">Ticket &Uuml;bersicht</a>
                                 <a href="<?php echo $this->baseUrl() . '/auth/login'?>">Login</a>
                             </li>
 						</ul>
@@ -78,7 +78,8 @@
 </div>
 -->
 <div id="content" ng-controller="GetListCtrl">
-	<pre ng-model="result">
+	<pre ng-repeat="results in result">
+		<!--[{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.-->
 		{{result}}
 	</pre>
 </div>

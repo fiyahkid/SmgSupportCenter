@@ -8,11 +8,16 @@ class RequestController extends Zend_Controller_Action
 	
 	public function getListAction()
 	{
-		$tickets = TicketsystemQuery::create()->find();
+		$query = TicketsystemQuery::create();
+		$tickets = $query->find();
 
 		foreach($tickets as $ticket){
-			echo $ticket->getData();
+			echo $ticket->toJSON();
 		}
+
+		$this->_helper->layout()->disableLayout();
+ 		$this->_helper->viewRenderer()->setNoRender(true);
+
 	}
 
 	public function requestallAction()

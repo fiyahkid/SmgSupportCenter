@@ -1,10 +1,11 @@
 
-function GetListCtrl($scope, $http) {
-	$scope.url = baseUrl + '/request/get-list/';
+function GetListCtrl($scope, $http, $rootScope) {
+	$rootScope.url = baseUrl + '/request/get-list/';
 
 	
-	$scope.getlist = function() {
-		$http.get($scope.url).success(function(data){
+	$rootScope.getlist = function() {
+console.log($scope.url);
+		$http.get($rootScope.url).success(function(data){
 			$scope.data = data;
 			$scope.result = $scope.data;
 		})

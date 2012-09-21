@@ -17,7 +17,7 @@
 						<ul class="dropdown-menu" >
 							<!-- dropdown menu links -->
                             <li>
-                                <a href="<?php echo $this->baseUrl() . '/request/ticketOverview'?>" ng-click="getlist()">Ticket &Uuml;bersicht</a>
+                                <a href="" ng-click="getlist()">Ticket &Uuml;bersicht</a>
                                 <a href="<?php echo $this->baseUrl() . '/auth/login'?>">Login</a>
                             </li>
 						</ul>
@@ -78,14 +78,17 @@
 </div>
 -->
 <div id="content" ng-controller="GetListCtrl">
-	<pre ng-repeat="results in result">
-		<!--[{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.-->
-		{{result}}
-	</pre>
+	<div ng-repeat="results in result">
+		<pre>
+			<!--[{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.-->
+			{{result}}
+		</pre>
+		<hr />
+	</div>
 </div>
 <script type="text/javascript">
 		
-		$('a').click(function( e ){
+//		$('a').click(function( e ){
 		/*
 			var $this = $(this);
 
@@ -103,11 +106,11 @@
 				//ts_get_liste();
 			}
 		*/	
-			e.preventDefault();
+//			e.preventDefault();
 			// load href-link in DIV ID "content"
-			$('#content').load( $(this).attr('href'));
+	//		$('#content').load( $(this).attr('href'));
 			//, ('#wrapper') 
-		});
+	//	});
 		/*
 		$('div a').click(function( e ){
 			// Don't use  Browser Default

@@ -4,56 +4,55 @@
 /**
  * Base class that represents a query for the 'ticket_verlauf' table.
  *
- * 
  *
- * @method     TicketVerlaufQuery orderByIdTicketVerlauf($order = Criteria::ASC) Order by the id_ticket_verlauf column
- * @method     TicketVerlaufQuery orderByTvFehlermeldung($order = Criteria::ASC) Order by the tv_fehlermeldung column
- * @method     TicketVerlaufQuery orderByTvFehlertext($order = Criteria::ASC) Order by the tv_fehlertext column
- * @method     TicketVerlaufQuery orderByTvScreenshot($order = Criteria::ASC) Order by the tv_screenshot column
- * @method     TicketVerlaufQuery orderByTvBearbeiter($order = Criteria::ASC) Order by the tv_bearbeiter column
- * @method     TicketVerlaufQuery orderByTvDatum($order = Criteria::ASC) Order by the tv_datum column
- * @method     TicketVerlaufQuery orderByTvStatus($order = Criteria::ASC) Order by the tv_status column
- * @method     TicketVerlaufQuery orderByTicketId($order = Criteria::ASC) Order by the ticket_id column
  *
- * @method     TicketVerlaufQuery groupByIdTicketVerlauf() Group by the id_ticket_verlauf column
- * @method     TicketVerlaufQuery groupByTvFehlermeldung() Group by the tv_fehlermeldung column
- * @method     TicketVerlaufQuery groupByTvFehlertext() Group by the tv_fehlertext column
- * @method     TicketVerlaufQuery groupByTvScreenshot() Group by the tv_screenshot column
- * @method     TicketVerlaufQuery groupByTvBearbeiter() Group by the tv_bearbeiter column
- * @method     TicketVerlaufQuery groupByTvDatum() Group by the tv_datum column
- * @method     TicketVerlaufQuery groupByTvStatus() Group by the tv_status column
- * @method     TicketVerlaufQuery groupByTicketId() Group by the ticket_id column
+ * @method TicketVerlaufQuery orderByIdTicketVerlauf($order = Criteria::ASC) Order by the id_ticket_verlauf column
+ * @method TicketVerlaufQuery orderByTvFehlermeldung($order = Criteria::ASC) Order by the tv_fehlermeldung column
+ * @method TicketVerlaufQuery orderByTvFehlertext($order = Criteria::ASC) Order by the tv_fehlertext column
+ * @method TicketVerlaufQuery orderByTvScreenshot($order = Criteria::ASC) Order by the tv_screenshot column
+ * @method TicketVerlaufQuery orderByTvBearbeiter($order = Criteria::ASC) Order by the tv_bearbeiter column
+ * @method TicketVerlaufQuery orderByTvDatum($order = Criteria::ASC) Order by the tv_datum column
+ * @method TicketVerlaufQuery orderByTvStatus($order = Criteria::ASC) Order by the tv_status column
+ * @method TicketVerlaufQuery orderByTicketId($order = Criteria::ASC) Order by the ticket_id column
  *
- * @method     TicketVerlaufQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
- * @method     TicketVerlaufQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
- * @method     TicketVerlaufQuery innerJoin($relation) Adds a INNER JOIN clause to the query
+ * @method TicketVerlaufQuery groupByIdTicketVerlauf() Group by the id_ticket_verlauf column
+ * @method TicketVerlaufQuery groupByTvFehlermeldung() Group by the tv_fehlermeldung column
+ * @method TicketVerlaufQuery groupByTvFehlertext() Group by the tv_fehlertext column
+ * @method TicketVerlaufQuery groupByTvScreenshot() Group by the tv_screenshot column
+ * @method TicketVerlaufQuery groupByTvBearbeiter() Group by the tv_bearbeiter column
+ * @method TicketVerlaufQuery groupByTvDatum() Group by the tv_datum column
+ * @method TicketVerlaufQuery groupByTvStatus() Group by the tv_status column
+ * @method TicketVerlaufQuery groupByTicketId() Group by the ticket_id column
  *
- * @method     TicketVerlauf findOne(PropelPDO $con = null) Return the first TicketVerlauf matching the query
- * @method     TicketVerlauf findOneOrCreate(PropelPDO $con = null) Return the first TicketVerlauf matching the query, or a new TicketVerlauf object populated from the query conditions when no match is found
+ * @method TicketVerlaufQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
+ * @method TicketVerlaufQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
+ * @method TicketVerlaufQuery innerJoin($relation) Adds a INNER JOIN clause to the query
  *
- * @method     TicketVerlauf findOneByIdTicketVerlauf(int $id_ticket_verlauf) Return the first TicketVerlauf filtered by the id_ticket_verlauf column
- * @method     TicketVerlauf findOneByTvFehlermeldung(string $tv_fehlermeldung) Return the first TicketVerlauf filtered by the tv_fehlermeldung column
- * @method     TicketVerlauf findOneByTvFehlertext(string $tv_fehlertext) Return the first TicketVerlauf filtered by the tv_fehlertext column
- * @method     TicketVerlauf findOneByTvScreenshot(string $tv_screenshot) Return the first TicketVerlauf filtered by the tv_screenshot column
- * @method     TicketVerlauf findOneByTvBearbeiter(string $tv_bearbeiter) Return the first TicketVerlauf filtered by the tv_bearbeiter column
- * @method     TicketVerlauf findOneByTvDatum(string $tv_datum) Return the first TicketVerlauf filtered by the tv_datum column
- * @method     TicketVerlauf findOneByTvStatus(string $tv_status) Return the first TicketVerlauf filtered by the tv_status column
- * @method     TicketVerlauf findOneByTicketId(int $ticket_id) Return the first TicketVerlauf filtered by the ticket_id column
+ * @method TicketVerlauf findOne(PropelPDO $con = null) Return the first TicketVerlauf matching the query
+ * @method TicketVerlauf findOneOrCreate(PropelPDO $con = null) Return the first TicketVerlauf matching the query, or a new TicketVerlauf object populated from the query conditions when no match is found
  *
- * @method     array findByIdTicketVerlauf(int $id_ticket_verlauf) Return TicketVerlauf objects filtered by the id_ticket_verlauf column
- * @method     array findByTvFehlermeldung(string $tv_fehlermeldung) Return TicketVerlauf objects filtered by the tv_fehlermeldung column
- * @method     array findByTvFehlertext(string $tv_fehlertext) Return TicketVerlauf objects filtered by the tv_fehlertext column
- * @method     array findByTvScreenshot(string $tv_screenshot) Return TicketVerlauf objects filtered by the tv_screenshot column
- * @method     array findByTvBearbeiter(string $tv_bearbeiter) Return TicketVerlauf objects filtered by the tv_bearbeiter column
- * @method     array findByTvDatum(string $tv_datum) Return TicketVerlauf objects filtered by the tv_datum column
- * @method     array findByTvStatus(string $tv_status) Return TicketVerlauf objects filtered by the tv_status column
- * @method     array findByTicketId(int $ticket_id) Return TicketVerlauf objects filtered by the ticket_id column
+ * @method TicketVerlauf findOneByIdTicketVerlauf(int $id_ticket_verlauf) Return the first TicketVerlauf filtered by the id_ticket_verlauf column
+ * @method TicketVerlauf findOneByTvFehlermeldung(string $tv_fehlermeldung) Return the first TicketVerlauf filtered by the tv_fehlermeldung column
+ * @method TicketVerlauf findOneByTvFehlertext(string $tv_fehlertext) Return the first TicketVerlauf filtered by the tv_fehlertext column
+ * @method TicketVerlauf findOneByTvScreenshot(string $tv_screenshot) Return the first TicketVerlauf filtered by the tv_screenshot column
+ * @method TicketVerlauf findOneByTvBearbeiter(string $tv_bearbeiter) Return the first TicketVerlauf filtered by the tv_bearbeiter column
+ * @method TicketVerlauf findOneByTvDatum(string $tv_datum) Return the first TicketVerlauf filtered by the tv_datum column
+ * @method TicketVerlauf findOneByTvStatus(string $tv_status) Return the first TicketVerlauf filtered by the tv_status column
+ * @method TicketVerlauf findOneByTicketId(int $ticket_id) Return the first TicketVerlauf filtered by the ticket_id column
+ *
+ * @method array findByIdTicketVerlauf(int $id_ticket_verlauf) Return TicketVerlauf objects filtered by the id_ticket_verlauf column
+ * @method array findByTvFehlermeldung(string $tv_fehlermeldung) Return TicketVerlauf objects filtered by the tv_fehlermeldung column
+ * @method array findByTvFehlertext(string $tv_fehlertext) Return TicketVerlauf objects filtered by the tv_fehlertext column
+ * @method array findByTvScreenshot(string $tv_screenshot) Return TicketVerlauf objects filtered by the tv_screenshot column
+ * @method array findByTvBearbeiter(string $tv_bearbeiter) Return TicketVerlauf objects filtered by the tv_bearbeiter column
+ * @method array findByTvDatum(string $tv_datum) Return TicketVerlauf objects filtered by the tv_datum column
+ * @method array findByTvStatus(string $tv_status) Return TicketVerlauf objects filtered by the tv_status column
+ * @method array findByTicketId(int $ticket_id) Return TicketVerlauf objects filtered by the ticket_id column
  *
  * @package    propel.generator.SmgSupportCenter.om
  */
 abstract class BaseTicketVerlaufQuery extends ModelCriteria
 {
-    
     /**
      * Initializes internal state of BaseTicketVerlaufQuery object.
      *
@@ -99,7 +98,7 @@ abstract class BaseTicketVerlaufQuery extends ModelCriteria
      * $obj  = $c->findPk(12, $con);
      * </code>
      *
-     * @param mixed $key Primary key to use for the query 
+     * @param mixed $key Primary key to use for the query
      * @param     PropelPDO $con an optional connection object
      *
      * @return   TicketVerlauf|TicketVerlauf[]|mixed the result, formatted by the current formatter
@@ -141,7 +140,7 @@ abstract class BaseTicketVerlaufQuery extends ModelCriteria
         $sql = 'SELECT `ID_TICKET_VERLAUF`, `TV_FEHLERMELDUNG`, `TV_FEHLERTEXT`, `TV_SCREENSHOT`, `TV_BEARBEITER`, `TV_DATUM`, `TV_STATUS`, `TICKET_ID` FROM `ticket_verlauf` WHERE `ID_TICKET_VERLAUF` = :p0';
         try {
             $stmt = $con->prepare($sql);
-			$stmt->bindValue(':p0', $key, PDO::PARAM_INT);
+            $stmt->bindValue(':p0', $key, PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             Propel::log($e->getMessage(), Propel::LOG_ERR);
@@ -499,4 +498,4 @@ abstract class BaseTicketVerlaufQuery extends ModelCriteria
         return $this;
     }
 
-} // BaseTicketVerlaufQuery
+}

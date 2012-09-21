@@ -9,11 +9,13 @@ class IndexController extends Zend_Controller_Action
     }
 
     public function indexAction()
-    {
+    {   
+        /*
 	$query = TicketsystemQuery::create();
 	$ticket = $query->findPk(1);
 	echo $ticket->getFehlermeldung();
-	var_dump( $ticket );
+        */
+	//var_dump( $ticket );
         // action body
     }
 

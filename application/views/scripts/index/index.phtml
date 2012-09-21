@@ -7,16 +7,19 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="#">SupportCenter</a>
+				<a class="brand" href="<?php echo $this->baseUrl() . '/index'?>">SupportCenter</a>
 				<div class="nav-collapse">
 					<div class="btn-group pull-left">
 						<button class="btn">Ticketsystem</button>
 						<button class="btn dropdown-toggle" data-toggle="dropdown">
 							<span class="caret"></span>
 						</button>
-						<ul class="dropdown-menu">
+						<ul class="dropdown-menu" >
 							<!-- dropdown menu links -->
-							<a class="btn btn-navbar" href="<?php echo $this->baseUrl() . '/request/ticketoverview/'?>" name="ticketsystem">Ticket &Uuml;bersicht</a>
+                            <li>
+                                <a href="<?php echo $this->baseUrl() . '/request/ticketOverview'?>">Ticket &Uuml;bersicht</a>
+                                <a href="<?php echo $this->baseUrl() . '/auth/login'?>">Login</a>
+                            </li>
 						</ul>
 					</div>
 					<div class="btn-group pull-left">
@@ -63,11 +66,6 @@
 		<a href="<?php echo $this->baseUrl() . '/auth/login'?>">Login</a>
 	</div>
 </header>
-<script>
-$(function() {
-	$( "#left" ).resizable();
-});
-</script>
 <!--
 <div id="left">
 	<nav id="menu">
@@ -79,11 +77,15 @@ $(function() {
 	</nav>
 </div>
 -->
-<div id="content">
-	
+<div id="content" ng-controller="GetListCtrl">
+	<pre ng-model="result">
+		{{result}}
+	</pre>
 </div>
 <script type="text/javascript">
-		$('nav a').click(function( e ){
+		
+		$('a').click(function( e ){
+		/*
 			var $this = $(this);
 
 			// remove CSS class "active"
@@ -97,20 +99,22 @@ $(function() {
 
 			if($('a[name="ticketsystem"]')){
 				$('#content').load( $(this).attr('href'));
-				ts_get_liste();
+				//ts_get_liste();
 			}
-			
+		*/	
+			e.preventDefault();
 			// load href-link in DIV ID "content"
 			$('#content').load( $(this).attr('href'));
 			//, ('#wrapper') 
 		});
+		/*
 		$('div a').click(function( e ){
-			// Don't use Browser Default
+			// Don't use  Browser Default
 			e.preventDefault();
 			
 			// Load href-link in DIV ID "login"
 			$('#login').load( $(this).attr('href'), ('#loginWrapper'));
 		});
-		
+		*/
 //});
 </script>

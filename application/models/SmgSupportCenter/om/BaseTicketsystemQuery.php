@@ -4,72 +4,71 @@
 /**
  * Base class that represents a query for the 'ticketsystem' table.
  *
- * 
  *
- * @method     TicketsystemQuery orderByIdTicketsystem($order = Criteria::ASC) Order by the id_ticketsystem column
- * @method     TicketsystemQuery orderByTicketId($order = Criteria::ASC) Order by the ticket_id column
- * @method     TicketsystemQuery orderByAn($order = Criteria::ASC) Order by the an column
- * @method     TicketsystemQuery orderByDebitor($order = Criteria::ASC) Order by the debitor column
- * @method     TicketsystemQuery orderByDatum($order = Criteria::ASC) Order by the datum column
- * @method     TicketsystemQuery orderByFehlermeldung($order = Criteria::ASC) Order by the fehlermeldung column
- * @method     TicketsystemQuery orderByVon($order = Criteria::ASC) Order by the von column
- * @method     TicketsystemQuery orderByProdukt($order = Criteria::ASC) Order by the produkt column
- * @method     TicketsystemQuery orderByFehlerart($order = Criteria::ASC) Order by the fehlerart column
- * @method     TicketsystemQuery orderByFehlertext($order = Criteria::ASC) Order by the fehlertext column
- * @method     TicketsystemQuery orderByScreenshot($order = Criteria::ASC) Order by the screenshot column
- * @method     TicketsystemQuery orderByStatus($order = Criteria::ASC) Order by the status column
  *
- * @method     TicketsystemQuery groupByIdTicketsystem() Group by the id_ticketsystem column
- * @method     TicketsystemQuery groupByTicketId() Group by the ticket_id column
- * @method     TicketsystemQuery groupByAn() Group by the an column
- * @method     TicketsystemQuery groupByDebitor() Group by the debitor column
- * @method     TicketsystemQuery groupByDatum() Group by the datum column
- * @method     TicketsystemQuery groupByFehlermeldung() Group by the fehlermeldung column
- * @method     TicketsystemQuery groupByVon() Group by the von column
- * @method     TicketsystemQuery groupByProdukt() Group by the produkt column
- * @method     TicketsystemQuery groupByFehlerart() Group by the fehlerart column
- * @method     TicketsystemQuery groupByFehlertext() Group by the fehlertext column
- * @method     TicketsystemQuery groupByScreenshot() Group by the screenshot column
- * @method     TicketsystemQuery groupByStatus() Group by the status column
+ * @method TicketsystemQuery orderByIdTicketsystem($order = Criteria::ASC) Order by the id_ticketsystem column
+ * @method TicketsystemQuery orderByTicketId($order = Criteria::ASC) Order by the ticket_id column
+ * @method TicketsystemQuery orderByAn($order = Criteria::ASC) Order by the an column
+ * @method TicketsystemQuery orderByDebitor($order = Criteria::ASC) Order by the debitor column
+ * @method TicketsystemQuery orderByDatum($order = Criteria::ASC) Order by the datum column
+ * @method TicketsystemQuery orderByFehlermeldung($order = Criteria::ASC) Order by the fehlermeldung column
+ * @method TicketsystemQuery orderByVon($order = Criteria::ASC) Order by the von column
+ * @method TicketsystemQuery orderByProdukt($order = Criteria::ASC) Order by the produkt column
+ * @method TicketsystemQuery orderByFehlerart($order = Criteria::ASC) Order by the fehlerart column
+ * @method TicketsystemQuery orderByFehlertext($order = Criteria::ASC) Order by the fehlertext column
+ * @method TicketsystemQuery orderByScreenshot($order = Criteria::ASC) Order by the screenshot column
+ * @method TicketsystemQuery orderByStatus($order = Criteria::ASC) Order by the status column
  *
- * @method     TicketsystemQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
- * @method     TicketsystemQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
- * @method     TicketsystemQuery innerJoin($relation) Adds a INNER JOIN clause to the query
+ * @method TicketsystemQuery groupByIdTicketsystem() Group by the id_ticketsystem column
+ * @method TicketsystemQuery groupByTicketId() Group by the ticket_id column
+ * @method TicketsystemQuery groupByAn() Group by the an column
+ * @method TicketsystemQuery groupByDebitor() Group by the debitor column
+ * @method TicketsystemQuery groupByDatum() Group by the datum column
+ * @method TicketsystemQuery groupByFehlermeldung() Group by the fehlermeldung column
+ * @method TicketsystemQuery groupByVon() Group by the von column
+ * @method TicketsystemQuery groupByProdukt() Group by the produkt column
+ * @method TicketsystemQuery groupByFehlerart() Group by the fehlerart column
+ * @method TicketsystemQuery groupByFehlertext() Group by the fehlertext column
+ * @method TicketsystemQuery groupByScreenshot() Group by the screenshot column
+ * @method TicketsystemQuery groupByStatus() Group by the status column
  *
- * @method     Ticketsystem findOne(PropelPDO $con = null) Return the first Ticketsystem matching the query
- * @method     Ticketsystem findOneOrCreate(PropelPDO $con = null) Return the first Ticketsystem matching the query, or a new Ticketsystem object populated from the query conditions when no match is found
+ * @method TicketsystemQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
+ * @method TicketsystemQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
+ * @method TicketsystemQuery innerJoin($relation) Adds a INNER JOIN clause to the query
  *
- * @method     Ticketsystem findOneByIdTicketsystem(int $id_ticketsystem) Return the first Ticketsystem filtered by the id_ticketsystem column
- * @method     Ticketsystem findOneByTicketId(int $ticket_id) Return the first Ticketsystem filtered by the ticket_id column
- * @method     Ticketsystem findOneByAn(string $an) Return the first Ticketsystem filtered by the an column
- * @method     Ticketsystem findOneByDebitor(string $debitor) Return the first Ticketsystem filtered by the debitor column
- * @method     Ticketsystem findOneByDatum(string $datum) Return the first Ticketsystem filtered by the datum column
- * @method     Ticketsystem findOneByFehlermeldung(string $fehlermeldung) Return the first Ticketsystem filtered by the fehlermeldung column
- * @method     Ticketsystem findOneByVon(string $von) Return the first Ticketsystem filtered by the von column
- * @method     Ticketsystem findOneByProdukt(string $produkt) Return the first Ticketsystem filtered by the produkt column
- * @method     Ticketsystem findOneByFehlerart(string $fehlerart) Return the first Ticketsystem filtered by the fehlerart column
- * @method     Ticketsystem findOneByFehlertext(string $fehlertext) Return the first Ticketsystem filtered by the fehlertext column
- * @method     Ticketsystem findOneByScreenshot(string $screenshot) Return the first Ticketsystem filtered by the screenshot column
- * @method     Ticketsystem findOneByStatus(string $status) Return the first Ticketsystem filtered by the status column
+ * @method Ticketsystem findOne(PropelPDO $con = null) Return the first Ticketsystem matching the query
+ * @method Ticketsystem findOneOrCreate(PropelPDO $con = null) Return the first Ticketsystem matching the query, or a new Ticketsystem object populated from the query conditions when no match is found
  *
- * @method     array findByIdTicketsystem(int $id_ticketsystem) Return Ticketsystem objects filtered by the id_ticketsystem column
- * @method     array findByTicketId(int $ticket_id) Return Ticketsystem objects filtered by the ticket_id column
- * @method     array findByAn(string $an) Return Ticketsystem objects filtered by the an column
- * @method     array findByDebitor(string $debitor) Return Ticketsystem objects filtered by the debitor column
- * @method     array findByDatum(string $datum) Return Ticketsystem objects filtered by the datum column
- * @method     array findByFehlermeldung(string $fehlermeldung) Return Ticketsystem objects filtered by the fehlermeldung column
- * @method     array findByVon(string $von) Return Ticketsystem objects filtered by the von column
- * @method     array findByProdukt(string $produkt) Return Ticketsystem objects filtered by the produkt column
- * @method     array findByFehlerart(string $fehlerart) Return Ticketsystem objects filtered by the fehlerart column
- * @method     array findByFehlertext(string $fehlertext) Return Ticketsystem objects filtered by the fehlertext column
- * @method     array findByScreenshot(string $screenshot) Return Ticketsystem objects filtered by the screenshot column
- * @method     array findByStatus(string $status) Return Ticketsystem objects filtered by the status column
+ * @method Ticketsystem findOneByIdTicketsystem(int $id_ticketsystem) Return the first Ticketsystem filtered by the id_ticketsystem column
+ * @method Ticketsystem findOneByTicketId(int $ticket_id) Return the first Ticketsystem filtered by the ticket_id column
+ * @method Ticketsystem findOneByAn(string $an) Return the first Ticketsystem filtered by the an column
+ * @method Ticketsystem findOneByDebitor(string $debitor) Return the first Ticketsystem filtered by the debitor column
+ * @method Ticketsystem findOneByDatum(string $datum) Return the first Ticketsystem filtered by the datum column
+ * @method Ticketsystem findOneByFehlermeldung(string $fehlermeldung) Return the first Ticketsystem filtered by the fehlermeldung column
+ * @method Ticketsystem findOneByVon(string $von) Return the first Ticketsystem filtered by the von column
+ * @method Ticketsystem findOneByProdukt(string $produkt) Return the first Ticketsystem filtered by the produkt column
+ * @method Ticketsystem findOneByFehlerart(string $fehlerart) Return the first Ticketsystem filtered by the fehlerart column
+ * @method Ticketsystem findOneByFehlertext(string $fehlertext) Return the first Ticketsystem filtered by the fehlertext column
+ * @method Ticketsystem findOneByScreenshot(string $screenshot) Return the first Ticketsystem filtered by the screenshot column
+ * @method Ticketsystem findOneByStatus(string $status) Return the first Ticketsystem filtered by the status column
+ *
+ * @method array findByIdTicketsystem(int $id_ticketsystem) Return Ticketsystem objects filtered by the id_ticketsystem column
+ * @method array findByTicketId(int $ticket_id) Return Ticketsystem objects filtered by the ticket_id column
+ * @method array findByAn(string $an) Return Ticketsystem objects filtered by the an column
+ * @method array findByDebitor(string $debitor) Return Ticketsystem objects filtered by the debitor column
+ * @method array findByDatum(string $datum) Return Ticketsystem objects filtered by the datum column
+ * @method array findByFehlermeldung(string $fehlermeldung) Return Ticketsystem objects filtered by the fehlermeldung column
+ * @method array findByVon(string $von) Return Ticketsystem objects filtered by the von column
+ * @method array findByProdukt(string $produkt) Return Ticketsystem objects filtered by the produkt column
+ * @method array findByFehlerart(string $fehlerart) Return Ticketsystem objects filtered by the fehlerart column
+ * @method array findByFehlertext(string $fehlertext) Return Ticketsystem objects filtered by the fehlertext column
+ * @method array findByScreenshot(string $screenshot) Return Ticketsystem objects filtered by the screenshot column
+ * @method array findByStatus(string $status) Return Ticketsystem objects filtered by the status column
  *
  * @package    propel.generator.SmgSupportCenter.om
  */
 abstract class BaseTicketsystemQuery extends ModelCriteria
 {
-    
     /**
      * Initializes internal state of BaseTicketsystemQuery object.
      *
@@ -115,7 +114,7 @@ abstract class BaseTicketsystemQuery extends ModelCriteria
      * $obj  = $c->findPk(12, $con);
      * </code>
      *
-     * @param mixed $key Primary key to use for the query 
+     * @param mixed $key Primary key to use for the query
      * @param     PropelPDO $con an optional connection object
      *
      * @return   Ticketsystem|Ticketsystem[]|mixed the result, formatted by the current formatter
@@ -157,7 +156,7 @@ abstract class BaseTicketsystemQuery extends ModelCriteria
         $sql = 'SELECT `ID_TICKETSYSTEM`, `TICKET_ID`, `AN`, `DEBITOR`, `DATUM`, `FEHLERMELDUNG`, `VON`, `PRODUKT`, `FEHLERART`, `FEHLERTEXT`, `SCREENSHOT`, `STATUS` FROM `ticketsystem` WHERE `ID_TICKETSYSTEM` = :p0';
         try {
             $stmt = $con->prepare($sql);
-			$stmt->bindValue(':p0', $key, PDO::PARAM_INT);
+            $stmt->bindValue(':p0', $key, PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             Propel::log($e->getMessage(), Propel::LOG_ERR);
@@ -631,4 +630,4 @@ abstract class BaseTicketsystemQuery extends ModelCriteria
         return $this;
     }
 
-} // BaseTicketsystemQuery
+}

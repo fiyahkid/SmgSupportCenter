@@ -4,11 +4,12 @@
 /**
  * Base static class for performing query and update operations on the 'ticket_verlauf' table.
  *
- * 
  *
- * @package    propel.generator.SmgSupportCenter.om
+ *
+ * @package propel.generator.SmgSupportCenter.om
  */
-abstract class BaseTicketVerlaufPeer {
+abstract class BaseTicketVerlaufPeer
+{
 
     /** the default database name for this class */
     const DATABASE_NAME = 'SmgSupportCenter';
@@ -71,12 +72,12 @@ abstract class BaseTicketVerlaufPeer {
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
-     * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     * e.g. TicketVerlaufPeer::$fieldNames[TicketVerlaufPeer::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
         BasePeer::TYPE_PHPNAME => array ('IdTicketVerlauf', 'TvFehlermeldung', 'TvFehlertext', 'TvScreenshot', 'TvBearbeiter', 'TvDatum', 'TvStatus', 'TicketId', ),
         BasePeer::TYPE_STUDLYPHPNAME => array ('idTicketVerlauf', 'tvFehlermeldung', 'tvFehlertext', 'tvScreenshot', 'tvBearbeiter', 'tvDatum', 'tvStatus', 'ticketId', ),
-        BasePeer::TYPE_COLNAME => array (self::ID_TICKET_VERLAUF, self::TV_FEHLERMELDUNG, self::TV_FEHLERTEXT, self::TV_SCREENSHOT, self::TV_BEARBEITER, self::TV_DATUM, self::TV_STATUS, self::TICKET_ID, ),
+        BasePeer::TYPE_COLNAME => array (TicketVerlaufPeer::ID_TICKET_VERLAUF, TicketVerlaufPeer::TV_FEHLERMELDUNG, TicketVerlaufPeer::TV_FEHLERTEXT, TicketVerlaufPeer::TV_SCREENSHOT, TicketVerlaufPeer::TV_BEARBEITER, TicketVerlaufPeer::TV_DATUM, TicketVerlaufPeer::TV_STATUS, TicketVerlaufPeer::TICKET_ID, ),
         BasePeer::TYPE_RAW_COLNAME => array ('ID_TICKET_VERLAUF', 'TV_FEHLERMELDUNG', 'TV_FEHLERTEXT', 'TV_SCREENSHOT', 'TV_BEARBEITER', 'TV_DATUM', 'TV_STATUS', 'TICKET_ID', ),
         BasePeer::TYPE_FIELDNAME => array ('id_ticket_verlauf', 'tv_fehlermeldung', 'tv_fehlertext', 'tv_screenshot', 'tv_bearbeiter', 'tv_datum', 'tv_status', 'ticket_id', ),
         BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, 5, 6, 7, )
@@ -86,12 +87,12 @@ abstract class BaseTicketVerlaufPeer {
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
-     * e.g. self::$fieldNames[BasePeer::TYPE_PHPNAME]['Id'] = 0
+     * e.g. TicketVerlaufPeer::$fieldNames[BasePeer::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
         BasePeer::TYPE_PHPNAME => array ('IdTicketVerlauf' => 0, 'TvFehlermeldung' => 1, 'TvFehlertext' => 2, 'TvScreenshot' => 3, 'TvBearbeiter' => 4, 'TvDatum' => 5, 'TvStatus' => 6, 'TicketId' => 7, ),
         BasePeer::TYPE_STUDLYPHPNAME => array ('idTicketVerlauf' => 0, 'tvFehlermeldung' => 1, 'tvFehlertext' => 2, 'tvScreenshot' => 3, 'tvBearbeiter' => 4, 'tvDatum' => 5, 'tvStatus' => 6, 'ticketId' => 7, ),
-        BasePeer::TYPE_COLNAME => array (self::ID_TICKET_VERLAUF => 0, self::TV_FEHLERMELDUNG => 1, self::TV_FEHLERTEXT => 2, self::TV_SCREENSHOT => 3, self::TV_BEARBEITER => 4, self::TV_DATUM => 5, self::TV_STATUS => 6, self::TICKET_ID => 7, ),
+        BasePeer::TYPE_COLNAME => array (TicketVerlaufPeer::ID_TICKET_VERLAUF => 0, TicketVerlaufPeer::TV_FEHLERMELDUNG => 1, TicketVerlaufPeer::TV_FEHLERTEXT => 2, TicketVerlaufPeer::TV_SCREENSHOT => 3, TicketVerlaufPeer::TV_BEARBEITER => 4, TicketVerlaufPeer::TV_DATUM => 5, TicketVerlaufPeer::TV_STATUS => 6, TicketVerlaufPeer::TICKET_ID => 7, ),
         BasePeer::TYPE_RAW_COLNAME => array ('ID_TICKET_VERLAUF' => 0, 'TV_FEHLERMELDUNG' => 1, 'TV_FEHLERTEXT' => 2, 'TV_SCREENSHOT' => 3, 'TV_BEARBEITER' => 4, 'TV_DATUM' => 5, 'TV_STATUS' => 6, 'TICKET_ID' => 7, ),
         BasePeer::TYPE_FIELDNAME => array ('id_ticket_verlauf' => 0, 'tv_fehlermeldung' => 1, 'tv_fehlertext' => 2, 'tv_screenshot' => 3, 'tv_bearbeiter' => 4, 'tv_datum' => 5, 'tv_status' => 6, 'ticket_id' => 7, ),
         BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, 5, 6, 7, )
@@ -109,10 +110,10 @@ abstract class BaseTicketVerlaufPeer {
      */
     public static function translateFieldName($name, $fromType, $toType)
     {
-        $toNames = self::getFieldNames($toType);
-        $key = isset(self::$fieldKeys[$fromType][$name]) ? self::$fieldKeys[$fromType][$name] : null;
+        $toNames = TicketVerlaufPeer::getFieldNames($toType);
+        $key = isset(TicketVerlaufPeer::$fieldKeys[$fromType][$name]) ? TicketVerlaufPeer::$fieldKeys[$fromType][$name] : null;
         if ($key === null) {
-            throw new PropelException("'$name' could not be found in the field names of type '$fromType'. These are: " . print_r(self::$fieldKeys[$fromType], true));
+            throw new PropelException("'$name' could not be found in the field names of type '$fromType'. These are: " . print_r(TicketVerlaufPeer::$fieldKeys[$fromType], true));
         }
 
         return $toNames[$key];
@@ -129,11 +130,11 @@ abstract class BaseTicketVerlaufPeer {
      */
     public static function getFieldNames($type = BasePeer::TYPE_PHPNAME)
     {
-        if (!array_key_exists($type, self::$fieldNames)) {
+        if (!array_key_exists($type, TicketVerlaufPeer::$fieldNames)) {
             throw new PropelException('Method getFieldNames() expects the parameter $type to be one of the class constants BasePeer::TYPE_PHPNAME, BasePeer::TYPE_STUDLYPHPNAME, BasePeer::TYPE_COLNAME, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_NUM. ' . $type . ' was given.');
         }
 
-        return self::$fieldNames[$type];
+        return TicketVerlaufPeer::$fieldNames[$type];
     }
 
     /**
@@ -215,7 +216,7 @@ abstract class BaseTicketVerlaufPeer {
         }
 
         $criteria->clearOrderByColumns(); // ORDER BY won't ever affect the count
-        $criteria->setDbName(self::DATABASE_NAME); // Set the correct dbName
+        $criteria->setDbName(TicketVerlaufPeer::DATABASE_NAME); // Set the correct dbName
 
         if ($con === null) {
             $con = Propel::getConnection(TicketVerlaufPeer::DATABASE_NAME, Propel::CONNECTION_READ);
@@ -290,7 +291,7 @@ abstract class BaseTicketVerlaufPeer {
         }
 
         // Set the correct dbName
-        $criteria->setDbName(self::DATABASE_NAME);
+        $criteria->setDbName(TicketVerlaufPeer::DATABASE_NAME);
 
         // BasePeer returns a PDOStatement
         return BasePeer::doSelect($criteria, $con);
@@ -313,7 +314,7 @@ abstract class BaseTicketVerlaufPeer {
             if ($key === null) {
                 $key = (string) $obj->getIdTicketVerlauf();
             } // if key === null
-            self::$instances[$key] = $obj;
+            TicketVerlaufPeer::$instances[$key] = $obj;
         }
     }
 
@@ -343,7 +344,7 @@ abstract class BaseTicketVerlaufPeer {
                 throw $e;
             }
 
-            unset(self::$instances[$key]);
+            unset(TicketVerlaufPeer::$instances[$key]);
         }
     } // removeInstanceFromPool()
 
@@ -354,20 +355,20 @@ abstract class BaseTicketVerlaufPeer {
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
      * @param      string $key The key (@see getPrimaryKeyHash()) for this instance.
-     * @return   TicketVerlauf Found object or NULL if 1) no instance exists for specified key or 2) instance pooling has been disabled.
+     * @return   TicketVerlauf Found object or null if 1) no instance exists for specified key or 2) instance pooling has been disabled.
      * @see        getPrimaryKeyHash()
      */
     public static function getInstanceFromPool($key)
     {
         if (Propel::isInstancePoolingEnabled()) {
-            if (isset(self::$instances[$key])) {
-                return self::$instances[$key];
+            if (isset(TicketVerlaufPeer::$instances[$key])) {
+                return TicketVerlaufPeer::$instances[$key];
             }
         }
 
         return null; // just to be explicit
     }
-    
+
     /**
      * Clear the instance pool.
      *
@@ -375,9 +376,9 @@ abstract class BaseTicketVerlaufPeer {
      */
     public static function clearInstancePool()
     {
-        self::$instances = array();
+        TicketVerlaufPeer::$instances = array();
     }
-    
+
     /**
      * Method to invalidate the instance pool of all tables related to ticket_verlauf
      * by a foreign key with ON DELETE CASCADE
@@ -394,11 +395,11 @@ abstract class BaseTicketVerlaufPeer {
      *
      * @param      array $row PropelPDO resultset row.
      * @param      int $startcol The 0-based offset for reading from the resultset row.
-     * @return string A string version of PK or NULL if the components of primary key in result array are all null.
+     * @return string A string version of PK or null if the components of primary key in result array are all null.
      */
     public static function getPrimaryKeyHashFromRow($row, $startcol = 0)
     {
-        // If the PK cannot be derived from the row, return NULL.
+        // If the PK cannot be derived from the row, return null.
         if ($row[$startcol] === null) {
             return null;
         }
@@ -420,7 +421,7 @@ abstract class BaseTicketVerlaufPeer {
 
         return (int) $row[$startcol];
     }
-    
+
     /**
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
@@ -431,7 +432,7 @@ abstract class BaseTicketVerlaufPeer {
     public static function populateObjects(PDOStatement $stmt)
     {
         $results = array();
-    
+
         // set the class once to avoid overhead in the loop
         $cls = TicketVerlaufPeer::getOMClass();
         // populate the object(s)
@@ -489,7 +490,7 @@ abstract class BaseTicketVerlaufPeer {
      */
     public static function getTableMap()
     {
-        return Propel::getDatabaseMap(self::DATABASE_NAME)->getTable(self::TABLE_NAME);
+        return Propel::getDatabaseMap(TicketVerlaufPeer::DATABASE_NAME)->getTable(TicketVerlaufPeer::TABLE_NAME);
     }
 
     /**
@@ -541,7 +542,7 @@ abstract class BaseTicketVerlaufPeer {
 
 
         // Set the correct dbName
-        $criteria->setDbName(self::DATABASE_NAME);
+        $criteria->setDbName(TicketVerlaufPeer::DATABASE_NAME);
 
         try {
             // use transaction because $criteria could contain info
@@ -572,7 +573,7 @@ abstract class BaseTicketVerlaufPeer {
             $con = Propel::getConnection(TicketVerlaufPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
         }
 
-        $selectCriteria = new Criteria(self::DATABASE_NAME);
+        $selectCriteria = new Criteria(TicketVerlaufPeer::DATABASE_NAME);
 
         if ($values instanceof Criteria) {
             $criteria = clone $values; // rename for clarity
@@ -591,7 +592,7 @@ abstract class BaseTicketVerlaufPeer {
         }
 
         // set the correct dbName
-        $criteria->setDbName(self::DATABASE_NAME);
+        $criteria->setDbName(TicketVerlaufPeer::DATABASE_NAME);
 
         return BasePeer::doUpdate($selectCriteria, $criteria, $con);
     }
@@ -658,7 +659,7 @@ abstract class BaseTicketVerlaufPeer {
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(self::DATABASE_NAME);
+            $criteria = new Criteria(TicketVerlaufPeer::DATABASE_NAME);
             $criteria->add(TicketVerlaufPeer::ID_TICKET_VERLAUF, (array) $values, Criteria::IN);
             // invalidate the cache for this object(s)
             foreach ((array) $values as $singleval) {
@@ -667,7 +668,7 @@ abstract class BaseTicketVerlaufPeer {
         }
 
         // Set the correct dbName
-        $criteria->setDbName(self::DATABASE_NAME);
+        $criteria->setDbName(TicketVerlaufPeer::DATABASE_NAME);
 
         $affectedRows = 0; // initialize var to track total num of affected rows
 
@@ -675,7 +676,7 @@ abstract class BaseTicketVerlaufPeer {
             // use transaction because $criteria could contain info
             // for more than one table or we could emulating ON DELETE CASCADE, etc.
             $con->beginTransaction();
-            
+
             $affectedRows += BasePeer::doDelete($criteria, $con);
             TicketVerlaufPeer::clearRelatedInstancePool();
             $con->commit();

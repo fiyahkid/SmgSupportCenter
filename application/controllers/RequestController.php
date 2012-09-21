@@ -6,6 +6,15 @@ class RequestController extends Zend_Controller_Action
 		
 	}
 	
+	public function getListAction()
+	{
+		$tickets = TicketsystemQuery::create()->find();
+
+		foreach($tickets as $ticket){
+			echo $ticket->getData();
+		}
+	}
+
 	public function requestallAction()
 	{
 		$request = new RequestModel();
@@ -21,6 +30,7 @@ class RequestController extends Zend_Controller_Action
 		}
 	}
 	
+
 	public function tsDetailsAction(){
 		$request = new RequestModel();
 		

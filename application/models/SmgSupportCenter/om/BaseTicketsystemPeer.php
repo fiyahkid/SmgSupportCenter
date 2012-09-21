@@ -4,11 +4,12 @@
 /**
  * Base static class for performing query and update operations on the 'ticketsystem' table.
  *
- * 
  *
- * @package    propel.generator.SmgSupportCenter.om
+ *
+ * @package propel.generator.SmgSupportCenter.om
  */
-abstract class BaseTicketsystemPeer {
+abstract class BaseTicketsystemPeer
+{
 
     /** the default database name for this class */
     const DATABASE_NAME = 'SmgSupportCenter';
@@ -83,12 +84,12 @@ abstract class BaseTicketsystemPeer {
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
-     * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     * e.g. TicketsystemPeer::$fieldNames[TicketsystemPeer::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
         BasePeer::TYPE_PHPNAME => array ('IdTicketsystem', 'TicketId', 'An', 'Debitor', 'Datum', 'Fehlermeldung', 'Von', 'Produkt', 'Fehlerart', 'Fehlertext', 'Screenshot', 'Status', ),
         BasePeer::TYPE_STUDLYPHPNAME => array ('idTicketsystem', 'ticketId', 'an', 'debitor', 'datum', 'fehlermeldung', 'von', 'produkt', 'fehlerart', 'fehlertext', 'screenshot', 'status', ),
-        BasePeer::TYPE_COLNAME => array (self::ID_TICKETSYSTEM, self::TICKET_ID, self::AN, self::DEBITOR, self::DATUM, self::FEHLERMELDUNG, self::VON, self::PRODUKT, self::FEHLERART, self::FEHLERTEXT, self::SCREENSHOT, self::STATUS, ),
+        BasePeer::TYPE_COLNAME => array (TicketsystemPeer::ID_TICKETSYSTEM, TicketsystemPeer::TICKET_ID, TicketsystemPeer::AN, TicketsystemPeer::DEBITOR, TicketsystemPeer::DATUM, TicketsystemPeer::FEHLERMELDUNG, TicketsystemPeer::VON, TicketsystemPeer::PRODUKT, TicketsystemPeer::FEHLERART, TicketsystemPeer::FEHLERTEXT, TicketsystemPeer::SCREENSHOT, TicketsystemPeer::STATUS, ),
         BasePeer::TYPE_RAW_COLNAME => array ('ID_TICKETSYSTEM', 'TICKET_ID', 'AN', 'DEBITOR', 'DATUM', 'FEHLERMELDUNG', 'VON', 'PRODUKT', 'FEHLERART', 'FEHLERTEXT', 'SCREENSHOT', 'STATUS', ),
         BasePeer::TYPE_FIELDNAME => array ('id_ticketsystem', 'ticket_id', 'an', 'debitor', 'datum', 'fehlermeldung', 'von', 'produkt', 'fehlerart', 'fehlertext', 'screenshot', 'status', ),
         BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
@@ -98,12 +99,12 @@ abstract class BaseTicketsystemPeer {
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
-     * e.g. self::$fieldNames[BasePeer::TYPE_PHPNAME]['Id'] = 0
+     * e.g. TicketsystemPeer::$fieldNames[BasePeer::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
         BasePeer::TYPE_PHPNAME => array ('IdTicketsystem' => 0, 'TicketId' => 1, 'An' => 2, 'Debitor' => 3, 'Datum' => 4, 'Fehlermeldung' => 5, 'Von' => 6, 'Produkt' => 7, 'Fehlerart' => 8, 'Fehlertext' => 9, 'Screenshot' => 10, 'Status' => 11, ),
         BasePeer::TYPE_STUDLYPHPNAME => array ('idTicketsystem' => 0, 'ticketId' => 1, 'an' => 2, 'debitor' => 3, 'datum' => 4, 'fehlermeldung' => 5, 'von' => 6, 'produkt' => 7, 'fehlerart' => 8, 'fehlertext' => 9, 'screenshot' => 10, 'status' => 11, ),
-        BasePeer::TYPE_COLNAME => array (self::ID_TICKETSYSTEM => 0, self::TICKET_ID => 1, self::AN => 2, self::DEBITOR => 3, self::DATUM => 4, self::FEHLERMELDUNG => 5, self::VON => 6, self::PRODUKT => 7, self::FEHLERART => 8, self::FEHLERTEXT => 9, self::SCREENSHOT => 10, self::STATUS => 11, ),
+        BasePeer::TYPE_COLNAME => array (TicketsystemPeer::ID_TICKETSYSTEM => 0, TicketsystemPeer::TICKET_ID => 1, TicketsystemPeer::AN => 2, TicketsystemPeer::DEBITOR => 3, TicketsystemPeer::DATUM => 4, TicketsystemPeer::FEHLERMELDUNG => 5, TicketsystemPeer::VON => 6, TicketsystemPeer::PRODUKT => 7, TicketsystemPeer::FEHLERART => 8, TicketsystemPeer::FEHLERTEXT => 9, TicketsystemPeer::SCREENSHOT => 10, TicketsystemPeer::STATUS => 11, ),
         BasePeer::TYPE_RAW_COLNAME => array ('ID_TICKETSYSTEM' => 0, 'TICKET_ID' => 1, 'AN' => 2, 'DEBITOR' => 3, 'DATUM' => 4, 'FEHLERMELDUNG' => 5, 'VON' => 6, 'PRODUKT' => 7, 'FEHLERART' => 8, 'FEHLERTEXT' => 9, 'SCREENSHOT' => 10, 'STATUS' => 11, ),
         BasePeer::TYPE_FIELDNAME => array ('id_ticketsystem' => 0, 'ticket_id' => 1, 'an' => 2, 'debitor' => 3, 'datum' => 4, 'fehlermeldung' => 5, 'von' => 6, 'produkt' => 7, 'fehlerart' => 8, 'fehlertext' => 9, 'screenshot' => 10, 'status' => 11, ),
         BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
@@ -121,10 +122,10 @@ abstract class BaseTicketsystemPeer {
      */
     public static function translateFieldName($name, $fromType, $toType)
     {
-        $toNames = self::getFieldNames($toType);
-        $key = isset(self::$fieldKeys[$fromType][$name]) ? self::$fieldKeys[$fromType][$name] : null;
+        $toNames = TicketsystemPeer::getFieldNames($toType);
+        $key = isset(TicketsystemPeer::$fieldKeys[$fromType][$name]) ? TicketsystemPeer::$fieldKeys[$fromType][$name] : null;
         if ($key === null) {
-            throw new PropelException("'$name' could not be found in the field names of type '$fromType'. These are: " . print_r(self::$fieldKeys[$fromType], true));
+            throw new PropelException("'$name' could not be found in the field names of type '$fromType'. These are: " . print_r(TicketsystemPeer::$fieldKeys[$fromType], true));
         }
 
         return $toNames[$key];
@@ -141,11 +142,11 @@ abstract class BaseTicketsystemPeer {
      */
     public static function getFieldNames($type = BasePeer::TYPE_PHPNAME)
     {
-        if (!array_key_exists($type, self::$fieldNames)) {
+        if (!array_key_exists($type, TicketsystemPeer::$fieldNames)) {
             throw new PropelException('Method getFieldNames() expects the parameter $type to be one of the class constants BasePeer::TYPE_PHPNAME, BasePeer::TYPE_STUDLYPHPNAME, BasePeer::TYPE_COLNAME, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_NUM. ' . $type . ' was given.');
         }
 
-        return self::$fieldNames[$type];
+        return TicketsystemPeer::$fieldNames[$type];
     }
 
     /**
@@ -235,7 +236,7 @@ abstract class BaseTicketsystemPeer {
         }
 
         $criteria->clearOrderByColumns(); // ORDER BY won't ever affect the count
-        $criteria->setDbName(self::DATABASE_NAME); // Set the correct dbName
+        $criteria->setDbName(TicketsystemPeer::DATABASE_NAME); // Set the correct dbName
 
         if ($con === null) {
             $con = Propel::getConnection(TicketsystemPeer::DATABASE_NAME, Propel::CONNECTION_READ);
@@ -310,7 +311,7 @@ abstract class BaseTicketsystemPeer {
         }
 
         // Set the correct dbName
-        $criteria->setDbName(self::DATABASE_NAME);
+        $criteria->setDbName(TicketsystemPeer::DATABASE_NAME);
 
         // BasePeer returns a PDOStatement
         return BasePeer::doSelect($criteria, $con);
@@ -333,7 +334,7 @@ abstract class BaseTicketsystemPeer {
             if ($key === null) {
                 $key = (string) $obj->getIdTicketsystem();
             } // if key === null
-            self::$instances[$key] = $obj;
+            TicketsystemPeer::$instances[$key] = $obj;
         }
     }
 
@@ -363,7 +364,7 @@ abstract class BaseTicketsystemPeer {
                 throw $e;
             }
 
-            unset(self::$instances[$key]);
+            unset(TicketsystemPeer::$instances[$key]);
         }
     } // removeInstanceFromPool()
 
@@ -374,20 +375,20 @@ abstract class BaseTicketsystemPeer {
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
      * @param      string $key The key (@see getPrimaryKeyHash()) for this instance.
-     * @return   Ticketsystem Found object or NULL if 1) no instance exists for specified key or 2) instance pooling has been disabled.
+     * @return   Ticketsystem Found object or null if 1) no instance exists for specified key or 2) instance pooling has been disabled.
      * @see        getPrimaryKeyHash()
      */
     public static function getInstanceFromPool($key)
     {
         if (Propel::isInstancePoolingEnabled()) {
-            if (isset(self::$instances[$key])) {
-                return self::$instances[$key];
+            if (isset(TicketsystemPeer::$instances[$key])) {
+                return TicketsystemPeer::$instances[$key];
             }
         }
 
         return null; // just to be explicit
     }
-    
+
     /**
      * Clear the instance pool.
      *
@@ -395,9 +396,9 @@ abstract class BaseTicketsystemPeer {
      */
     public static function clearInstancePool()
     {
-        self::$instances = array();
+        TicketsystemPeer::$instances = array();
     }
-    
+
     /**
      * Method to invalidate the instance pool of all tables related to ticketsystem
      * by a foreign key with ON DELETE CASCADE
@@ -414,11 +415,11 @@ abstract class BaseTicketsystemPeer {
      *
      * @param      array $row PropelPDO resultset row.
      * @param      int $startcol The 0-based offset for reading from the resultset row.
-     * @return string A string version of PK or NULL if the components of primary key in result array are all null.
+     * @return string A string version of PK or null if the components of primary key in result array are all null.
      */
     public static function getPrimaryKeyHashFromRow($row, $startcol = 0)
     {
-        // If the PK cannot be derived from the row, return NULL.
+        // If the PK cannot be derived from the row, return null.
         if ($row[$startcol] === null) {
             return null;
         }
@@ -440,7 +441,7 @@ abstract class BaseTicketsystemPeer {
 
         return (int) $row[$startcol];
     }
-    
+
     /**
      * The returned array will contain objects of the default type or
      * objects that inherit from the default.
@@ -451,7 +452,7 @@ abstract class BaseTicketsystemPeer {
     public static function populateObjects(PDOStatement $stmt)
     {
         $results = array();
-    
+
         // set the class once to avoid overhead in the loop
         $cls = TicketsystemPeer::getOMClass();
         // populate the object(s)
@@ -509,7 +510,7 @@ abstract class BaseTicketsystemPeer {
      */
     public static function getTableMap()
     {
-        return Propel::getDatabaseMap(self::DATABASE_NAME)->getTable(self::TABLE_NAME);
+        return Propel::getDatabaseMap(TicketsystemPeer::DATABASE_NAME)->getTable(TicketsystemPeer::TABLE_NAME);
     }
 
     /**
@@ -561,7 +562,7 @@ abstract class BaseTicketsystemPeer {
 
 
         // Set the correct dbName
-        $criteria->setDbName(self::DATABASE_NAME);
+        $criteria->setDbName(TicketsystemPeer::DATABASE_NAME);
 
         try {
             // use transaction because $criteria could contain info
@@ -592,7 +593,7 @@ abstract class BaseTicketsystemPeer {
             $con = Propel::getConnection(TicketsystemPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
         }
 
-        $selectCriteria = new Criteria(self::DATABASE_NAME);
+        $selectCriteria = new Criteria(TicketsystemPeer::DATABASE_NAME);
 
         if ($values instanceof Criteria) {
             $criteria = clone $values; // rename for clarity
@@ -611,7 +612,7 @@ abstract class BaseTicketsystemPeer {
         }
 
         // set the correct dbName
-        $criteria->setDbName(self::DATABASE_NAME);
+        $criteria->setDbName(TicketsystemPeer::DATABASE_NAME);
 
         return BasePeer::doUpdate($selectCriteria, $criteria, $con);
     }
@@ -678,7 +679,7 @@ abstract class BaseTicketsystemPeer {
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(self::DATABASE_NAME);
+            $criteria = new Criteria(TicketsystemPeer::DATABASE_NAME);
             $criteria->add(TicketsystemPeer::ID_TICKETSYSTEM, (array) $values, Criteria::IN);
             // invalidate the cache for this object(s)
             foreach ((array) $values as $singleval) {
@@ -687,7 +688,7 @@ abstract class BaseTicketsystemPeer {
         }
 
         // Set the correct dbName
-        $criteria->setDbName(self::DATABASE_NAME);
+        $criteria->setDbName(TicketsystemPeer::DATABASE_NAME);
 
         $affectedRows = 0; // initialize var to track total num of affected rows
 
@@ -695,7 +696,7 @@ abstract class BaseTicketsystemPeer {
             // use transaction because $criteria could contain info
             // for more than one table or we could emulating ON DELETE CASCADE, etc.
             $con->beginTransaction();
-            
+
             $affectedRows += BasePeer::doDelete($criteria, $con);
             TicketsystemPeer::clearRelatedInstancePool();
             $con->commit();

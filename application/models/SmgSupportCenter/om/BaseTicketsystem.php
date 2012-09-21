@@ -4,13 +4,12 @@
 /**
  * Base class that represents a row from the 'ticketsystem' table.
  *
- * 
+ *
  *
  * @package    propel.generator.SmgSupportCenter.om
  */
-abstract class BaseTicketsystem extends BaseObject 
+abstract class BaseTicketsystem extends BaseObject implements Persistent
 {
-
     /**
      * Peer class name
      */
@@ -139,55 +138,51 @@ abstract class BaseTicketsystem extends BaseObject
 
     /**
      * Get the [id_ticketsystem] column value.
-     * 
-     * @return   int
+     *
+     * @return int
      */
     public function getIdTicketsystem()
     {
-
         return $this->id_ticketsystem;
     }
 
     /**
      * Get the [ticket_id] column value.
-     * 
-     * @return   int
+     *
+     * @return int
      */
     public function getTicketId()
     {
-
         return $this->ticket_id;
     }
 
     /**
      * Get the [an] column value.
-     * 
-     * @return   string
+     *
+     * @return string
      */
     public function getAn()
     {
-
         return $this->an;
     }
 
     /**
      * Get the [debitor] column value.
-     * 
-     * @return   string
+     *
+     * @return string
      */
     public function getDebitor()
     {
-
         return $this->debitor;
     }
 
     /**
      * Get the [optionally formatted] temporal [datum] column value.
-     * 
      *
-     * @param      string $format The date/time format string (either date()-style or strftime()-style).
-     *							If format is NULL, then the raw DateTime object will be returned.
-     * @return mixed Formatted date/time value as string or DateTime object (if format is NULL), NULL if column is NULL, and 0 if column value is 0000-00-00 00:00:00
+     *
+     * @param string $format The date/time format string (either date()-style or strftime()-style).
+     *				 If format is null, then the raw DateTime object will be returned.
+     * @return mixed Formatted date/time value as string or DateTime object (if format is null), null if column is null, and 0 if column value is 0000-00-00 00:00:00
      * @throws PropelException - if unable to parse/validate the date/time value.
      */
     public function getDatum($format = 'Y-m-d H:i:s')
@@ -196,9 +191,8 @@ abstract class BaseTicketsystem extends BaseObject
             return null;
         }
 
-
         if ($this->datum === '0000-00-00 00:00:00') {
-            // while technically this is not a default value of NULL,
+            // while technically this is not a default value of null,
             // this seems to be closest in meaning.
             return null;
         } else {
@@ -210,7 +204,7 @@ abstract class BaseTicketsystem extends BaseObject
         }
 
         if ($format === null) {
-            // Because propel.useDateTimeClass is TRUE, we return a DateTime object.
+            // Because propel.useDateTimeClass is true, we return a DateTime object.
             return $dt;
         } elseif (strpos($format, '%') !== false) {
             return strftime($format, $dt->format('U'));
@@ -221,86 +215,79 @@ abstract class BaseTicketsystem extends BaseObject
 
     /**
      * Get the [fehlermeldung] column value.
-     * 
-     * @return   string
+     *
+     * @return string
      */
     public function getFehlermeldung()
     {
-
         return $this->fehlermeldung;
     }
 
     /**
      * Get the [von] column value.
-     * 
-     * @return   string
+     *
+     * @return string
      */
     public function getVon()
     {
-
         return $this->von;
     }
 
     /**
      * Get the [produkt] column value.
-     * 
-     * @return   string
+     *
+     * @return string
      */
     public function getProdukt()
     {
-
         return $this->produkt;
     }
 
     /**
      * Get the [fehlerart] column value.
-     * 
-     * @return   string
+     *
+     * @return string
      */
     public function getFehlerart()
     {
-
         return $this->fehlerart;
     }
 
     /**
      * Get the [fehlertext] column value.
-     * 
-     * @return   string
+     *
+     * @return string
      */
     public function getFehlertext()
     {
-
         return $this->fehlertext;
     }
 
     /**
      * Get the [screenshot] column value.
-     * 
-     * @return   string
+     *
+     * @return string
      */
     public function getScreenshot()
     {
-
         return $this->screenshot;
     }
 
     /**
      * Get the [status] column value.
-     * 
-     * @return   string
+     *
+     * @return string
      */
     public function getStatus()
     {
-
         return $this->status;
     }
 
     /**
      * Set the value of [id_ticketsystem] column.
-     * 
-     * @param      int $v new value
-     * @return   Ticketsystem The current object (for fluent API support)
+     *
+     * @param int $v new value
+     * @return Ticketsystem The current object (for fluent API support)
      */
     public function setIdTicketsystem($v)
     {
@@ -319,9 +306,9 @@ abstract class BaseTicketsystem extends BaseObject
 
     /**
      * Set the value of [ticket_id] column.
-     * 
-     * @param      int $v new value
-     * @return   Ticketsystem The current object (for fluent API support)
+     *
+     * @param int $v new value
+     * @return Ticketsystem The current object (for fluent API support)
      */
     public function setTicketId($v)
     {
@@ -340,9 +327,9 @@ abstract class BaseTicketsystem extends BaseObject
 
     /**
      * Set the value of [an] column.
-     * 
-     * @param      string $v new value
-     * @return   Ticketsystem The current object (for fluent API support)
+     *
+     * @param string $v new value
+     * @return Ticketsystem The current object (for fluent API support)
      */
     public function setAn($v)
     {
@@ -361,9 +348,9 @@ abstract class BaseTicketsystem extends BaseObject
 
     /**
      * Set the value of [debitor] column.
-     * 
-     * @param      string $v new value
-     * @return   Ticketsystem The current object (for fluent API support)
+     *
+     * @param string $v new value
+     * @return Ticketsystem The current object (for fluent API support)
      */
     public function setDebitor($v)
     {
@@ -382,10 +369,10 @@ abstract class BaseTicketsystem extends BaseObject
 
     /**
      * Sets the value of [datum] column to a normalized version of the date/time value specified.
-     * 
-     * @param      mixed $v string, integer (timestamp), or DateTime value.
-     *               Empty strings are treated as NULL.
-     * @return   Ticketsystem The current object (for fluent API support)
+     *
+     * @param mixed $v string, integer (timestamp), or DateTime value.
+     *               Empty strings are treated as null.
+     * @return Ticketsystem The current object (for fluent API support)
      */
     public function setDatum($v)
     {
@@ -405,9 +392,9 @@ abstract class BaseTicketsystem extends BaseObject
 
     /**
      * Set the value of [fehlermeldung] column.
-     * 
-     * @param      string $v new value
-     * @return   Ticketsystem The current object (for fluent API support)
+     *
+     * @param string $v new value
+     * @return Ticketsystem The current object (for fluent API support)
      */
     public function setFehlermeldung($v)
     {
@@ -426,9 +413,9 @@ abstract class BaseTicketsystem extends BaseObject
 
     /**
      * Set the value of [von] column.
-     * 
-     * @param      string $v new value
-     * @return   Ticketsystem The current object (for fluent API support)
+     *
+     * @param string $v new value
+     * @return Ticketsystem The current object (for fluent API support)
      */
     public function setVon($v)
     {
@@ -447,9 +434,9 @@ abstract class BaseTicketsystem extends BaseObject
 
     /**
      * Set the value of [produkt] column.
-     * 
-     * @param      string $v new value
-     * @return   Ticketsystem The current object (for fluent API support)
+     *
+     * @param string $v new value
+     * @return Ticketsystem The current object (for fluent API support)
      */
     public function setProdukt($v)
     {
@@ -468,9 +455,9 @@ abstract class BaseTicketsystem extends BaseObject
 
     /**
      * Set the value of [fehlerart] column.
-     * 
-     * @param      string $v new value
-     * @return   Ticketsystem The current object (for fluent API support)
+     *
+     * @param string $v new value
+     * @return Ticketsystem The current object (for fluent API support)
      */
     public function setFehlerart($v)
     {
@@ -489,9 +476,9 @@ abstract class BaseTicketsystem extends BaseObject
 
     /**
      * Set the value of [fehlertext] column.
-     * 
-     * @param      string $v new value
-     * @return   Ticketsystem The current object (for fluent API support)
+     *
+     * @param string $v new value
+     * @return Ticketsystem The current object (for fluent API support)
      */
     public function setFehlertext($v)
     {
@@ -510,9 +497,9 @@ abstract class BaseTicketsystem extends BaseObject
 
     /**
      * Set the value of [screenshot] column.
-     * 
-     * @param      string $v new value
-     * @return   Ticketsystem The current object (for fluent API support)
+     *
+     * @param string $v new value
+     * @return Ticketsystem The current object (for fluent API support)
      */
     public function setScreenshot($v)
     {
@@ -531,9 +518,9 @@ abstract class BaseTicketsystem extends BaseObject
 
     /**
      * Set the value of [status] column.
-     * 
-     * @param      string $v new value
-     * @return   Ticketsystem The current object (for fluent API support)
+     *
+     * @param string $v new value
+     * @return Ticketsystem The current object (for fluent API support)
      */
     public function setStatus($v)
     {
@@ -560,7 +547,7 @@ abstract class BaseTicketsystem extends BaseObject
      */
     public function hasOnlyDefaultValues()
     {
-        // otherwise, everything was equal, so return TRUE
+        // otherwise, everything was equal, so return true
         return true;
     } // hasOnlyDefaultValues()
 
@@ -572,9 +559,9 @@ abstract class BaseTicketsystem extends BaseObject
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param      array $row The row returned by PDOStatement->fetch(PDO::FETCH_NUM)
-     * @param      int $startcol 0-based offset column which indicates which restultset column to start with.
-     * @param      boolean $rehydrate Whether this object is being re-hydrated from the database.
+     * @param array $row The row returned by PDOStatement->fetch(PDO::FETCH_NUM)
+     * @param int $startcol 0-based offset column which indicates which restultset column to start with.
+     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
      * @return int             next starting column
      * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
@@ -632,8 +619,8 @@ abstract class BaseTicketsystem extends BaseObject
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      PropelPDO $con (optional) The PropelPDO connection to use.
+     * @param boolean $deep (optional) Whether to also de-associated any related objects.
+     * @param PropelPDO $con (optional) The PropelPDO connection to use.
      * @return void
      * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
@@ -670,7 +657,7 @@ abstract class BaseTicketsystem extends BaseObject
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      PropelPDO $con
+     * @param PropelPDO $con
      * @return void
      * @throws PropelException
      * @throws Exception
@@ -714,7 +701,7 @@ abstract class BaseTicketsystem extends BaseObject
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      PropelPDO $con
+     * @param PropelPDO $con
      * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws PropelException
      * @throws Exception
@@ -766,7 +753,7 @@ abstract class BaseTicketsystem extends BaseObject
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      PropelPDO $con
+     * @param PropelPDO $con
      * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
      * @throws PropelException
      * @see        save()
@@ -798,7 +785,7 @@ abstract class BaseTicketsystem extends BaseObject
     /**
      * Insert the row in the database.
      *
-     * @param      PropelPDO $con
+     * @param PropelPDO $con
      *
      * @throws PropelException
      * @see        doSave()
@@ -862,40 +849,40 @@ abstract class BaseTicketsystem extends BaseObject
             foreach ($modifiedColumns as $identifier => $columnName) {
                 switch ($columnName) {
                     case '`ID_TICKETSYSTEM`':
-						$stmt->bindValue($identifier, $this->id_ticketsystem, PDO::PARAM_INT);
+                        $stmt->bindValue($identifier, $this->id_ticketsystem, PDO::PARAM_INT);
                         break;
                     case '`TICKET_ID`':
-						$stmt->bindValue($identifier, $this->ticket_id, PDO::PARAM_INT);
+                        $stmt->bindValue($identifier, $this->ticket_id, PDO::PARAM_INT);
                         break;
                     case '`AN`':
-						$stmt->bindValue($identifier, $this->an, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->an, PDO::PARAM_STR);
                         break;
                     case '`DEBITOR`':
-						$stmt->bindValue($identifier, $this->debitor, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->debitor, PDO::PARAM_STR);
                         break;
                     case '`DATUM`':
-						$stmt->bindValue($identifier, $this->datum, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->datum, PDO::PARAM_STR);
                         break;
                     case '`FEHLERMELDUNG`':
-						$stmt->bindValue($identifier, $this->fehlermeldung, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->fehlermeldung, PDO::PARAM_STR);
                         break;
                     case '`VON`':
-						$stmt->bindValue($identifier, $this->von, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->von, PDO::PARAM_STR);
                         break;
                     case '`PRODUKT`':
-						$stmt->bindValue($identifier, $this->produkt, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->produkt, PDO::PARAM_STR);
                         break;
                     case '`FEHLERART`':
-						$stmt->bindValue($identifier, $this->fehlerart, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->fehlerart, PDO::PARAM_STR);
                         break;
                     case '`FEHLERTEXT`':
-						$stmt->bindValue($identifier, $this->fehlertext, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->fehlertext, PDO::PARAM_STR);
                         break;
                     case '`SCREENSHOT`':
-						$stmt->bindValue($identifier, $this->screenshot, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->screenshot, PDO::PARAM_STR);
                         break;
                     case '`STATUS`':
-						$stmt->bindValue($identifier, $this->status, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->status, PDO::PARAM_STR);
                         break;
                 }
             }
@@ -906,7 +893,7 @@ abstract class BaseTicketsystem extends BaseObject
         }
 
         try {
-			$pk = $con->lastInsertId();
+            $pk = $con->lastInsertId();
         } catch (Exception $e) {
             throw new PropelException('Unable to get autoincrement id.', $e);
         }
@@ -918,7 +905,7 @@ abstract class BaseTicketsystem extends BaseObject
     /**
      * Update the row in the database.
      *
-     * @param      PropelPDO $con
+     * @param PropelPDO $con
      *
      * @see        doSave()
      */
@@ -953,7 +940,7 @@ abstract class BaseTicketsystem extends BaseObject
      * If $columns is either a column name or an array of column names
      * only those columns are validated.
      *
-     * @param      mixed $columns Column name or an array of column names.
+     * @param mixed $columns Column name or an array of column names.
      * @return boolean Whether all columns pass validation.
      * @see        doValidate()
      * @see        getValidationFailures()
@@ -979,7 +966,7 @@ abstract class BaseTicketsystem extends BaseObject
      * also be validated.  If all pass then <code>true</code> is returned; otherwise
      * an aggreagated array of ValidationFailed objects will be returned.
      *
-     * @param      array $columns Array of column names to validate.
+     * @param array $columns Array of column names to validate.
      * @return mixed <code>true</code> if all validations pass; array of <code>ValidationFailed</code> objets otherwise.
      */
     protected function doValidate($columns = null)
@@ -1006,11 +993,11 @@ abstract class BaseTicketsystem extends BaseObject
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
-     *                     one of the class type constants BasePeer::TYPE_PHPNAME, BasePeer::TYPE_STUDLYPHPNAME
-     *                     BasePeer::TYPE_COLNAME, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_NUM.
-     *                     Defaults to BasePeer::TYPE_PHPNAME
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
+     *               one of the class type constants BasePeer::TYPE_PHPNAME, BasePeer::TYPE_STUDLYPHPNAME
+     *               BasePeer::TYPE_COLNAME, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_NUM.
+     *               Defaults to BasePeer::TYPE_PHPNAME
      * @return mixed Value of field.
      */
     public function getByName($name, $type = BasePeer::TYPE_PHPNAME)
@@ -1025,7 +1012,7 @@ abstract class BaseTicketsystem extends BaseObject
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos position in xml schema
      * @return mixed Value of field at $pos
      */
     public function getByPosition($pos)
@@ -1082,7 +1069,7 @@ abstract class BaseTicketsystem extends BaseObject
      * @param     string  $keyType (optional) One of the class type constants BasePeer::TYPE_PHPNAME, BasePeer::TYPE_STUDLYPHPNAME,
      *                    BasePeer::TYPE_COLNAME, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_NUM.
      *                    Defaults to BasePeer::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to true.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
      *
      * @return array an associative array containing the field names (as keys) and field values
@@ -1115,9 +1102,9 @@ abstract class BaseTicketsystem extends BaseObject
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param      string $name peer name
-     * @param      mixed $value field value
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name peer name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants BasePeer::TYPE_PHPNAME, BasePeer::TYPE_STUDLYPHPNAME
      *                     BasePeer::TYPE_COLNAME, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_NUM.
      *                     Defaults to BasePeer::TYPE_PHPNAME
@@ -1134,8 +1121,8 @@ abstract class BaseTicketsystem extends BaseObject
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
-     * @param      mixed $value field value
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
      * @return void
      */
     public function setByPosition($pos, $value)
@@ -1193,8 +1180,8 @@ abstract class BaseTicketsystem extends BaseObject
      * BasePeer::TYPE_COLNAME, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_NUM.
      * The default key type is the column's BasePeer::TYPE_PHPNAME
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
+     * @param array  $arr     An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
      * @return void
      */
     public function fromArray($arr, $keyType = BasePeer::TYPE_PHPNAME)
@@ -1258,7 +1245,7 @@ abstract class BaseTicketsystem extends BaseObject
 
     /**
      * Returns the primary key for this object (row).
-     * @return   int
+     * @return int
      */
     public function getPrimaryKey()
     {
@@ -1268,7 +1255,7 @@ abstract class BaseTicketsystem extends BaseObject
     /**
      * Generic method to set the primary key (id_ticketsystem column).
      *
-     * @param       int $key Primary key.
+     * @param  int $key Primary key.
      * @return void
      */
     public function setPrimaryKey($key)
@@ -1292,9 +1279,9 @@ abstract class BaseTicketsystem extends BaseObject
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of Ticketsystem (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @param object $copyObj An object of Ticketsystem (or compatible) type.
+     * @param boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
      */
     public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
@@ -1324,8 +1311,8 @@ abstract class BaseTicketsystem extends BaseObject
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return                 Ticketsystem Clone of current object.
+     * @param boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @return Ticketsystem Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1345,7 +1332,7 @@ abstract class BaseTicketsystem extends BaseObject
      * same instance for all member of this class. The method could therefore
      * be static, but this would prevent one from overriding the behavior.
      *
-     * @return   TicketsystemPeer
+     * @return TicketsystemPeer
      */
     public function getPeer()
     {
@@ -1389,7 +1376,7 @@ abstract class BaseTicketsystem extends BaseObject
      * objects with circular references (even in PHP 5.3). This is currently necessary
      * when using Propel in certain daemon or large-volumne/high-memory operations.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param boolean $deep Whether to also clear the references on all referrer objects.
      */
     public function clearAllReferences($deep = false)
     {
@@ -1399,7 +1386,7 @@ abstract class BaseTicketsystem extends BaseObject
     }
 
     /**
-     * Return the string representation of this object
+     * return the string representation of this object
      *
      * @return string
      */
@@ -1408,4 +1395,14 @@ abstract class BaseTicketsystem extends BaseObject
         return (string) $this->exportTo(TicketsystemPeer::DEFAULT_STRING_FORMAT);
     }
 
-} // BaseTicketsystem
+    /**
+     * return true is the object is in saving state
+     *
+     * @return boolean
+     */
+    public function isAlreadyInSave()
+    {
+        return $this->alreadyInSave;
+    }
+
+}

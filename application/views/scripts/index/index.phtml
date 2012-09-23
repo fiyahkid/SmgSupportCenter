@@ -7,7 +7,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="<?php echo $this->baseUrl() . '/index'?>">SupportCenter</a>
+				<a class="brand" href="#/">SupportCenter</a>
 				<div class="nav-collapse">
 					<div class="btn-group pull-left">
 						<button class="btn">Ticketsystem</button>
@@ -17,8 +17,8 @@
 						<ul class="dropdown-menu" >
 							<!-- dropdown menu links -->
                             <li>
-                                <a href="<?php echo $this->baseUrl() . '/request/ticketoverview'?>" ng-click="getlist()">Ticket &Uuml;bersicht</a>
-                                <a href="<?php echo $this->baseUrl() . '/auth/login'?>">Login</a>
+                                <a href="#/get-list">Ticket &Uuml;bersicht</a>
+                                <a href="#/login">Login</a>
                             </li>
 						</ul>
 					</div>
@@ -66,53 +66,9 @@
 		<a href="<?php echo $this->baseUrl() . '/auth/login'?>">Login</a>
 	</div>
 </header>
-<!--
-<div id="left">
-	<nav id="menu">
-		<a href="<?php // echo $this->baseUrl() . '/index/#'?>">menu1</a>
-		<a href="<?php // echo $this->baseUrl() . '/index/#'?>">menu2</a>
-		<a href="<?php // echo $this->baseUrl() . '/index/#'?>">menu3</a>
-		<a href="<?php // echo $this->baseUrl() . '/index/#'?>">menu4</a>
-		<a href="<?php // echo $this->baseUrl() . '/index/#'?>">menu5</a>
-	</nav>
+
+
+
+<div id="content" ng-view>
+	<!-- content wird hier rein geladen -->
 </div>
--->
-<div id="content">
-	
-</div>
-<script type="text/javascript">
-		
-//		$('a').click(function( e ){
-		/*
-			var $this = $(this);
-
-			// remove CSS class "active"
-			$this.parents('nav').find('a').removeClass('active');
-
-			// add CSS class "active"
-			$this.addClass('active');
-
-			// Don't use Browser Default
-			e.preventDefault();
-
-			if($('a[name="ticketsystem"]')){
-				$('#content').load( $(this).attr('href'));
-				//ts_get_liste();
-			}
-		*/	
-		//	e.preventDefault();
-			// load href-link in DIV ID "content"
-		//	$('#content').load( $(this).attr('href'));
-			//, ('#wrapper') 
-	//	});
-		
-		$('div a').click(function( e ){
-			// Don't use  Browser Default
-			e.preventDefault();
-			
-			// Load href-link in DIV ID "login"
-			$('#content').load( $(this).attr('href'), ('#loginWrapper'));
-		});
-		
-//});
-</script>

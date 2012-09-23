@@ -43,6 +43,7 @@ class AuthController extends Zend_Controller_Action
 		}
 		
 		$this->view->loginForm = $loginForm;
+		$this->_helper->layout->disableLayout();
 		/*
 		echo "ajfkajsfkjansfjansf";
 		var_dump($loginForm->getValue('username'));

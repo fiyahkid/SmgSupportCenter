@@ -20,14 +20,22 @@ angular.module('SmgSupportCenter', [])
 		console.log('Login');
 	}])
 	.controller('GetListCtrl', ['$scope', 'ticketsystemService', function GetListCtrl ($scope, ticketsystemService) {
-		$scope.results = [];
+		$scope.showLoading = false;
+		if (typeof $scope.results !== 'array') {
+			$scope.results = [];
+		}
 		$scope.getList = function() {
-			ticketsystemService.getList( $scope.results.length ).success(function(res) {
+			ticketsystemService.getList($scope.results.length).success(function(res) {
 				var i = 0;
 				for (i;i<res.length; i++) {
 					$scope.results.push(res[i]);	
 				}
+				$scope.showLoading = false;
 			})
 		}
-		$scope.getList();
+
+		if ($scope.results.length === 0) {
+			$scope.showLoading = true;
+			$scope.getList();
+		}
 	}])

@@ -473,3 +473,71 @@ header hr {
 	
 		background-size: 	14px 14px;
 }
+
+#content div.id, 
+		 div.tid, 
+		 div.an, 
+		 div.debitor, 
+		 div.datum, 
+		 div.fehlermeldung, 
+		 div.von, 
+		 div.produkt, 
+		 div.fehlerart, 
+		 /*div.fehlertext,*/
+		 div.screenshot, 
+		 div.status {
+		 	border: 1px solid black;
+		 	margin-left: 3px;
+		 	width: 100px;
+		 	height: 20px;
+		 	max-height: 20px;
+		 	overflow: hidden;
+}
+#content div.fehlertext {
+			border: 1px solid black;
+			margin-left: 3px;
+			width: 120px;
+			height: 20px;
+			max-height: 20px;
+			overflow: hidden;
+
+}
+
+/*
+#content div.id {
+	border: 0px solid black;
+}
+#content div.tid {
+	border: 0px solid black;
+}
+#content div.an {
+	border: 0px solid black;
+}
+#content div.debitor {
+	border: 0px solid black;
+}
+#content div.datum {
+	border: 0px solid black;
+}
+#content div.fehlermeldung {
+	border: 0px solid black;
+}
+#content div.von {
+	border: 0px solid black;
+}
+#content div.produkt {
+	border: 0px solid black;
+}
+#content div.fehlerart {
+	border: 0px solid black;
+}
+#content div.fehlertext {
+	border: 0px solid black;
+}
+#content div.screenshot {
+	border: 0px solid black;
+}
+#content div.status {
+	border: 0px solid black;
+}
+*/

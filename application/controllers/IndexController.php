@@ -10,18 +10,30 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {   
-        /*
-	$query = TicketsystemQuery::create();
-	$ticket = $query->findPk(1);
-	echo $ticket->getFehlermeldung();
-        */
-	//var_dump( $ticket );
-        // action body
+    	//Startseite, rendert eigentlich nur das Layout...
     }
+
+    public function mainAction ()
+    {
+    	//Content der Index Seite, wird per Ajax von Angular reingeladen
+    	//immer Layout disablen
+
+    	$this->_helper->layout->disableLayout();
+    }
+
+    public function getListAction ()
+    {
+    	//Seite auf der die Tickets angzeigt werden
+    	$this->_helper->layout->disableLayout();	
+    }
+
+
+
+
 
 	public function ticketsystemAction()
 	{
-		// $this->_helper->layout->disableLayout(); //nur einblenden, wenn kein 'wrapper'-DIV in unterseiten verwendet
+		//$this->_helper->layout->disableLayout(); //nur einblenden, wenn kein 'wrapper'-DIV in unterseiten verwendet
 		// action body
 	}
 	public function kalenderAction()

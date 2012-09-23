@@ -17,7 +17,7 @@ class RequestController extends Zend_Controller_Action
 	public function getListAction()
 	{
 		$query = TicketsystemQuery::create();
-		$tickets = $query->limit(1)->find();
+		$tickets = $query->limit(3)->find();
 
 		$results = array();
 		foreach($tickets as $ticket){

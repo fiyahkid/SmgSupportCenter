@@ -8,8 +8,8 @@ angular.module('SmgSupportCenter', [])
 	}])
 	.service('ticketsystemService', function($http){
 		return {
-			getList:function(){
-				return $http.get(baseUrl + '/request/get-list');
+			getList:function(offset){
+				return $http.get(baseUrl + '/request/get-list/offset/' + offset);
 			}
 		}		
 	})
@@ -22,8 +22,11 @@ angular.module('SmgSupportCenter', [])
 	.controller('GetListCtrl', ['$scope', 'ticketsystemService', function GetListCtrl ($scope, ticketsystemService) {
 		$scope.results = [];
 		$scope.getList = function() {
-			ticketsystemService.getList().success(function(res) {
-				$scope.results = res;
+			ticketsystemService.getList( $scope.results.length ).success(function(res) {
+				var i = 0;
+				for (i;i<res.length; i++) {
+					$scope.results.push(res[i]);	
+				}
 			})
 		}
 		$scope.getList();

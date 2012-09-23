@@ -1,41 +1,30 @@
-/*
-function GetListCtrl($scope, $http, $rootScope) {
-	$rootScope.url = baseUrl + '/request/get-list/';
-
-	
-	$rootScope.getlist = function() {
-console.log($scope.url);
-		$http.get($rootScope.url).success(function(data){
-			$scope.data = data;
-			$scope.result = $scope.data;
-		})
-		
-	}
-
-	//$scope.getlist();
-}
-*/
-
 angular.module('SmgSupportCenter', [])
-       .service('ticketsystemService', function($http){
-            return {
-                getList:function(){
-                    //$scope.url = baseUrl + '/request/get-list/';
-
-                    //console.log($scope.url);
-
-                    $http.get(baseUrl + '/request/get-list');
-                    /*
-                    .success(function(data){
-                        $scope.data = data;
-                        $scope.result = $scope.data;
-                    */
-                    }
-            }
-                
-    })
-    .controller('GetListCtrl', ['$scope', 'ticketsystemService', function ($scope, ticketsystemService) {
-                $scope.getList = getList.getList().success(function(res) {
-                    $scope.results = res;
-                })
-            }])​​
+	.config(['$routeProvider' , function($routeProvider) {
+		// Add a basic route to load the template
+		$routeProvider
+			.when('/get-list', {templateUrl: 'index/get-list', controller: 'GetListCtrl'}) //wenn url: SmgSupportCenter/public/index/#/get-list
+			.when('/login', {templateUrl: 'auth/login', controller: 'LoginCtrl'}) //wenn url: SmgSupportCenter/public/index/#/login
+			.otherwise({ templateUrl: 'index/main', controller: 'MainCtrl' }); //SmgSupportCenter/public/index/#/IRGENDWAS ANDERES
+	}])
+	.service('ticketsystemService', function($http){
+		return {
+			getList:function(){
+				return $http.get(baseUrl + '/request/get-list');
+			}
+		}		
+	})
+	.controller('MainCtrl', ['$scope', function MainCtrl($scope) {
+		console.log('Hallo');
+	}])
+	.controller('LoginCtrl', ['$scope', function MainCtrl($scope) {
+		console.log('Login');
+	}])
+	.controller('GetListCtrl', ['$scope', 'ticketsystemService', function GetListCtrl ($scope, ticketsystemService) {
+		$scope.results = [];
+		$scope.getList = function() {
+			ticketsystemService.getList().success(function(res) {
+				$scope.results = res;
+			})
+		}
+		$scope.getList();
+	}])

@@ -7,10 +7,20 @@ angular.module('SmgSupportCenter', [])
 			.otherwise({ templateUrl: 'index/main', controller: 'MainCtrl' }); //SmgSupportCenter/public/index/#/IRGENDWAS ANDERES
 	}])
 	.service('ticketsystemService', function($http){
+		var self = this;
+		this.tickets = [],
+		this.getList = function(offset){
+			return $http.get(baseUrl + '/request/get-list/offset/' + offset).success(function(res){
+				var i = 0;
+				for (i;i<res.length; i++) {
+					self.tickets.push(res[i]);	
+				}
+			});
+		}
+
 		return {
-			getList:function(){
-				return $http.get(baseUrl + '/request/get-list');
-			}
+			tickets: this.tickets,
+			getList: this.getList
 		}		
 	})
 	.controller('MainCtrl', ['$scope', function MainCtrl($scope) {
@@ -20,11 +30,16 @@ angular.module('SmgSupportCenter', [])
 		console.log('Login');
 	}])
 	.controller('GetListCtrl', ['$scope', 'ticketsystemService', function GetListCtrl ($scope, ticketsystemService) {
-		$scope.results = [];
+		$scope.showLoading = false;
+		$scope.results = ticketsystemService.tickets;
 		$scope.getList = function() {
-			ticketsystemService.getList().success(function(res) {
-				$scope.results = res;
+			$scope.showLoading = true;
+			ticketsystemService.getList($scope.results.length).success(function(res) {
+				$scope.showLoading = false;
 			})
 		}
-		$scope.getList();
+
+		if ($scope.results.length === 0) {
+			$scope.getList();
+		}
 	}])

@@ -1,3 +1,27 @@
-<ul ng-repeat="result in results">
-	<li>{{result.Fehlertext}}</li>
-</ul>
+<div class="well" style="width:65%; margin: 10px auto;color:#222;">
+	<div class="accordion" id="accordion2" ng-repeat="result in results">
+	  <div class="accordion-group">
+	    <div class="accordion-heading">
+	      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{result.IdTicketsystem}}">
+	       	<strong>{{result.Fehlermeldung}}</strong>
+	       	<span class="pull-right">{{result.Von}}</span>
+	      </a>
+	    </div>
+	    <div id="collapse{{result.IdTicketsystem}}" class="accordion-body collapse">
+	      <div class="accordion-inner">
+			<blockquote>
+				<p>{{result.Fehlertext}}</p>
+				<small>{{result.Datum}}</small>
+			</blockquote>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div ng-show="showLoading">
+		<button class="btn btn-primary pull-right disabled" disabled="disabled">Lädt...</button>
+	</div>
+	<div ng-hide="showLoading">
+		<button class="btn btn-primary pull-right" ng-class="{disabled:showLoading}" ng-click="getList()">Weitere Tickets laden</button>
+	</div>
+	<br class="clearfix " />
+</div>

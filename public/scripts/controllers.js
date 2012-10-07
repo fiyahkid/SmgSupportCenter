@@ -32,7 +32,7 @@ angular.module('SmgSupportCenter', [])
 	}])
 	.controller('TicketsystemCtrl', ['$scope', function MainCtrl($scope) {
 		console.log('Ticketsystem');
-	}])
+	}]).$stop()
 	.controller('GetListCtrl', ['$scope', 'ticketsystemService', function GetListCtrl ($scope, ticketsystemService) {
 		$scope.showLoading = false;
 		$scope.results = ticketsystemService.tickets;

@@ -16,6 +16,10 @@ header {
     color: #DDDDDD;
     text-shadow: 0 -2px 2px #777777, 0 2px 2px #AAAAAA;
     */
+
+		box-shadow: 20px 0px 50px rgba(0, 0, 0, 1);
+   -moz-box-shadow: 20px 0px 50px rgba(0, 0, 0, 1);
+-webkit-box-shadow: 20px 0px 50px rgba(0, 0, 0, 1);
 }
 header hgroup {
 	

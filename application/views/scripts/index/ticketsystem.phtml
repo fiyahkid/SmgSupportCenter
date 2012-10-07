@@ -1,6 +1,18 @@
-<div id="wrapper">
-	<p>das ist ein Test ob der Link von TICKETSYSTEM funktioniert</p>
-	<nav>
-		<a href="<?php $this->baseUrl() . "/index/newTicket/"?>">neues Ticket</a>
-	</nav>
+<div class="tabbable tabs-left">
+	<ul class="nav nav-tabs">
+		<li class="active">
+			<a href="#tab1" data-toggle="tab">Section1</a>
+		</li>
+		<li>
+			<a href="#tab2" data-toggle="tab">Section2</a>
+		</li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active" id="tab1">
+			<p>ich bin Sektion 1</p>
+		</div>
+		<div class="tab-pane" id="tab2">
+			<p>ich bin Sektion 2</p>
+		</div>
+	</div>
 </div>

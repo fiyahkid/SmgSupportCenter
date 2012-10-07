@@ -4,6 +4,7 @@ angular.module('SmgSupportCenter', [])
 		$routeProvider
 			.when('/get-list', {templateUrl: 'index/get-list', controller: 'GetListCtrl'}) //wenn url: SmgSupportCenter/public/index/#/get-list
 			.when('/login', {templateUrl: 'auth/login', controller: 'LoginCtrl'}) //wenn url: SmgSupportCenter/public/index/#/login
+			.when('/ticketsystem', {templateUrl: 'index/ticketsystem', controller: 'TicketsystemCtrl'}) //wenn url: SmgSupportCenter/public/index/#/ticketsystem
 			.otherwise({ templateUrl: 'index/main', controller: 'MainCtrl' }); //SmgSupportCenter/public/index/#/IRGENDWAS ANDERES
 	}])
 	.service('ticketsystemService', function($http){
@@ -28,6 +29,9 @@ angular.module('SmgSupportCenter', [])
 	}])
 	.controller('LoginCtrl', ['$scope', function MainCtrl($scope) {
 		console.log('Login');
+	}])
+	.controller('TicketsystemCtrl', ['$scope', function MainCtrl($scope) {
+		console.log('Ticketsystem');
 	}])
 	.controller('GetListCtrl', ['$scope', 'ticketsystemService', function GetListCtrl ($scope, ticketsystemService) {
 		$scope.showLoading = false;

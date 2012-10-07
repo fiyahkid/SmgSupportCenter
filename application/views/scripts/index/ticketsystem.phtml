@@ -1,6 +1,9 @@
-<div class="tabbable tabs-left" style="color: white;">
+
+
+
+<div class="tabbable tabs-left" style="margin-top: 1px; z-index: 0;">
 	<ul class="nav nav-tabs">
-		<li class="btn-inverse" ><a href="#tab1" data-toggle="tab">Eingang</a></li>
+		<li class="btn-inverse" style="width: 188px;"><a href="#tab1" data-toggle="tab">Eingang</a></li>
 		<li class="btn-inverse" ><a href="#tab2" data-toggle="tab">Section2</a></li>
 		<li class="btn-inverse" ><a href="#tab3" data-toggle="tab">Bearbeitung</a></li>
 		<li class="btn-inverse" ><a href="#tab4" data-toggle="tab">Ausgang</a></li>
@@ -14,7 +17,9 @@
 			<p>ich bin Sektion 2</p>
 		</div>
 		<div class="tab-pane" id="tab3">
-			<p>bla</p>
+			
+			<?php require_once "/localhost" . $this->baseUrl() . "/ticketsystem/eingang"; ?>
+
 		</div>
 		<div class="tab-pane" id="tab4">
 			<p>bla</p>

@@ -33,7 +33,10 @@ class IndexController extends Zend_Controller_Action
     	$this->_helper->layout->disableLayout();
     }
 
-
+    public function eingangAction ()
+    {
+    	$this->_helper->layout->disableLayout();	
+    }
 
 
 	public function kalenderAction()

@@ -5,6 +5,7 @@ angular.module('SmgSupportCenter', [])
 			.when('/get-list', {templateUrl: 'index/get-list', controller: 'GetListCtrl'}) //wenn url: SmgSupportCenter/public/index/#/get-list
 			.when('/login', {templateUrl: 'auth/login', controller: 'LoginCtrl'}) //wenn url: SmgSupportCenter/public/index/#/login
 			.when('/ticketsystem', {templateUrl: 'index/ticketsystem', controller: 'TicketsystemCtrl'}) //wenn url: SmgSupportCenter/public/index/#/ticketsystem
+			.when('/eingang', {templateUrl: 'ticketsystem/eingang', controller: 'EingangCtrl'}) //wenn url: SmgSupportCenter/public/index/#/eingang
 			.otherwise({ templateUrl: 'index/main', controller: 'MainCtrl' }); //SmgSupportCenter/public/index/#/IRGENDWAS ANDERES
 	}])
 	.service('ticketsystemService', function($http){
@@ -32,7 +33,10 @@ angular.module('SmgSupportCenter', [])
 	}])
 	.controller('TicketsystemCtrl', ['$scope', function MainCtrl($scope) {
 		console.log('Ticketsystem');
-	}]).$stop()
+	}])
+	.controller('EingangCtrl', ['$scope', function MainCtrl($scope) {
+		console.log('Eingang');
+	}])
 	.controller('GetListCtrl', ['$scope', 'ticketsystemService', function GetListCtrl ($scope, ticketsystemService) {
 		$scope.showLoading = false;
 		$scope.results = ticketsystemService.tickets;

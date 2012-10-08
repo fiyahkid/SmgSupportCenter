@@ -15,12 +15,7 @@ angular.module('SmgSupportCenter', [])
 		this.tickets = [],
 		this.getList = function(offset){
 			return $http.get(baseUrl + '/request/get-list/offset/' + offset).success(function(res){
-				/*
-				var i = 0;
-				for (i;i<res.length; i++) {
-					self.tickets.push(res[i]);	
-				}
-				*/
+				
 				self.tickets = res;
 			});
 		}
@@ -74,25 +69,14 @@ angular.module('SmgSupportCenter', [])
 	.controller('GetListCtrl', ['$scope', '$http', 'ticketsystemService', function GetListCtrl ($scope, $http, ticketsystemService) {
 		$scope.page = 1;
 		$scope.offset = 10;
-/*
-		$scope.showLoading = false;
-*/
 		$scope.results = ticketsystemService.tickets;
-/*
-		$scope.getList = function() {
-			$scope.showLoading = true;
-			ticketsystemService.getList($scope.results.length).success(function(res) {
-				$scope.showLoading = false;
-			})
-		}
-*/
-		
 
 		$scope.getOlder = function() {
 			$scope.page--;
 			var pageOffset = ($scope.page -1) * $scope.offset;
-			$http.get(baseUrl + '/request/get-list/offset/' + pageOffset)
+			
 			ticketsystemService.getList().success(function(res) {
+				$http.get(baseUrl + '/request/get-list/offset/' + pageOffset)
 				$scope.results = res;
 			})
 			console.log('older');
@@ -100,8 +84,9 @@ angular.module('SmgSupportCenter', [])
 		$scope.getNewer = function() {
 			$scope.page++;
 			var pageOffset = ($scope.page -1) * $scope.offset;
-			$http.get(baseUrl + '/request/get-list/offset/' + pageOffset)
+			//$http.get(baseUrl + '/request/get-list/offset/' + pageOffset)
 			ticketsystemService.getList().success(function(res) {
+				$http.get(baseUrl + '/request/get-list/offset/' + pageOffset)
 				$scope.results = res;
 			})
 			console.log('newer');
@@ -110,6 +95,5 @@ angular.module('SmgSupportCenter', [])
 		if ($scope.results.length === 0) {
 			$scope.getNewer();
 		}
-		/*
-		*/
+
 	}])

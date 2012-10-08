@@ -15,7 +15,6 @@ angular.module('SmgSupportCenter', [])
 		this.tickets = [],
 		this.getList = function(offset){
 			return $http.get(baseUrl + '/request/get-list/offset/' + offset).success(function(res){
-				
 				self.tickets = res;
 			});
 		}
@@ -66,34 +65,57 @@ angular.module('SmgSupportCenter', [])
 		$scope.selectedSite = this.findCurrentNav(site);
 	}])
 	
-	.controller('GetListCtrl', ['$scope', '$http', 'ticketsystemService', function GetListCtrl ($scope, $http, ticketsystemService) {
+	.controller('GetListCtrl', ['$rootScope', '$scope', '$http', 'ticketsystemService', function GetListCtrl ($rootScope, $scope, $http, ticketsystemService) {
 		$scope.page = 1;
 		$scope.offset = 10;
 		$scope.results = ticketsystemService.tickets;
+		$rootScope.showLoading = $scope.results.length > 0 ? false : true;		
 
 		$scope.getOlder = function() {
-			$scope.page--;
+			$scope.page++;
+			$rootScope.showLoading = true;
 			var pageOffset = ($scope.page -1) * $scope.offset;
-			
-			ticketsystemService.getList().success(function(res) {
-				$http.get(baseUrl + '/request/get-list/offset/' + pageOffset)
+			ticketsystemService.getList( pageOffset ).success(function(res){
 				$scope.results = res;
+				$rootScope.showLoading = false;
 			})
-			console.log('older');
 		}
 		$scope.getNewer = function() {
-			$scope.page++;
+			$scope.page--;
+			$rootScope.showLoading = true;
 			var pageOffset = ($scope.page -1) * $scope.offset;
-			//$http.get(baseUrl + '/request/get-list/offset/' + pageOffset)
-			ticketsystemService.getList().success(function(res) {
-				$http.get(baseUrl + '/request/get-list/offset/' + pageOffset)
+			ticketsystemService.getList( pageOffset ).success(function(res){
 				$scope.results = res;
+				$rootScope.showLoading = false;
 			})
-			console.log('newer');
 		}
 
 		if ($scope.results.length === 0) {
-			$scope.getNewer();
+			$rootScope.showLoading = true;
+			ticketsystemService.getList(0).success(function(res){
+				$scope.results = res;
+				$rootScope.showLoading = false;
+			})
 		}
 
 	}])
+.directive('loadingScreen', ['$rootScope', '$parse', function($rootScope, $parse) {
+	return {
+		restrict: 'E',
+		template: '<div style="color:#08C;" class="modal fade hide" id="myModal" tabindex="-1" role="dialog" data-backdrop="true" aria-labelledby="myModalLabel" aria-hidden="true"> ' +
+  				  '<div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>' + 
+    			  '<h3 id="myModalLabel">Lädt...</h3></div><div class="modal-body"><p>Lädt...</p></div><div class="modal-footer">' + 
+                  '<!--<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button><button class="btn btn-primary">Save changes</button>-->' + 
+                  '</div></div>',
+		link: function($scope, $elem, attrs) {
+			var modalElem = $elem.find('#myModal');
+			$rootScope.$watch( 'showLoading', function(newValue, oldValue){
+				if (newValue) {
+					modalElem.modal('show');
+				} else {
+					modalElem.modal('hide');
+				}
+			}, true);
+		}
+	}
+}])

@@ -19,10 +19,20 @@
 	</div>
 
 	<div>
-		<ul class="pager">
+	
+	<ul class="pager">
+	  <li class="previous"  ng-show="page > 1">
+	    <a href="" ng-click="getNewer()">&larr; Newer</a>
+	  </li>
+	  <li class="next">
+	    <a href="" ng-click="getOlder()">Older &rarr;</a>
+	  </li>
+	</ul>
+	
+	<!--	<ul class="pager">
 			<li class="previous">
-				<div ng-show="showLoading">
-					<button class="btn btn-primary" ng-click="getOlder()">&larr; Newer</button>
+				<div ng-show="page > 1">
+					<button class="btn btn-primary" ng-click="getNewer()">&larr; Newer</button>
 				</div>
 			</li>
 			<li class="next">
@@ -30,15 +40,8 @@
 					<button class="btn btn-primary" ng-click="getNewer()">Older &rarr;</button>
 				</div>
 			</li>
-		</ul>
+		</ul>-->
 	</div>
-<!--
-	<div ng-show="showLoading">
-		<button class="btn btn-primary pull-right disabled" disabled="disabled">Lädt...</button>
-	</div>
-	<div ng-hide="showLoading">
-		<button class="btn btn-primary pull-right" ng-class="{disabled:showLoading}" ng-click="getList()">Weitere Tickets laden</button>
-	</div>
--->
+
 	<br class="clearfix " />
 </div>

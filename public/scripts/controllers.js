@@ -15,13 +15,6 @@ angular.module('SmgSupportCenter', [])
 		this.tickets = [],
 		this.getList = function(offset){
 			return $http.get(baseUrl + '/request/get-list/offset/' + offset).success(function(res){
-				/*
-				var i = 0;
-				for (i;i<res.length; i++) {
-					self.tickets.push(res[i]);	
-				}
-				*/
-			console.log(res);
 				self.tickets = res;
 			});
 		}
@@ -75,9 +68,6 @@ angular.module('SmgSupportCenter', [])
 	.controller('GetListCtrl', ['$rootScope', '$scope', '$http', 'ticketsystemService', function GetListCtrl ($rootScope, $scope, $http, ticketsystemService) {
 		$scope.page = 1;
 		$scope.offset = 10;
-
-		$rootScope.showLoading = true;
-
 		$scope.results = ticketsystemService.tickets;
 		$rootScope.showLoading = $scope.results.length > 0 ? false : true;		
 
@@ -107,8 +97,7 @@ angular.module('SmgSupportCenter', [])
 				$rootScope.showLoading = false;
 			})
 		}
-		/*
-		*/
+
 	}])
 .directive('loadingScreen', ['$rootScope', '$parse', function($rootScope, $parse) {
 	return {

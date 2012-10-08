@@ -1,5 +1,5 @@
-<div class="well" style="width:96%; color:#222;" ng-controller="GetListCtrl">
-	<div class="accordion" id="accordion2" ng-repeat="result in results">
+<div class="well well-small" style="width:97.5%; color:#222;" ng-controller="GetListCtrl">
+	<div class="accordion" id="accordion2" ng-repeat="result in results" style="margin: 0;">
 	  <div class="accordion-group">
 	    <div class="accordion-heading">
 	      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{result.IdTicketsystem}}">
@@ -37,7 +37,7 @@
 			</li>
 			<li class="next">
 				<div ng-hide="showLoading">
-					<button class="btn btn-primary" ng-click="getOlder()">Older &rarr;</button>
+					<button class="btn btn-primary" ng-click="getNewer()">Older &rarr;</button>
 				</div>
 			</li>
 		</ul>-->

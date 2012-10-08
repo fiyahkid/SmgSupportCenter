@@ -6,18 +6,22 @@ angular.module('SmgSupportCenter', [])
 			.when('/login', {templateUrl: 'auth/login', controller: 'LoginCtrl'}) //wenn url: SmgSupportCenter/public/index/#/login
 			.when('/ticketsystem', {templateUrl: 'index/ticketsystem', controller: 'TicketsystemCtrl'}) //wenn url: SmgSupportCenter/public/index/#/ticketsystem
 			.when('/ticketsystem/:site', {templateUrl: 'index/ticketsystem', controller: 'TicketsystemCtrl'}) //wenn url: SmgSupportCenter/public/index/#/ticketsystem
-			.when('/eingang', {templateUrl: 'ticketsystem/eingang', controller: 'EingangCtrl'}) //wenn url: SmgSupportCenter/public/index/#/eingang
+			//.when('/eingang', {templateUrl: 'ticketsystem/eingang', controller: 'EingangCtrl'}) //wenn url: SmgSupportCenter/public/index/#/eingang
 			.otherwise({ templateUrl: 'index/main', controller: 'MainCtrl' }); //SmgSupportCenter/public/index/#/IRGENDWAS ANDERES
 	}])
 	.service('ticketsystemService', function($http){
+		
 		var self = this;
 		this.tickets = [],
 		this.getList = function(offset){
 			return $http.get(baseUrl + '/request/get-list/offset/' + offset).success(function(res){
+				/*
 				var i = 0;
 				for (i;i<res.length; i++) {
 					self.tickets.push(res[i]);	
 				}
+				*/
+				self.tickets = res;
 			});
 		}
 
@@ -40,11 +44,6 @@ angular.module('SmgSupportCenter', [])
 				href: 'eingang',					// link wie er dann an die url angeängt wird... => http://localhost/SmgSupportCenter/public/#/ticketsystem/eingang
 				template: 'ticketsystem/eingang',	// link zur view die geladen wird
 				text: 'Eingang'						// text auf dem button
-			},
-			{
-				href: 'section2',
-				template: 'ticketsystem/section2',
-				text: 'Section2'
 			},
 			{
 				href: 'bearbeitung',
@@ -71,20 +70,46 @@ angular.module('SmgSupportCenter', [])
 
 		$scope.selectedSite = this.findCurrentNav(site);
 	}])
-	.controller('EingangCtrl', ['$scope', function MainCtrl($scope) {
-		console.log('Eingang');
-	}])
-	.controller('GetListCtrl', ['$scope', 'ticketsystemService', function GetListCtrl ($scope, ticketsystemService) {
+	
+	.controller('GetListCtrl', ['$scope', '$http', 'ticketsystemService', function GetListCtrl ($scope, $http, ticketsystemService) {
+		$scope.page = 1;
+		$scope.offset = 10;
+/*
 		$scope.showLoading = false;
+*/
 		$scope.results = ticketsystemService.tickets;
+/*
 		$scope.getList = function() {
 			$scope.showLoading = true;
 			ticketsystemService.getList($scope.results.length).success(function(res) {
 				$scope.showLoading = false;
 			})
 		}
+*/
+		
+
+		$scope.getOlder = function() {
+			$scope.page--;
+			var pageOffset = ($scope.page -1) * $scope.offset;
+			$http.get(baseUrl + '/request/get-list/offset/' + pageOffset)
+			ticketsystemService.getList().success(function(res) {
+				$scope.results = res;
+			})
+			console.log('older');
+		}
+		$scope.getNewer = function() {
+			$scope.page++;
+			var pageOffset = ($scope.page -1) * $scope.offset;
+			$http.get(baseUrl + '/request/get-list/offset/' + pageOffset)
+			ticketsystemService.getList().success(function(res) {
+				$scope.results = res;
+			})
+			console.log('newer');
+		}
 
 		if ($scope.results.length === 0) {
-			$scope.getList();
+			$scope.getNewer();
 		}
+		/*
+		*/
 	}])

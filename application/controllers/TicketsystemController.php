@@ -6,4 +6,12 @@ class TicketsystemController extends Zend_Controller_Action
     {
     	$this->_helper->layout->disableLayout();	
     }
+    public function bearbeitungAction ()
+    {
+    	$this->_helper->layout->disableLayout();	
+    }
+    public function ausgangAction ()
+    {
+    	$this->_helper->layout->disableLayout();	
+    }
 }

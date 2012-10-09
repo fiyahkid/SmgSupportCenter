@@ -3,6 +3,7 @@ angular.module('SmgSupportCenter', [])
 		// Add a basic route to load the template
 		$routeProvider
 			.when('/get-list', {templateUrl: 'index/get-list', controller: 'GetListCtrl'}) //wenn url: SmgSupportCenter/public/index/#/get-list
+			.when('/get-search-list', {templateUrl: 'index/get-search-list', controller: 'SearchCtrl'}) //wenn url: SmgSupportCenter/public/index/#/get-search-list
 			.when('/login', {templateUrl: 'auth/login', controller: 'LoginCtrl'}) //wenn url: SmgSupportCenter/public/index/#/login
 			.when('/ticketsystem', {templateUrl: 'index/ticketsystem', controller: 'TicketsystemCtrl'}) //wenn url: SmgSupportCenter/public/index/#/ticketsystem
 			.when('/ticketsystem/:site', {templateUrl: 'index/ticketsystem', controller: 'TicketsystemCtrl'}) //wenn url: SmgSupportCenter/public/index/#/ticketsystem
@@ -23,6 +24,20 @@ angular.module('SmgSupportCenter', [])
 			tickets: this.tickets,
 			getList: this.getList
 		}		
+	})
+	.service('searchService', function(&http){
+		var self = this;
+		this.ticketsearch = [],
+		this.getSearchList = function(){
+			return $http.get(baseUrl + '/request/get-search-list/').success(function(res){
+				self.ticketsearch = res;
+			});
+		}
+
+		return {
+			ticketsearch: this.ticketsearch,
+			getSearchList: this.getSearchList
+		}
 	})
 	.controller('MainCtrl', ['$scope', function MainCtrl($scope) {
 		console.log('Hallo');
@@ -64,7 +79,22 @@ angular.module('SmgSupportCenter', [])
 
 		$scope.selectedSite = this.findCurrentNav(site);
 	}])
-	
+	.controller('SearchCtrl', ['$rootScope', '$scope', '$http', 'searchService', function SearchCtrl ($rootScope, $scope, $http, searchService) {
+		$scope.results = searchService.ticketsearch;
+
+		$scope.showSearch = function() {
+			searchService.getSearchList().success(function(res){
+				$scope.results = res;
+			})
+		}
+
+		if($scope.results.length === 0) {
+			searchService.getSearchList().success(function(res){
+				$scope.results = res;
+			})
+		}
+
+	}])
 	.controller('GetListCtrl', ['$rootScope', '$scope', '$http', 'ticketsystemService', function GetListCtrl ($rootScope, $scope, $http, ticketsystemService) {
 		$scope.page = 1;
 		$scope.offset = 10;

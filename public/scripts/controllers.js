@@ -26,7 +26,7 @@ angular.module('SmgSupportCenter', [])
 		}		
 	})
 	/**/
-	.service('searchService', function(&http){
+	.service('searchService', function($http){
 		var self = this;
 		this.ticketsearch = [],
 		this.getSearchList = function(){
@@ -89,6 +89,18 @@ angular.module('SmgSupportCenter', [])
 			searchService.getSearchList().success(function(res){
 				$scope.results = res;
 			})
+		}
+
+		$scope.active = function() {
+			$('#searchform').addClass('activesearch');
+			
+			var searchsubmit = 0;
+
+			$('#searchsubmit').on('click', searchsubmit+);
+
+			if(searchsubmit === 1) {
+				$('#searchform').removeClass('activesearch');
+			}
 		}
 
 		if($scope.results.length === 0) {

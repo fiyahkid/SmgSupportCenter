@@ -90,9 +90,9 @@
 					!-- -->
 						<button class="btn">Suche</button>
 						<button class="btn dropdown-toggle" data-toggle="dropdown">
-							<a href="#searchform"><span class="caret" id="searcharrow" ng-click="active()"></span></a>
+							<!--<a href="#searchform">--><span class="caret" id="searcharrow" ng-click="active()"></span><!--</a>-->
 						</button>
-						<div id="searchform" class="dropdown-menu" style="
+						<div id="searchform" ng-click="active()" class="dropdown-menu" style="
 															position: absolute;	
 															left: 0;
 															right: 0;

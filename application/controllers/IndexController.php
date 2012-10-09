@@ -27,6 +27,11 @@ class IndexController extends Zend_Controller_Action
     	$this->_helper->layout->disableLayout();	
     }
 
+    public function getSearchListAction ()
+    {
+        $this->_helper->layout->disbaleLayout();
+    }
+
     public function ticketsystemAction ()
     {
 

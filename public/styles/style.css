@@ -508,6 +508,18 @@ header hr {
 
 }
 
+@media screen and (max-width: 1320px) {
+	.form-inline {
+		display: none;
+	}
+}
+@media screen and (max-width: 900px) {
+	.nav-collapse {
+		display: none;
+	}
+}
+
+
 /*
 #content div.id {
 	border: 0px solid black;

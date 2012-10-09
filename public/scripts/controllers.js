@@ -78,6 +78,7 @@ angular.module('SmgSupportCenter', [])
 			ticketsystemService.getList( pageOffset ).success(function(res){
 				$scope.results = res;
 				$rootScope.showLoading = false;
+				$scope.currentMsg = res[0];
 			})
 		}
 		$scope.getNewer = function() {
@@ -87,11 +88,12 @@ angular.module('SmgSupportCenter', [])
 			ticketsystemService.getList( pageOffset ).success(function(res){
 				$scope.results = res;
 				$rootScope.showLoading = false;
+				$scope.currentMsg = res[0];
 			})
 		}
 
-		$scope.showTicket = function() {
-			console.log($scope.results[IdTicketsystem]);
+		$scope.showMessage = function(index) {
+			$scope.currentMsg = $scope.results[index];
 		}
 
 		if ($scope.results.length === 0) {

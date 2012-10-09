@@ -28,6 +28,12 @@ class RequestController extends Zend_Controller_Action
 
 	}
 
+	public function getSearchListAction()
+	{
+		$query = TicketsystemQuery::create();
+		$tickets = $query/*->limit( $this->_getParam('limit') )*/->offset( $this->_getParam('offset') )->find();
+	}
+
 	public function requestallAction()
 	{
 		$request = new RequestModel();

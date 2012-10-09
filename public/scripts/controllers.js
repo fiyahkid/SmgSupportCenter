@@ -96,13 +96,24 @@ angular.module('SmgSupportCenter', [])
 			
 			var searchsubmit = 0;
 
+
 			$('#searchsubmit').on('click', function(){
 				searchsubmit++;
 			});
+			console.log(searchsubmit);
 
-			if(searchsubmit === 1) {
-				$('#searchform').removeClass('activesearch');
-			}
+			$('#searchsubmit').on('click', function(){
+				searchsubmit++;
+				console.log('schnitzel ' + searchsubmit);
+				
+				if(searchsubmit === 1) {
+					$('#searchform').removeClass('activesearch');
+					console.log('bla' + searchsubmit);
+				}
+			});
+			console.log('balbla' + searchsubmit);
+
+			
 		}
 
 		if($scope.results.length === 0) {

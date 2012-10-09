@@ -96,6 +96,10 @@ angular.module('SmgSupportCenter', [])
 			
 			var searchsubmit = 0;
 
+
+			$('#searchsubmit').on('click', function(){
+				searchsubmit++;
+			});
 			console.log(searchsubmit);
 
 			$('#searchsubmit').on('click', function(){

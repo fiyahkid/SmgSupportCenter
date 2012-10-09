@@ -96,7 +96,9 @@ angular.module('SmgSupportCenter', [])
 			
 			var searchsubmit = 0;
 
-			$('#searchsubmit').on('click', searchsubmit+);
+			$('#searchsubmit').on('click', function(){
+				searchsubmit++;
+			});
 
 			if(searchsubmit === 1) {
 				$('#searchform').removeClass('activesearch');

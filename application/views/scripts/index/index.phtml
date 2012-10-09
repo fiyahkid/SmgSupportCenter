@@ -88,7 +88,24 @@
 					<!-- --
 					<div class="btn-group pull-right" style="margin-right: 25px;">
 					!-- -->
-						<button class="btn">Suche</button>
+					
+					
+					<div class="dropdown">
+						<button class="btn dropdown-toggle" data-toggle="dropdown">
+							Suche <a href="#searchform"><span class="caret" id="searcharrow"></span></a>
+						</button>
+						<div class="dropdown-menu well" style="padding: 15px; padding-bottom: 0px;">
+							<form class="form-search">
+								<input type="text" ng-model="keywords" class="input-medium search-query" placeholder="search..." />
+								<button type="submit" class="btn" ng-click="showSearch()" id="searchsubmit">Search</button>
+							</form>
+						</div>
+					</div>
+					
+					
+					
+					
+						<!--<button class="btn">Suche</button>
 						<button class="btn dropdown-toggle" data-toggle="dropdown">
 							<!--<a href="#searchform">--><span class="caret" id="searcharrow" ng-click="active()"></span><!--</a>-->
 						</button>
@@ -103,24 +120,12 @@
 															float: right;
 
 														 ">
-							<!-- -->
 							<form class="well form-search">
 								<label>Search:</label>
-								<!-- -->
 								<input type="text" ng-model="keywords" class="input-medium search-query" placeholder="search...">
-								<!-- --
-								<input type="text" class="input-medium search-query" placeholder="search...">
-								!-- -->
 								<button type="submit" class="btn" ng-click="showSearch()" id="searchsubmit">Search</button>
-								<!-- --
-								<button type="submit" class="btn">Search</button>
-								!-- -->
 							</form>
-							<!-- --
-							<pre ng-model="result">{{result}}</pre>
-							!-- -->
-						<!-- -->
-						</div>
+						</div>-->
 					</div>
 				</div>
 			</div>

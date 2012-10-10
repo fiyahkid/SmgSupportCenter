@@ -26,9 +26,6 @@ angular.module('SmgSupportCenter', [])
 			getList: this.getList
 		}		
 	}])
-	.controller('MainCtrl', ['$scope', function MainCtrl($scope) {
-		console.log('Hallo');
-	}])
 	.controller('LoginCtrl', ['$scope', function MainCtrl($scope) {
 		console.log('Login');
 	}])
@@ -193,7 +190,7 @@ angular.module('SmgSupportCenter', [])
 		        });
 		    }
 	    })   
-	}
+	}])
 	.directive('loadingScreen', ['$rootScope', '$parse', function($rootScope, $parse) {
 		return {
 			restrict: 'E',

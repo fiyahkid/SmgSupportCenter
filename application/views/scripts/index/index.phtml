@@ -148,7 +148,7 @@
 				<div id="messages" class="table-striped">
 				    <div class="message" ng-repeat="message in messages" cool-fade>
 					    <div class="avatar-frame">
-					    	<img ng-src="http://www.gravatar.com/avatar/{{message.email}}?s=60&r=R&d=https://www.guardly.com/commonassets/images/img_profile_placeholder.png"
+					    	<img ng-src="http://www.gravatar.com/avatar/{{message.email | gravatarHash}}?s=60"
 					    		 class="avatar avatar-60 photo" 
 					    		 height="20" width="20"/>
 					    </div>

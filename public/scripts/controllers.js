@@ -10,13 +10,14 @@ angular.module('SmgSupportCenter', [])
 			//.when('/eingang', {templateUrl: 'ticketsystem/eingang', controller: 'EingangCtrl'}) //wenn url: SmgSupportCenter/public/index/#/eingang
 			.otherwise({ templateUrl: 'index/main', controller: 'MainCtrl' }); //SmgSupportCenter/public/index/#/IRGENDWAS ANDERES
 	}])
-	.service('ticketsystemService', function($http){
+	.service('ticketsystemService', ['$rootScope', '$http', function($rootScope, $http){
 		
 		var self = this;
-		this.tickets = [],
-		this.getList = function(offset){
-			return $http.get(baseUrl + '/request/get-list/offset/' + offset).success(function(res){
+		this.tickets = [];
+		this.getList = function(offset, keywords){
+			return $http.get(baseUrl + '/request/get-list/offset/' + offset + '/search/' + keywords).success(function(res){
 				self.tickets = res;
+				$rootScope.$broadcast('new-search-results', res);
 			});
 		}
 
@@ -24,23 +25,7 @@ angular.module('SmgSupportCenter', [])
 			tickets: this.tickets,
 			getList: this.getList
 		}		
-	})
-	/**/
-	.service('searchService', function($http){
-		var self = this;
-		this.ticketsearch = [],
-		this.getSearchList = function(keywords){
-			return $http.get(baseUrl + '/request/get-search-list/keywords' + keywords).success(function(res){
-				self.ticketsearch = res;
-			});
-		}
-
-		return {
-			ticketsearch: this.ticketsearch,
-			getSearchList: this.getSearchList
-		}
-	})
-/**/
+	}])
 	.controller('MainCtrl', ['$scope', function MainCtrl($scope) {
 		console.log('Hallo');
 	}])
@@ -81,72 +66,40 @@ angular.module('SmgSupportCenter', [])
 
 		$scope.selectedSite = this.findCurrentNav(site);
 	}])
-	/**/
-	.controller('SearchCtrl', ['$rootScope', '$scope', '$http', 'searchService', function SearchCtrl ($rootScope, $scope, $http, searchService) {
-		$scope.results = searchService.ticketsearch;
-
-		$scope.showSearch = function() {
-			searchService.getSearchList().success(function(res){
-				$scope.results = res;
+	.controller('MainCtrl', ['$rootScope', '$scope', 'ticketsystemService', function MainCtrl($rootScope, $scope, ticketsystemService) {
+		$scope.keywords = '';
+		$scope.search = function() {
+			$rootScope.showLoading = true;
+			ticketsystemService.getList(0, $scope.keywords).success(function(){
+				$rootScope.showLoading = false;
 			})
 		}
-
-		$scope.active = function() {
-			$('#searchform').addClass('activesearch');
-			
-			var searchsubmit = 0;
-
-
-			$('#searchsubmit').on('click', function(){
-				searchsubmit++;
-			});
-			console.log(searchsubmit);
-
-			$('#searchsubmit').on('click', function(){
-				searchsubmit++;
-				console.log('schnitzel ' + searchsubmit);
-				
-				if(searchsubmit === 1) {
-					$('#searchform').removeClass('activesearch');
-					console.log('bla' + searchsubmit);
-				}
-			});
-			console.log('balbla' + searchsubmit);
-
-			
-		}
-
-		if($scope.results.length === 0) {
-			searchService.getSearchList().success(function(res){
-				$scope.results = res;
-			})
-		}
-
 	}])
-/**/
 	.controller('GetListCtrl', ['$rootScope', '$scope', '$http', 'ticketsystemService', function GetListCtrl ($rootScope, $scope, $http, ticketsystemService) {
 		$scope.page = 1;
 		$scope.offset = 10;
-		$scope.results = ticketsystemService.tickets;
-		$scope.showLoading = $scope.results.length > 0 ? false : true;		
+		$scope.results = [];
+		$scope.$on('new-search-results', function(e, val){
+			$scope.results = val;
+		});
+		$rootScope.showLoading = $scope.results.length > 0 ? false : true;
 
 		$scope.getOlder = function() {
 			$scope.page++;
-			$scope.showLoading = true;
+			$rootScope.showLoading = true;
 			var pageOffset = ($scope.page -1) * $scope.offset;
-			ticketsystemService.getList( pageOffset ).success(function(res){
-				$scope.results = res;
-				$scope.showLoading = false;
+			ticketsystemService.getList( pageOffset, $scope.keywords ).success(function(res){
+				$rootScope.showLoading = false;
 				$scope.currentMsg = res[0];
 			})
+			console.log($scope.keywords);
 		}
 		$scope.getNewer = function() {
 			$scope.page--;
-			$scope.showLoading = true;
+			$rootScope.showLoading = true;
 			var pageOffset = ($scope.page -1) * $scope.offset;
-			ticketsystemService.getList( pageOffset ).success(function(res){
-				$scope.results = res;
-				$scope.showLoading = false;
+			ticketsystemService.getList( pageOffset, $scope.keywords ).success(function(res){
+				$rootScope.showLoading = false;
 				$scope.currentMsg = res[0];
 			})
 		}
@@ -157,11 +110,10 @@ angular.module('SmgSupportCenter', [])
 
 		if ($scope.results.length === 0) {
 
-			$scope.showLoading = true;
+			$rootScope.showLoading = true;
 
-			ticketsystemService.getList(0).success(function(res){
-				$scope.results = res;
-				$scope.showLoading = false;
+			ticketsystemService.getList(0, $scope.keywords).success(function(res){
+				$rootScope.showLoading = false;
 			})
 		}
 

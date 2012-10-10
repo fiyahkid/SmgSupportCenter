@@ -75,13 +75,13 @@
 					<br class="clearfix" />
 					-->
 					
-					<div class="btn-group pull-right" style="right: 25px;" ng-controller="SearchCtrl">
+					<div class="btn-group pull-right" style="right: 25px;">
 						<div class="dropdown">
-							<button class="btn btn-info dropdown-toggle" data-toggle="dropdown" style="width: 96px;">
-								Suche <a href="#searchform"><span class="caret" id="searcharrow"></span></a>
+							<button class="btn btn-info dropdown-toggle" data-toggle="dropdown" style="min-width: 96px;">
+								Suche<span ng-class="{'hide': !keywords}">: {{keywords}}</span> <a href="#searchform"><span class="caret" id="searcharrow"></span></a>
 							</button>
 							<div class="dropdown-menu well pull-right" style="padding: 15px; padding-bottom: 0px; margin-top: 6px;">
-								<form class="form-search">
+								<form class="form-search" ng-submit="search()">
 									<input type="text" ng-model="keywords" class="input-medium search-query" placeholder="search..." style="width: 300px;"/>
 									<button type="submit" class="btn" ng-click="showSearch()" id="searchsubmit">Search</button>
 								</form>

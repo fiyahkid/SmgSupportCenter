@@ -221,4 +221,8 @@ angular.module('SmgSupportCenter', [])
 	        };
 	      }
 	    };
-  	});
+  	}).filter('gravatarHash', [function(){
+  		return function(text){
+  			return hex_md5(text.toLowerCase().trim())
+  		};
+  	}])

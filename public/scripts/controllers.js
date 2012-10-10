@@ -156,7 +156,9 @@ angular.module('SmgSupportCenter', [])
 		}
 
 		if ($scope.results.length === 0) {
+
 			$scope.showLoading = true;
+
 			ticketsystemService.getList(0).success(function(res){
 				$scope.results = res;
 				$scope.showLoading = false;
@@ -167,17 +169,19 @@ angular.module('SmgSupportCenter', [])
 .directive('loadingScreen', ['$rootScope', '$parse', function($rootScope, $parse) {
 	return {
 		restrict: 'E',
-		template: 	'<div class="label label-info">Info</div>',
+		scope: {
+			show: '='
+		},
+		template: '<div class="label label-info">Info</div>',
 		link: function($scope, $elem, attrs) {
-			
-			//	$scope.$watch( 'showLoading', function(newValue, oldValue){
-			//		console.log($scope.show);
-			//		if ($scope.show) {
-			//			elem.show();
-			//		}else{
-			//			elem.hide();
-			//		}
-			//	}, true);
+			// $scope.$watch( 'showLoading', function(newValue, oldValue){
+			// 	console.log($scope.show);
+			// 	if ($scope.show) {
+			// 		$elem.show();
+			// 	} else {
+			// 		$elem.hide();
+			// 	}
+			// }, true);
 		}
 	}
 }])

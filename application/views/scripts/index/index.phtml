@@ -126,20 +126,20 @@
 			 origin="pubsub.pubnub.com" 
 			 id="pubnub">
 		</div>
-		<<script type="text/javascript" src="http://cdn.pubnub.com/pubnub-3.1.min.js"></script>
+		<script type="text/javascript" src="http://cdn.pubnub.com/pubnub-3.1.min.js"></script>
 		
 
 		<div ng-controller="ChatCtrl">
 		    <div class="progress progress-striped active" id="progress_bar">
 		    	<div class="bar" style="width: 100%;"></div>
 		    </div>
-		    <div class="well">
+		    <div class="well" style="color: black;">
 		    	<b>Status: {{realtimeStatus}} </b>
 		        <form class="form-horizontal">
-		            <label>Name:</label> <input placeholder="Your Name" type="text" name="username" ng-model="message.username"/> <br/>
-					<label>Email:</label> <input placeholder="Your Email" type="text" name="email" ng-model="message.email"/> <br/>             
-		            <label>Message:</label> <input placeholder="What's on your mind?" type="text" name="text" ng-model="message.text"/>
-		            <button type="submit" ng-click="publish()" class="btn btn-primary">Send</button>     
+		            <label>Name:</label> <input placeholder="Your Name" type="text" name="username" ng-model="message.username" style="width: 150px;"/> <br/>
+					<label>Email:</label> <input placeholder="Your Email" type="text" name="email" ng-model="message.email" style="width: 150px;"/> <br/>             
+		            <label>Message:</label> <input placeholder="What's on your mind?" type="text" name="text" ng-model="message.text" style="width: 150px; height: 100px;"/>
+		            <button type="submit" ng-click="publish()" class="btn btn-primary" style="width: 100px; margin-top: 5px;">Send</button>     
 		        </form>
 		        <hr/>
 				        
@@ -150,10 +150,10 @@
 					    <div class="avatar-frame">
 					    	<img ng-src="http://www.gravatar.com/avatar/{{message.email}}?s=60&r=R&d=https://www.guardly.com/commonassets/images/img_profile_placeholder.png"
 					    		 class="avatar avatar-60 photo" 
-					    		 height="60" width="60"/>
+					    		 height="20" width="20"/>
 					    </div>
-				    	<p class="user">{{message.username}} said:</p>
-				        <p class="text">{{message.text}}</p>
+				    	<p class="user pull-right" style="width: 100px;">{{message.username}} said:</p>
+				        <p class="text pull-right" style="width: 50px;">{{message.text}}</p>
 				    </div>
 				</div>
 			</div>

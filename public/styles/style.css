@@ -558,8 +558,8 @@ header hr {
 
 #messages .avatar-frame{float: left; margin-right:10px; padding:0px; border: 2px solid #fff;}
 #messages .avatar-frame,.avatar-frame img {
-width: 50px;
-height: 50px;
+width: 20px;
+height: 20px;
 -webkit-border-radius: 10px; /* Saf3+, Chrome */
 border-radius: 10px; /* Opera 10.5, IE 9 */
 /*-moz-border-radius: 30px; Disabled for FF1+ */

@@ -60,15 +60,17 @@
 	<br class="clearfix " />
 
 <div class="tabbable">
-	<ul class="nav nav-tabs" style="margin-left: 150px; width: 500px;">
-		<li class="active"><a href="#tab1" data-toggle="tab">Original Ticket</a></li>
-		<li><a href="#tab2" data-toggle="tab" style="background-color: #666; color: white;">Antworten</a></li>
-		<li><a href="#tab3" data-toggle="tab" style="background-color: #666; color: white;">Weiterleiten</a></li>
+	<ul class="nav nav-tabs" style="margin-left: 150px; width: 700px;">
+		<li style="height: 30px;" class="btn"><a href="#tab1" data-toggle="tab" style="color: #333; margin-top: -5px; ">Original Ticket</a></li>
+		<li style="height: 30px;" class="btn"><a href="#tab2" data-toggle="tab" style="color: #333; margin-top: -5px; ">Antworten</a></li>
+		<li style="height: 30px;" class="btn"><a href="#tab3" data-toggle="tab" style="color: #333; margin-top: -5px; ">Weiterleiten</a></li>
+		<li style="height: 30px;" class="btn"><a href="#tab4" data-toggle="tab" style="color: #333; margin-top: -5px; ">Verlauf &Uuml;bersicht</a></li>
+		<li style="height: 30px;" class="btn btn-inverse"><a href="#tab5" data-toggle="tab" style=" margin-top: -5px; color: #999;">PDF</a></li>
 	</ul>
 	<div class="tab-content">
 		<div class="tab-pane active" id="tab1">
 			
-			<div class="well well-small" style="margin-left: -10px; margin-top: -20px; width: 97.5%; max-height: 400px; position: absolute;" ng-show="currentMsg">
+			<div class="well well-small" style="margin-left: -10px; margin-top: -22px; width: 97.5%; max-height: 400px; position: absolute;" ng-show="currentMsg">
 				<div class="well well-small" style="height: 20px; max-height: 20px;">
 					<p class="pull-left"><span>Betreff: </span>{{currentMsg.Debitor}} // {{currentMsg.Produkt}} // {{currentMsg.Fehlermeldung}}</p>
 					<p class="pull-right"><span>Ticket-ID: </span>{{currentMsg.IdTicketsystem}}</p>

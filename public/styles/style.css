@@ -512,6 +512,12 @@ header hr {
 	display: block;
 }
 
+.loading {
+	text-align: center;
+	padding: 2px 5px;
+	margin: 5px 0;
+}
+
 @media screen and (max-width: 1320px) {
 	.form-inline {
 		display: none;

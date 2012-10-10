@@ -29,8 +29,8 @@ angular.module('SmgSupportCenter', [])
 	.service('searchService', function($http){
 		var self = this;
 		this.ticketsearch = [],
-		this.getSearchList = function(){
-			return $http.get(baseUrl + '/request/get-search-list/').success(function(res){
+		this.getSearchList = function(keywords){
+			return $http.get(baseUrl + '/request/get-search-list/keywords' + keywords).success(function(res){
 				self.ticketsearch = res;
 			});
 		}
@@ -128,25 +128,25 @@ angular.module('SmgSupportCenter', [])
 		$scope.page = 1;
 		$scope.offset = 10;
 		$scope.results = ticketsystemService.tickets;
-		$rootScope.showLoading = $scope.results.length > 0 ? false : true;		
+		$scope.showLoading = $scope.results.length > 0 ? false : true;		
 
 		$scope.getOlder = function() {
 			$scope.page++;
-			$rootScope.showLoading = false;
+			$scope.showLoading = true;
 			var pageOffset = ($scope.page -1) * $scope.offset;
 			ticketsystemService.getList( pageOffset ).success(function(res){
 				$scope.results = res;
-				$rootScope.showLoading = false;
+				$scope.showLoading = false;
 				$scope.currentMsg = res[0];
 			})
 		}
 		$scope.getNewer = function() {
 			$scope.page--;
-			$rootScope.showLoading = false;
+			$scope.showLoading = true;
 			var pageOffset = ($scope.page -1) * $scope.offset;
 			ticketsystemService.getList( pageOffset ).success(function(res){
 				$scope.results = res;
-				$rootScope.showLoading = false;
+				$scope.showLoading = false;
 				$scope.currentMsg = res[0];
 			})
 		}
@@ -156,10 +156,10 @@ angular.module('SmgSupportCenter', [])
 		}
 
 		if ($scope.results.length === 0) {
-			$rootScope.showLoading = false;
+			$scope.showLoading = true;
 			ticketsystemService.getList(0).success(function(res){
 				$scope.results = res;
-				$rootScope.showLoading = false;
+				$scope.showLoading = false;
 			})
 		}
 
@@ -167,20 +167,17 @@ angular.module('SmgSupportCenter', [])
 .directive('loadingScreen', ['$rootScope', '$parse', function($rootScope, $parse) {
 	return {
 		restrict: 'E',
-		template: '<div style="color:#08C;" class="modal fade hide" id="myModal" tabindex="-1" role="dialog" data-backdrop="true" aria-labelledby="myModalLabel" aria-hidden="true"> ' +
-  				  '<div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>' + 
-    			  '<h3 id="myModalLabel">Lädt...</h3></div><div class="modal-body"><p>Lädt...</p></div><div class="modal-footer">' + 
-                  '<!--<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button><button class="btn btn-primary">Save changes</button>-->' + 
-                  '</div></div>',
+		template: 	'<div class="label label-info">Info</div>',
 		link: function($scope, $elem, attrs) {
-			var modalElem = $elem.find('#myModal');
-			$rootScope.$watch( 'showLoading', function(newValue, oldValue){
-				if (newValue) {
-					modalElem.modal('show');
-				} else {
-					modalElem.modal('hide');
-				}
-			}, true);
+			
+			//	$scope.$watch( 'showLoading', function(newValue, oldValue){
+			//		console.log($scope.show);
+			//		if ($scope.show) {
+			//			elem.show();
+			//		}else{
+			//			elem.hide();
+			//		}
+			//	}, true);
 		}
 	}
 }])

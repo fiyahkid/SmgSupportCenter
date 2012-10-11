@@ -1,20 +1,20 @@
 <div class="well well-small" style="width:97.5%; color:#222; max-height: 400px;" ng-controller="GetListCtrl">
 	<div class="loading label label-info label-inverse" ng-show="showLoading" style="position: absolute; 
-																	   z-index: 1000; 
-																	   width: 400px; 
-																	   left: 33%; 
-																	   margin-top: 180px;
-															   			
-															   		   max-height: 20px;
+																				   z-index: 1000; 
+																				   width: 400px; 
+																				   left: 33%; 
+																				   margin-top: 180px;
+																		   			
+																		   		   max-height: 20px;
 
-															   	   	   box-shadow: 0px 0px 50px rgba(0, 0, 0, .5);
-   		   														  -moz-box-shadow: 0px 0px 50px rgba(0, 0, 0, .5);
-															   -webkit-box-shadow: 0px 0px 50px rgba(0, 0, 0, .5);
-																	   ">
-																	   	<div class="progress progress-striped active">
-																	   		<div class="bar" style="width: 100%;"><p style="margin-top: 2px;">Loading...</p></div>
-																	   	</div>
-																	   </div>
+																		   	   	   box-shadow: 0px 0px 50px rgba(0, 0, 0, .5);
+			   		   														  -moz-box-shadow: 0px 0px 50px rgba(0, 0, 0, .5);
+																		   -webkit-box-shadow: 0px 0px 50px rgba(0, 0, 0, .5);
+																				   ">
+																				   	<div class="progress progress-striped active">
+																				   		<div class="bar" style="width: 100%;"><p style="margin-top: 2px;">Loading...</p></div>
+																				   	</div>
+																				   </div>
 	<div class="accordion" id="accordion2" ng-repeat="result in results" style="margin: 0; height: 40px; min-height: 40px; max-height: 40px;">
 	  <div class="accordion-group">
 	    <div class="accordion-heading" ng-class="{'alert-info' : (currentMsg == result)}">

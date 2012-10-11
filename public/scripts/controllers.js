@@ -115,6 +115,12 @@ angular.module('SmgSupportCenter', [])
 		}
 
 	}])
+	.controller('ChatWindowCtrl', ['$rootScope', '$scope', '$http', function ChatWindowCtrl($rootScope, $scope, $http) {
+		$scope.chatWindow = function (){
+			$('#chat').show();
+			console.log('testchatwindow');
+		}
+	}])
 	.controller('ChatCtrl', ['$rootScope', '$scope', '$http', function ChatCtrl($rootScope, $scope, $http) {
 		$scope.messages = [];
 		$scope.realtimeStatus = "Connecting...";
@@ -221,7 +227,8 @@ angular.module('SmgSupportCenter', [])
 	        };
 	      }
 	    };
-  	}).filter('gravatarHash', [function(){
+  	})
+  	.filter('gravatarHash', [function(){
   		return function(text){
   			return hex_md5(text.toLowerCase().trim())
   		};

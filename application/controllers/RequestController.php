@@ -2,6 +2,7 @@
 
 class RequestController extends Zend_Controller_Action
 {
+
 	public function init() {
 
 	}
@@ -14,10 +15,13 @@ class RequestController extends Zend_Controller_Action
 		
 	}
 	
+	/**
+	| get the whole list of tickets
+	*/	
 	public function getListAction()
 	{
 		$query = TicketsystemQuery::create();
-		$tickets = $query->limit( $this->_getParam('limit', 5) )->offset( $this->_getParam('offset', 5) )->find();
+		$tickets = $query->limit( $this->_getParam('limit', 15) )->offset( $this->_getParam('offset', 15) )->find();
 
 		$results = array();
 		foreach($tickets as $ticket){
@@ -28,21 +32,6 @@ class RequestController extends Zend_Controller_Action
 
 	}
 
-	public function requestallAction()
-	{
-		$request = new RequestModel();
-		$rowset = $request->fetchAll();
-		
-		foreach($rowset as $key => $row)
-		{
-			echo '<h3>Row ' . $key . '</h3>';
-			Zend_Debug::dump($row->toArray());
-			
-			echo '<h3>Row ' . $key . ' Title</h3>';
-			Zend_Debug::dump($row->ticket_id);
-		}
-	}
-	
 
 	public function tsDetailsAction(){
 		$request = new RequestModel();

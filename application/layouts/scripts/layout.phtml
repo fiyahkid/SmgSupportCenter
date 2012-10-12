@@ -25,6 +25,9 @@
 	<!-- 	AngularJS -->
 	<?php $this->headScript()->appendFile($this->baseUrl() . '/scripts/controllers.js'); ?>
 
+	<!--	PUBNUB CHAT -->
+	<?php $this->headScript()->appendFile($this->baseUrl() . '/scripts/md5js.js'); ?>
+
 	<!-- 	jQuery -->
 	<!--
 	<?php # $this->headScript()->appendFile($this->baseUrl() . '/scripts/development-bundle/jquery-1.8.0.js'); ?>
@@ -47,7 +50,7 @@
 		var baseUrl = '<?php echo $this->baseUrl(); ?>'
 	</script>
 </head>
-<body>
+<body ng-controller="MainCtrl">
 	<?php echo $this->layout()->content; ?>
 </body>
 </html>

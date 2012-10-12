@@ -1,6 +1,15 @@
-<div id="wrapper">
-	<p>das ist ein Test ob der Link von TICKETSYSTEM funktioniert</p>
-	<nav>
-		<a href="<?php $this->baseUrl() . "/index/newTicket/"?>">neues Ticket</a>
-	</nav>
+
+
+
+<div class="tabbable tabs-left" style="margin-top: 1px; z-index: 0;">
+	<ul class="nav nav-tabs" style="position: absolute; height: 100%; top: 0; bottom: 0;">
+		<li class="btn-inverse" style="width: 188px;" ng-repeat="val in nav"><a href="#{{val.template}}">{{val.text}}</a></li>
+	</ul>
+	<div class="tab-content" style="position: absolute; height: 100%; right: 0; top: 0; bottom: 0; left: 190px;">
+		<div class="tab-pane active" style="display: block;">
+			<div ng-include src="selectedSite"></div>
+
+		</div>
+	</div>
+	
 </div>

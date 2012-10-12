@@ -1,0 +1,118 @@
+.tit1 {
+	font-size: 14px;
+	font-weight: lighter;
+	color: #003366;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+.tit2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	color: #333333;
+}
+.nr {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #333333;
+	background-color: #F0F0F0;
+}
+.tip {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #999999;
+}
+
+.tit3 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #660000;
+}
+.nr2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #333333;
+}
+.yellow {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #FF9900;
+}
+.red {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FF0000;
+}
+.nr3 {
+	font-size: 12px;
+	color: #333333;
+}
+.tit11 {	font-size: 12px;
+	font-weight: lighter;
+	color: #003366;
+	font-family: Arial, Helvetica, sans-serif;
+	background-image: url(../images/tit1.jpg);
+	background-repeat: repeat-x;
+	line-height:20px;
+	font-weight: bold;
+}
+
+h1{font-family: Verdana, Helvetica, sans-serif;
+   font-size: 16px;
+   font-weight: bold;
+   margin:0;padding:0;
+   color: #003366;
+   }
+
+h2{font-family: Verdana, Helvetica, sans-serif;
+   font-size: 14px;
+   line-height:20px;
+   font-weight: bold;
+   margin:0;padding:0;
+   color: #ffffff;
+   height:30px;
+   border-bottom:1px solid #B0C6E4;
+   background-image: url(../images/bg_3.jpg);
+   text-align:center
+   }
+
+h3{font-family: Arial, Helvetica, sans-serif;
+   font-size: 12px;
+   line-height:15px;
+   font-weight: bold;
+   margin:0;padding:0;
+   color: #FF0000;
+   }
+
+
+
+.gray{font-family: Arial, Helvetica, sans-serif;
+   font-size: 12px;
+   color: #0065CD;
+   }
+   
+.blue{font-family: Arial, Helvetica, sans-serif;
+   font-size: 12px;
+   color: #0065CD;
+   }   
+
+.border{border:1px solid #ffffff;}
+   
+a.top {
+background:transparent none no-repeat scroll left top;
+display:block;
+float:right;
+height:11px;
+letter-spacing:1000px;
+overflow:hidden;
+text-decoration:none;
+text-indent:11px;
+width:11px;
+}
+a.top {
+background-image:url(../images/top.gif);
+}

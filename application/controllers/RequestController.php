@@ -21,7 +21,21 @@ class RequestController extends Zend_Controller_Action
 	public function getListAction()
 	{
 		$query = TicketsystemQuery::create();
-		$tickets = $query->limit( $this->_getParam('limit', 15) )->offset( $this->_getParam('offset', 15) )->find();
+
+		$tickets = $query->limit( $this->_getParam('limit', 10) )->offset( $this->_getParam('offset', 10) );
+
+		if ($this->_getParam('search') != '')
+		{
+			$tickets
+			  ->condition('cond1', 'Ticketsystem.Fehlermeldung LIKE ?', '%' . $this->_getParam('search') . '%')
+			  ->condition('cond2', 'Ticketsystem.Von LIKE ?', '%' . $this->_getParam('search') . '%')
+			  ->condition('cond3', 'Ticketsystem.Fehlerart LIKE ?', '%' . $this->_getParam('search') . '%')
+			  ->condition('cond4', 'Ticketsystem.Fehlertext LIKE ?', '%' . $this->_getParam('search') . '%')
+			  ->condition('cond5', 'Ticketsystem.An LIKE ?', '%' . $this->_getParam('search') . '%')
+			  ->where(array('cond1', 'cond2', 'cond3', 'cond4', 'cond5'), 'or');
+		}
+
+		$tickets = $tickets->find();
 
 		$results = array();
 		foreach($tickets as $ticket){
@@ -32,6 +46,33 @@ class RequestController extends Zend_Controller_Action
 
 	}
 
+	public function getSearchListAction()
+	{
+		$query = TicketsystemQuery::create();
+		$tickets = $query->find();
+
+		$results = array();
+		foreach($tickets as $ticketsearch){
+			$results[] = $ticketsearch->toArray();
+		}
+
+		$this->_helper->json($results);
+	}
+
+	public function requestallAction()
+	{
+		$request = new RequestModel();
+		$rowset = $request->fetchAll();
+		
+		foreach($rowset as $key => $row)
+		{
+			echo '<h3>Row ' . $key . '</h3>';
+			Zend_Debug::dump($row->toArray());
+			
+			echo '<h3>Row ' . $key . ' Title</h3>';
+			Zend_Debug::dump($row->ticket_id);
+		}
+	}
 
 	public function tsDetailsAction(){
 		$request = new RequestModel();

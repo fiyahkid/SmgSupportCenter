@@ -1,0 +1,518 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PHP Chat Instructions</title>
+<link rel="stylesheet" href="css/phpchat.css" />
+<link rel="stylesheet" href="css/jquery.treeview.css" />
+<link href="css/phpchatskin.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div align="center">
+<div id="box">
+<div class="logo"><h1>Installation Instructions for  PHP chat module Version 2.0</h1>
+</div>
+<div class="instruction">
+<div class="instruction_t"><img src="images/k_left.gif" /><span>About PHP chat module</span><img src="images/k_right.gif" /></div>
+<div class="instruction_c">
+<div class="instruction_n">
+  <table cellpadding="5" cellspacing="1" bgcolor="#dddddd" width="100%">
+    <tr align="left" bgcolor="#FFFFFF">
+      <td bgcolor="#F4F4F4"><b>Title:</b></td>
+      <td>PHP Chat  of 123Flash Chat chat module for integrate your website</td>
+    </tr>
+    <tr align="left" bgcolor="#FFFFFF">
+      <td valign="top" bgcolor="#F4F4F4"><b>Description:</b> </td>
+      <td>123 Flash Chat PHP chat 3rd party module can make your website have its own flash chat room. It also can integrate your website with databases through simple configuration. It is
+        a totally free third party plug-in component. </td>
+    </tr>
+    <tr align="left" bgcolor="#FFFFFF">
+      <td bgcolor="#F4F4F4"><b>Version:</b></td>
+      <td>2.0</td>
+    </tr>
+    <tr align="left" bgcolor="#FFFFFF">
+      <td valign="top" bgcolor="#F4F4F4"><b>Company:</b> </td>
+      <td><a    href="http://www.phpbb.com/community/memberlist.php?mode=viewprofile&amp;un=TOPCMM">TOPCMM</a></td>
+    </tr>
+    <tr align="left" bgcolor="#FFFFFF">
+      <td bgcolor="#F4F4F4"><b>Website:</b> </td>
+      <td><a href="http://www.123flashchat.com">http://www.123flashchat.com</a></td>
+    </tr>
+    <tr align="left" bgcolor="#FFFFFF">
+      <td valign="top" bgcolor="#F4F4F4"><b>Author:</b> </td>
+      <td> Daniel Jiang </td>
+    </tr>
+  </table></div>
+</div>
+<div class="instruction_b"><img src="images/kd_left.gif" /><span><!-- space end--></span><img src="images/kd_right.gif" /></div>
+<div class="space"><!-- space end--></div>
+<div class="instruction_t"><img src="images/k_left.gif" /><span>Installation Instructions</span><img src="images/k_right.gif" /></div>
+<div class="instruction_c">
+<div class="instruction_n">
+  <table cellpadding="0" cellspacing="0" width="100%" border="0">
+    <tr>
+      <td align="left"><div class="tit2" id='install'> <img src="images/dot2.gif" /> &nbsp;Install</div></td>
+    </tr>
+    <tr>
+      <td  align="left"><div style="width:100%;">
+          <table width="100%" cellpadding="5px" cellspacing="4" bgcolor="#F4F4F4">
+            <tr>
+              <td bgcolor="#FFFFFF" style="border:1px solid #dddddd;"><div name="class_link" >
+                  <ul id="tree">
+                    <li><a href="#requirements"   class="nr2" >1. Requirements</a></li>
+                    <li><a href="#quick_install"   class="nr2" >2. Quick install</a></li>
+                    <li><a href="#advanced_install"   class="nr2" >3. Advanced Install</a>
+                        <ul>
+                          <li><a href="#mode_instructions"    >3.1 Select integration module</a></li>
+                          <li><a href="#phpchat_mode"    >3.2 Select PHP Chat integrated mode</a></li>
+                          <li><a href="#free_mode"    >3.3 Free mode install instruction</a></li>
+                          <li><a  href="#host_mode">3.4 Host mode install instruction</a>
+                              <!--<ul>
+                                <li><a href="#host_address">3.4.1  Tips for host user filling in host address </a></li>
+                                <li><a href="#host_integration" >3.4.2 Integration declaration for Host mode </a></li>
+                              </ul>-->
+                          </li>
+                          <li><a  href="#local_mode">3.5 Local mode install instruction</a>
+                              <!--<ul>
+                                <li><a href="#local_path">3.5.1 123 Flash Chat installation address filling declaration.</a></li>
+                                <li><a href="#local_integration" >3.5.2 Integration declaration for Local mode </a></li>
+                                <li><a href="#copy_and_restart" >3.5.3 Move client &amp; restart server </a></li>
+                              </ul>-->
+                          </li>
+						  <li><a  href="#auto_login">3.6 Auto login (for Host mode and Local mode)</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get_code" class="nr2">4. Install done,copy code and link </a></li>
+                    <li><a href="#remove"  class="nr2">5. Remove install folder</a></li>
+                    <li><a href="#Advance" class="nr2">6. Advance</a>
+                        <ul>
+                          <li><a   href="#insta_info">6.1 Integration mode and relevant parameters filling annotation</a>
+                              <!--<ul>
+                                <li><a href="#mode_url">6.1.1 URL integration mode</a></li>
+                                <li><a href="#mode_database" >6.1.2 Database integration mode</a></li>
+                                <li><a href="#mode_param" >6.1.3 Database integration parameter declaration</a></li>
+                              </ul>-->
+                          </li>
+                          <li><a href="#api" >6.2 API for Developers</a></li>
+                        </ul>
+                    </li>
+                  </ul>
+                <!--id tree-->
+                  <br />
+              </div></td>
+            </tr>
+          </table>
+      </div></td>
+    </tr>
+  </table>
+  <table cellpadding="5" cellspacing="0" width="95%" border="0">
+    <tr>
+      <td align="left" ><br /><div class="tit1"  id="requirements">1. Requirements </div>
+          <div > <a class="top" href="#install">Back to Top</a><br />
+          </div>
+        <table width="100%" cellpadding="5px" cellspacing="4" bgcolor="#F4F4F4">
+            <tr>
+              <td bgcolor="#FFFFFF" style="border:1px solid #dddddd;">
+                  <p> PHP chat has a few requirements which must be met before you are able to install and use it. <br />
+                      <br />
+                    * A webserver or web hosting account running on any major Operating System with support for PHP <br />
+                    <br />
+                    * PHP 5.0.0+ &nbsp;(&gt;5.x.x, &gt;6.0-dev )<br />
+                    <br />
+                    * If you need to do database integration.A SQL database system, one of: </p>
+                  <p>MySQL 3.23 or above <br />
+                    MS SQL Server 2000 or above <br />
+                    Oracle</p>
+                  <p>is required.</p>
+                  <p><br />
+                    </p></td>
+            </tr>
+          </table>
+        <br/>
+        <div class="tit1"  id="quick_install">2. Quick install </div>
+        <div > <a class="top" href="#install">Back to Top</a><br />
+          </div>
+        </p>
+          <table width="100%" cellpadding="5px" cellspacing="4" bgcolor="#F4F4F4" >
+            <tr>
+              <td bgcolor="#FFFFFF" style="border:1px solid #dddddd;"><p><br />
+                1), Decompress the php chat package to a local directory on your system.<br />
+                <br />
+                2), Upload PHP chat folder and the files in it containing in the installation package to your web server.<br />
+                <br />
+                3), Change the permissions on the following directories to be writable by all:<br />
+                <br />
+                phpchat/configure/, &nbsp;phpchat/install/</p>
+                  <p>4), Using your web browser visit the location you placed phpchat with the addition of index.php,<br /> 
+                    e.g. <br />
+                    http://www.mydomain.com/phpchat/<br />
+                    <br />
+                    5), Click the INSTALL NOW button, follow the steps and fill out all the requested information.<br />
+                    </p>
+                  </td>
+            </tr>
+          </table>
+        <br/>
+        <div class="tit1"  id="advanced_install">3. Advanced Install </div>
+        <div class="gray" id="mode_instructions">3.1 Select integration module </div>
+        <div > <a class="top" href="#install">Back to Top</a><br />
+          </div>
+        <table width="100%" cellpadding="5px" cellspacing="4" bgcolor="#F4F4F4">
+            <tr>
+              <td bgcolor="#FFFFFF" style="border:1px solid #dddddd;"><div align="center"><img src="images/help/p1.png" width="589" height="558" /><br />
+                      <br />
+                </div>
+                  <br />
+                PHP Chat Accord to your requirement to the website chat room, PHP chat will offer you three integrated modules for you to choose.<br />
+                <br />
+                1), Enter the installation page, click the &quot;INSTALL NOW &quot; button, and then it will take you to the module selection page.
+                <p>2), If the CMS or Forum system you're running on your website is included in modules selection lists, we recommend you to use 3rd party module for integration instead of  PHP Chat because the particular 3rd party module can save your efforts in integration.</p>
+                <p>3), Please select your website type, click &quot;download&quot; so as to download relevant module installation package. Please integrate it according to the installation guide in the package.</p>
+                <p>4), If you choose to use 3rd party module to do website integration, it is unnecessary for you to install php chat integrated package. Otherwise, please click &quot;Others&quot; to enter and view the <a href="#phpchat_mode">Select PHP Chat integrated mode</a> <br />
+                </p></td>
+            </tr>
+          </table>
+        <BR/>
+        <div class="gray"  id="phpchat_mode">3.2 Select PHP Chat integrated mode </div>
+        <div ><a class="top" href="#install">Back to Top</a><br />
+          </div>
+        <table width="100%" cellpadding="5px" cellspacing="4" bgcolor="#F4F4F4">
+            <tr>
+              <td bgcolor="#FFFFFF" style="border:1px solid #dddddd;"><p align="center"><img src="images/help/p2.png" width="374" height="251" /><br />
+                </p>
+                <p>1) <strong>Chat server hosted by 123flashchat free of charge.</strong> This chat server mode aims at testing the basic functions, only supported 1 room, no video chat function, and also you don't have the administrator permission of entering this chat room, you can select the mode <strong>Chat server hosted by 123flashchat</strong> or <strong>Chat server hosted by your own</strong> to get the full functions and control your chat room.</p>
+                <p>2) <strong>Chat server hosted by 123flashchat.</strong> <a href="http://www.123flashchat.com/host.html" target="_blank">For paid host</a>, please set the Chat Client Location like this, for example: http://host71200.123flashchat.com/phpchat/ , <a href="http://www.123flashchat.com/host.html" target="_blank">Buy host here</a>; <a href="http://www.123flashchat.com/host/apply.php" target="_blank">For trial host</a>, please setup Chat Client Location like this: http://trial.123flashchat.com/yourhostname/ Just replace "yourhostname" to the real one when you applied, <a href="http://www.123flashchat.com/host/apply.php" target="_blank">Apply trial host</a></p>
+                <p>3) <strong>Chat server hosted by your own.</strong> Please download and install 123FlashChat first: <a href="http://www.123flashchat.com/download.html" target="_blank">http://www.123flashchat.com/download.html</a>, and set Chat Client Location to: http://&lt;your chat server domain or ip&gt;:35555/</p>               </td>
+            </tr>
+          </table>
+        <br/>
+        <div class="gray"  id="free_mode">3.3 Free mode install instruction </div>
+        <div ><a class="top" href="#install">Back to Top</a><br />
+          </div>
+        <table width="100%" cellpadding="5px" cellspacing="4" bgcolor="#F4F4F4">
+            <tr>
+              <td bgcolor="#FFFFFF" style="border:1px solid #dddddd;"><p>
+                1), In <a  href="#phpchat_mode">Select PHP Chat integrated mode page</a> please select &quot;Host chat room free of charge by 123flashchat.com&quot; (Free mode).<br />
+                <br />
+                2), Fill in your favorable room name and click &quot;next&quot; to complete installation.<br />
+              </p></td>
+            </tr>
+          </table>
+        <br/>
+        <div class="gray"  id="host_mode">3.4 Host mode install instruction </div><br/>
+        <!--<div class="gray" id="host_address">3.4.1 Tips for host user filling in host address </div>-->
+        <div ><a class="top" href="#install">Back to Top</a><br />
+          </div>
+        <table width="100%" cellpadding="5px" cellspacing="4" bgcolor="#F4F4F4">
+            <tr>
+              <td bgcolor="#FFFFFF" style="border:1px solid #dddddd;">
+                1), In <a href="#phpchat_mode">Select php chat integrated mode </a>page, please select &quot;Host chat room by 123flashchat.com&quot; (Host mode)<br />
+                <p > 2), The host address format is as follows.<br />
+                <br />
+                  http://yourHostServerAddress/yourHostName/<br />
+                  e.g: http://host71200.123flashchat.com/phpchat/ <br />
+                  <br />
+                  If you fill in it with a wrong format, you are not able to do the next operation. </p>              </td>
+            </tr>
+          </table>
+        <!--<br/>
+        <div class="gray"  id="host_integration">3.4.2 Integration declaration for Host mode </div>
+        <div ><a class="top" href="#install">Back to Top</a><br />
+          </div>
+        <table width="100%" cellpadding="5px" cellspacing="4" bgcolor="#F4F4F4">
+            <tr>
+              <td bgcolor="#FFFFFF" style="border:1px solid #dddddd;"><br />
+                  <p align="center" ><img src="images/help/integration.jpg" /></p>
+                <p>As the illustration above<br />
+                      <br />
+                  1), Selection 1,&quot;Do you want to integration with your database&quot;</p>
+                <p>If you select &quot;No&quot;, it indicates that you don't want to integrate with the website database. The chat room and user information will be stored into our database. If the user want to log in chat room, he or she must register  new id or log in with guest.</p>
+                <p>If you select &quot;yes&quot;, it indicates that you want to integrate with the website database and you have to configure the following items.</p>
+                
+                <p>2), Selection  2, &quot;Please select your current using database&quot;</p>
+                <p> Please select the database type in the selections of MySQL, Oracle or MS Server. </p>
+                
+                <p>3), Selection panel 3, &quot;Please configure the database connecting parameters&quot;</p>
+                <p>Please make sure all the information you fill in is true. Please refer to <a  href="#mode_param">Declaration for database integration parameters</a>.</p>
+                
+                <p>4), Please click &quot;next&quot; after finishing filling to the last installation page.</p>
+                <p>The login_chat.php is used to do database integration, Please configure login_chat.php address to the chat admin panel<br />
+                      <br />
+                  Log into chat admin panel -&gt; System Settings -&gt; Integration panel -&gt; DataBase -&gt; URL -&gt; fill login_chat.php URL  into 'URL' blank -&gt; save it</p>
+                <p>Click &quot;Install Done&quot; to finish installation then it will forward <a href="#get_code">Copy code and link</a> page to gain chat room page link and its relevant nested code, Please refer to the <a href="#get_code">Move client &amp; restart server</a>.</p>              </td>
+            </tr>
+          </table>-->
+        <br/>
+        <div class="gray"  id="local_mode">3.5 Local mode install instruction </div><br/>
+        <!--<div class="gray" id="local_path">3.5.1 123 Flash Chat installation address filling declaration </div>-->
+        <div ><a class="top" href="#install">Back to Top</a><br />
+          </div>
+        <table width="100%" cellpadding="5px" cellspacing="4" bgcolor="#F4F4F4">
+            <tr>
+              <td bgcolor="#FFFFFF" style="border:1px solid #dddddd;"><br />
+                  <p align="center"><img src="images/help/server_path.jpg" width="714" height="280" /></p>
+                <p ><br />
+                  1), In <a  href="#phpchat_mode">Select PHP Chat Integrate Mode</a> page, please select &quot;Chat server hosted by your own&quot; (Local mode).<br />
+                  <br />
+                  2), Please download and install 123 Flash Chat, we recommend you to use the version contain JRE</p>
+                <p > Chat Client Path filling format is as below<br />
+                    <br />
+                  http://www.example.com:35555/<br />
+                  For example,
+                  <br />
+                  if your chat domain name is &quot;mychatdomain.com&quot; : http://mychatdomain.com:35555/
+				  </p>
+                </td>
+            </tr>
+          </table>
+        <br/>
+        <!--<div class="gray"  id="local_integration">3.5.2 Integration declaration for Local mode </div>
+        <div ><a class="top" href="#install">Back to Top</a><br />
+          </div>
+        <table width="100%" cellpadding="5px" cellspacing="4" bgcolor="#F4F4F4">
+            <tr>
+              <td bgcolor="#FFFFFF" style="border:1px solid #dddddd;"><br />
+                  <p align="center" ><img src="images/help/integration.jpg"/></p>
+                <p>As the illustration above<br />
+                      <br />
+                  1), Selection 1, &quot;Do you want to integrate with your database&quot;</p>
+                <p>If you select &quot;No&quot;, it shows that you don't want to integrate with database. The chat room and user information will be stored into the 123 Flash Chat server's user database. If the user want to log in chat room, he or she must register with new id or log in with guest.</p>
+                <p>If you select &quot;yes&quot;, it shows that you want to integrate with the website database and you should configure the  items above in screenshot.</p>
+                
+                <p>2), Selection 2,&quot;Please select integration mode&quot;</p>
+                <p>Please select your favorable integration mode, refer to the <a  href="#mode_url">URL integration mode</a>, &nbsp;<a  href="#mode_database">Database integration mode</a> for help.</p>
+                
+                <p>3), Selection 3, &quot;Please select your using database&quot;</p>
+                <p> Please select your database type.</p>
+                
+                <p>4), Selection panel 3, &quot;Please configure the database connecting parameters&quot;</p>
+                <p>Please make sure all the information in these items are true. Please refer to <a  href="#mode_param">Database integration parameter declaration</a>.</p>
+                
+                <p>5), After finishing filling, click &quot;NEXT&quot; to the <a  href="#copy_and_restart">Move client &amp; restart server</a> page.</p>              </td>
+            </tr>
+          </table>
+        <br/>
+        <div class="gray"  id="copy_and_restart">3.5.3 <a jquery1252992035671="8">Move client &amp; restart server </a> </div>
+        <div ><a class="top" href="#install">Back to Top</a><br />
+          </div>
+        <table width="100%" cellpadding="5px" cellspacing="4" bgcolor="#F4F4F4">
+            <tr>
+              <td bgcolor="#FFFFFF" style="border:1px solid #dddddd;"><div align="center"><img src="images/help/copy.jpg" width="717" height="372" /><br />
+                </div>
+                  <p >1), Please select the way how to copy the chat client. We recommend you copy the chat client  not automatically but manually, because it really takes time by script! </p>
+                  <p >Manually copy mode: search for 123 Flash Chat installation directory and copy the client files to the PHP Chat installation directory. </p>
+                  <p > 2), Please select the way of restarting the 123 Flash Chat server. Auto-start is only available to the version 7.4 or higher version </p>
+                <p>Manually restart mode:<br />
+                      <br />
+                  Windows: search for 123 Flash Chat installation directory,  you will see the restart.bat under the server folder, double click it.<br />
+                  <br />
+                  Linux:  search for 123 Flash Chat installation directory, find the fcserver.sh under the server folder,<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then type command &quot;./fcserver.sh restart&quot; and press &quot;Enter&quot; with root account.</p>              </td>
+            </tr>
+          </table><br/>-->
+		<div class="gray"  id="auto_login">3.6 Auto login (for Host mode and Local mode) </div><br/>
+        <div ><a class="top" href="#install">Back to Top</a><br />
+          </div>
+        <table width="100%" cellpadding="5px" cellspacing="4" bgcolor="#F4F4F4">
+            <tr>
+              <td bgcolor="#FFFFFF" style="border:1px solid #dddddd;"><br />
+                <p>If you use Host Mode or Local mode, you need to add these code to configure/config.php for auto login chat.</p>
+				<pre>
+	$select_db = 'mysql';	// mysql,mssql,oracle,dbal
+	$param_db_host = 'localhost';	//default : localhost
+	$param_db_port = '3306';	//database port
+	$param_db_name = '';		//dabase name
+	$param_db_user = 'root';	//database user
+	$param_db_password = '';	//database password
+	$param_db_user_table = '';	//user table
+	$param_username_field = 'username';	//user field
+	$param_pw_field = 'password';		//password filed
+	$enablemd5 = 'Off';			// enable md5 (Off,On)
+				</pre>
+				<p>Please configure login_chat.php address to the chat admin panel<br />
+					Log into chat admin panel -> Server Settings -> Integration -> DataBase -> URL -> fill login_chat.php URL into 'URL' blank -> save it.<br />
+					Server Management -> Restart -> Restart Server.</p>
+              </td>
+            </tr>
+          </table>
+        <br/>
+        <div class="tit1"  id="get_code">4.  Install  done,copy code and link </div>
+        <div ><a class="top" href="#install">Back to Top</a><br />
+          </div>
+        <table width="100%" cellpadding="5px" cellspacing="4" bgcolor="#F4F4F4">
+            <tr>
+              <td bgcolor="#FFFFFF" style="border:1px solid #dddddd;"><p align="center"><img src="images/help/get_code.jpg" width="714" height="279" /></p>
+                  <p>As the illustration above<br />
+                      <br />
+                    You can view the installed chat room page under index tab.<br />
+                    <br />
+                    You can gain the link address for chat room under Copy URL tab.<br />
+                    <br />
+                    You can gain the chat room code under Copy Code tab. insert the code into your page then the chat room will be shown in the current page. It is necessary for the licensed user to modify the swf address for making sure the  path of phpchat/client/123flashchat.swf is correct.</p>              </td>
+            </tr>
+          </table>
+        <br/>
+        <div class="tit1"  id="remove">5.  Remove install folder </div>
+        <div ><a class="top" href="#install">Back to Top</a><br />
+          </div>
+        <table width="100%" cellpadding="5px" cellspacing="4" bgcolor="#F4F4F4">
+            <tr>
+              <td bgcolor="#FFFFFF" style="border:1px solid #dddddd;">
+                  <p > After you complete installation, you are not able to install it again. If you really want to install it again, please click "Reinstall Other Module" and begin from <a  href="#quick_install"> Quick install</a>.<br />
+                      <br />
+                    When you complete the installation, you will be lead to the <a href="#get_code"> copy code and link</a>.  </p>              </td>
+            </tr>
+          </table>
+        
+        <p><span class="tit1" id="Advance">6 Advance</span></p><br />
+        <p><span class="gray" id="insta_info">6.1 Integration mode and relevant parameters filling annotation </span></p>
+        <!--<div class="gray"  id="mode_url">6.1.1 URL integration mode </div>-->
+        <div ><a class="top" href="#install">Back to Top</a><br />
+          </div>
+        <table width="100%" cellpadding="5px" cellspacing="4" bgcolor="#F4F4F4">
+            <tr>
+              <td bgcolor="#FFFFFF" style="border:1px solid #dddddd;"><br />
+                  <p align="center" ><img src="images/help/url.jpg" /> </p>
+                <p >We recommend you use this mode because it can reduce the numbers of the database connecting pool and relief the burden for database. </p>
+                <p>After you filling database configuration information, please make sure that you save these information to the &quot;configure / config.php&quot; for login_chat.php calling. PHP Chat supports MySQL, MS SQL and Oracle at present.</p>
+                <p> login_chat.php URL Output:<br />
+                  (What does each number means in terms of the authentication result.)<br />
+                  0 - login successfully; <br />
+                  1 - wrong password;<br />
+                  2 - the username can't be used; <br />
+                  3 - login error<br />
+                  4 - username does not exist <br />
+                  5 - successfully log in as an administrator</p>              </td>
+            </tr>
+          </table>
+        <br/>
+        <!--<div class="gray"  id="mode_database">6.1.2 Database integration mode </div>
+        <div ><a class="top" href="#install">Back to Top</a><br />
+          </div>
+        <table width="100%" cellpadding="5px" cellspacing="4" bgcolor="#F4F4F4">
+            <tr>
+              <td bgcolor="#FFFFFF" style="border:1px solid #dddddd;"><br />
+                  <p align="center" ><img src="images/help/db.gif" /></p>
+                <p>After you filling database configuration information, your configuration information will be written into the %123flashchat installed directory%server/etc/fcserver.xml and %123flashchat installed directory%server/etc/groups/default/server.xml for the calling of 123 Flash Chat server. PHP Chat supports MySQL, MS SQL and Oracle at present.</p>
+                <p> It is direct integration of the chat server and the user database, through JDBC driver, which is abbreviation of Java DataBase Connectivity standard. <br />
+                      <br />
+                  This way is for advanced user who not only understands how to connect database using JDBC driver, but also is capable of performance tuning to handle high traffic.</p>              </td>
+            </tr>
+          </table>
+         <div class="tit1"  id="mode_3rd"> </div><br/>
+        <div class="gray"  id="mode_param">6.1.3 Database integration parameter declaration </div>
+        <div ><a class="top" href="#install">Back to Top</a><br />
+          </div>
+      
+        <table width="100%" cellpadding="5px" cellspacing="4" bgcolor="#F4F4F4">
+          <tr>
+            <td bgcolor="#FFFFFF" style="border:1px solid #dddddd;"><br />
+                <p align="center" ><img src="images/help/db_param.jpg" width="316" height="322" /></p>
+              <br />
+                <p>Database host: You need to fill in your database host server ip address. If the database is installed on your local machine, please fill in with &quot;localhost&quot; </p>
+                <p>Database name: You need to fill in database name.</p>
+              <p>Database username: You need to fill in the account username which is allowed to access the database. </p>
+              <p>Database password: You need to fill in the password which is allowed to access the database. </p>
+              <p>Database user table: You need to fill in database user list table name of the integrated website.</p>
+              <p>Username field: You need to fill in its relevant username field name stored in the user list table.</p>
+              <p>Password field: You need to fill in its relevant password field name stored in the user list table.</p>
+              <p>EnableMD5: This item provides Encryption judgment. In your database, if the user password is encrypted with md5, you should set this item &quot;on&quot;. Only do this can it identify the user password is encrypted with md5. If your encryption is not md5 or there is addtional salt parameter, you should go to the API to add your own encryption function. Please refer <a href="#api">API for Developers</a>.</p></td>
+          </tr>
+        </table>-->
+		  <div class="gray"  id="api"> 6.2 API for Developers </div>
+        <div ><a class="top" href="#install">Back to Top</a><br />
+          </div>
+        <table width="100%" cellpadding="5px" cellspacing="4" bgcolor="#F4F4F4">
+            <tr>
+              <td bgcolor="#FFFFFF" style="border:1px solid #dddddd;"><br />
+			  <p>If you're running 123FlashChat server side by yourself or host 123FlashChat chat room by 123flashchat.com, 
+
+and you're ready to integrate chat room with your existing user databases, you can configure the PHP Chat API 
+
+after you finish installing the PHP Chat. If you’re using the free chat room provided by us, please ignore 
+
+this chapter.</p>
+                  <p >PHP chat offers two API files and they are located in phpchat/api/ </p>
+				  <p>1). Transfer Username and Password API for auto login.</p>
+                <p>During the PHP chat installing process, if you have already selected and integrated your website database, 
+
+you can use this API, no matter you choosing Database integrated mode or URL integrated mode.<br />
+				Api_user_session.php API files are used to transfer the username and password for the user who have logon 
+
+into your website. </p>
+				<p>Once you pass the current user’s username and password to the variables of $username and $password 
+
+respectively in Api_user_session.php which is called by 123flashchat.php, you don't need to login twice to 
+
+access 123FlashChat chat room.</p>
+                <p>sample code:</p>
+                <p>//code begin<br />
+				/*After the user login into your website, Their username and password can be gained from your website's 
+
+"Session" or "Cookie".The Api_user_session.php need gain the login user's username and password, you should rewrite the script to 
+
+pass the values to the variables of $username and $password respectively for the calling of 123flashchat.php. 
+
+For doing so, there is no need for the user to type its password again to log in the chat room when he or she 
+
+visits the pages of 123flashchat.php. */<br />
+                  session_start();<br />
+                  $username= $_SESSION[username];<br />
+                  $password= $_SESSION[password]; <br />
+                  //code end<br />
+                  </p>
+				  
+				 <p>2). Password encryption method API for authentication.</p>
+                <p>Api_password_encrypt.php API file is used to add your website special password encrypt algorithms helped to 
+
+identify the encrypted password. Here we use API to pass the name of encrypted method then login_chat.php 
+
+will call this function to validate the password. If you change the path of Api_password_encrypt.php, you 
+
+also need to change Api_password_encrypt.php include path in login_chat.php<br/>
+For password authentication, if your encryption method is not MD5, you may need to add your encryption 
+
+algorithm into API, and assign the function name of your encryption method to password_encrypt_function_name, 
+
+your encryption method will be called automatically to be used to authenticate user’s account.
+</p>
+				
+                <p>sample code:</p>
+                <p>//code begin<br />
+				//assume the following function is your website's special password encrypt algorithms
+                <br />
+                  function hash_pw($password){ <br />
+                  $salt = &quot;phpchat&quot;; <br />
+                  return  md5($password.$salt); <br />
+                  }<br />
+                  $password_encrypt_function_name = &quot;hash_pw&quot;;<br />
+                  <br />
+                  //code end<br />
+                  <br />
+                 </p></td>
+            </tr>
+        </table></td>
+    </tr>
+  </table>
+</div>
+</div>
+<div class="instruction_b"><img src="images/kd_left.gif" /><span><!-- space end--></span><img src="images/kd_right.gif" /></div>
+</div>
+</div>
+</div>
+</body>
+<script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/jquery.cookie.js" type="text/javascript"></script>
+<script src="js/jquery.treeview.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(function() {
+			$("#tree").treeview({
+				collapsed: true,
+				animated: "medium",
+				control:"#sidetreecontrol",
+				persist: "location"
+			});
+		})
+		
+	</script>
+</html>

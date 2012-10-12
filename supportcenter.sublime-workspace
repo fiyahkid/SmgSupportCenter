@@ -1,0 +1,757 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Seach",
+				"SearchCtrl"
+			],
+			[
+				"get",
+				"getList"
+			],
+			[
+				"text",
+				"text-decoration"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "public/styles/style.css",
+			"settings":
+			{
+				"buffer_size": 12904,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/views/scripts/index/index.phtml",
+			"settings":
+			{
+				"buffer_size": 7151,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/views/scripts/index/get-list.phtml",
+			"settings":
+			{
+				"buffer_size": 1068,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/views/scripts/index/ticketsystem.phtml",
+			"settings":
+			{
+				"buffer_size": 528,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "angular.module('SmgSupportCenter', [])\n	.config(['$routeProvider' , function($routeProvider) {\n		// Add a basic route to load the template\n		$routeProvider\n			.when('/get-list', {templateUrl: 'index/get-list', controller: 'GetListCtrl'}) //wenn url: SmgSupportCenter/public/index/#/get-list\n			.when('/get-search-list', {templateUrl: 'request/get-search-list', controller: 'SearchCtrl'}) //wenn url: SmgSupportCenter/public/index/#/get-search-list\n			.when('/login', {templateUrl: 'auth/login', controller: 'LoginCtrl'}) //wenn url: SmgSupportCenter/public/index/#/login\n			.when('/ticketsystem', {templateUrl: 'index/ticketsystem', controller: 'TicketsystemCtrl'}) //wenn url: SmgSupportCenter/public/index/#/ticketsystem\n			.when('/ticketsystem/:site', {templateUrl: 'index/ticketsystem', controller: 'TicketsystemCtrl'}) //wenn url: SmgSupportCenter/public/index/#/ticketsystem\n			//.when('/eingang', {templateUrl: 'ticketsystem/eingang', controller: 'EingangCtrl'}) //wenn url: SmgSupportCenter/public/index/#/eingang\n			.otherwise({ templateUrl: 'index/main', controller: 'MainCtrl' }); //SmgSupportCenter/public/index/#/IRGENDWAS ANDERES\n	}])\n	.service('ticketsystemService', ['$rootScope', '$http', function($rootScope, $http){\n		\n		var self = this;\n		this.tickets = [];\n		this.getList = function(offset, keywords){\n			return $http.get(baseUrl + '/request/get-list/offset/' + offset + '/search/' + keywords).success(function(res){\n				self.tickets = res;\n				$rootScope.$broadcast('new-search-results', res);\n			});\n		}\n\n		return {\n			tickets: this.tickets,\n			getList: this.getList\n		}		\n	}])\n	.controller('LoginCtrl', ['$scope', function MainCtrl($scope) {\n		console.log('Login');\n	}])\n	.controller('TicketsystemCtrl', ['$scope', '$routeParams', function MainCtrl($scope, $routeParams) {\n		var site = $routeParams.site || 'eingang'; //entweder was in der url steht oder standard: eingang\n\n		$scope.nav = [\n			{\n				href: 'eingang',					// link wie er dann an die url angeängt wird... => http://localhost/SmgSupportCenter/public/#/ticketsystem/eingang\n				template: 'ticketsystem/eingang',	// link zur view die geladen wird\n				text: 'Eingang'						// text auf dem button\n			},\n			{\n				href: 'bearbeitung',\n				template: 'ticketsystem/bearbeitung',\n				text: 'Bearbeitung'\n			},\n			{\n				href: 'ausgang',\n				template: 'ticketsystem/ausgang',\n				text: 'Ausgang'\n			},\n			{\n				href: 'bla',\n				template: 'ticketsystem/bla',\n				text: 'Bla'\n			}\n		];\n\n		this.findCurrentNav = function(site) {\n			return $.grep( $scope.nav, function(val, index){\n				return val.href == site;\n			})[0].template;\n		};\n\n		$scope.selectedSite = this.findCurrentNav(site);\n	}])\n	.controller('MainCtrl', ['$rootScope', '$scope', 'ticketsystemService', function MainCtrl($rootScope, $scope, ticketsystemService) {\n		$scope.keywords = '';\n		$scope.search = function() {\n			$rootScope.showLoading = true;\n			ticketsystemService.getList(0, $scope.keywords).success(function(){\n				$rootScope.showLoading = false;\n			})\n		}\n	}])\n	.controller('GetListCtrl', ['$rootScope', '$scope', '$http', 'ticketsystemService', function GetListCtrl ($rootScope, $scope, $http, ticketsystemService) {\n		$scope.page = 1;\n		$scope.offset = 10;\n		$scope.results = [];\n		$scope.$on('new-search-results', function(e, val){\n			$scope.results = val;\n		});\n		$rootScope.showLoading = $scope.results.length > 0 ? false : true;\n\n		$scope.getOlder = function() {\n			$scope.page++;\n			$rootScope.showLoading = true;\n			var pageOffset = ($scope.page -1) * $scope.offset;\n			ticketsystemService.getList( pageOffset, $scope.keywords ).success(function(res){\n				$rootScope.showLoading = false;\n				$scope.currentMsg = res[0];\n			})\n			console.log($scope.keywords);\n		}\n		$scope.getNewer = function() {\n			$scope.page--;\n			$rootScope.showLoading = true;\n			var pageOffset = ($scope.page -1) * $scope.offset;\n			ticketsystemService.getList( pageOffset, $scope.keywords ).success(function(res){\n				$rootScope.showLoading = false;\n				$scope.currentMsg = res[0];\n			})\n		}\n\n		$scope.showMessage = function(index) {\n			$scope.currentMsg = $scope.results[index];\n		}\n\n		if ($scope.results.length === 0) {\n\n			$rootScope.showLoading = true;\n\n			ticketsystemService.getList(0, $scope.keywords).success(function(res){\n				$rootScope.showLoading = false;\n			})\n		}\n\n	}])\n	.controller('ChatWindowCtrl', ['$rootScope', '$scope', '$http', function ChatWindowCtrl($rootScope, $scope, $http) {\n		$scope.chatWindow = function (){\n			$('#chat').show();\n			console.log('testchatwindow');\n		}\n	}])\n	.controller('ChatCtrl', ['$rootScope', '$scope', '$http', function ChatCtrl($rootScope, $scope, $http) {\n		$scope.messages = [];\n		$scope.realtimeStatus = \"Connecting...\";\n		$scope.channel = \"pubnub_chat\";\n		$scope.limit = 20;\n\n		//publish a chat message\n		$scope.publish = function(){\n		    \n		    //toggle the progress bar\n		    $('#progress_bar').slideToggle();\n		    \n		     PUBNUB.publish({\n		            channel : $scope.channel,\n		            message : $scope.message\n		        })\n		         \n		    //reset the message text\n		   $scope.message.text = \"\";\n		}\n		    \n		//gets the messages history   \n		$scope.history = function(){\n		    PUBNUB.history( {\n		        channel : $scope.channel,\n		        limit   : $scope.limit\n		    }, function(messages) {\n		        // Shows All Messages\n		        $scope.$apply(function(){\n		            $scope.messages = messages.reverse();          \n		            \n		        });\n		    } );\n		 }\n		     \n\n		//we'll leave these ones as is so that pubnub can\n		//automagically trigger the events\n		PUBNUB.subscribe({\n		    channel    : $scope.channel,\n		    restore    : false,\n\n		    callback   : function(message) {\n		        \n		        //toggle the progress_bar\n		        $('#progress_bar').slideToggle();         \n		     \n		        $scope.$apply(function(){\n		            $scope.messages.unshift(message);          \n		            \n		        });\n		    },\n\n		    disconnect : function() {   \n		        $scope.$apply(function(){\n		            $scope.realtimeStatus = 'Disconnected';\n		        });\n		    },\n\n		    reconnect  : function() {   \n		        $scope.$apply(function(){\n		            $scope.realtimeStatus = 'Connected';\n		        });\n		    },\n\n		    connect    : function() {  \n		        $scope.$apply(function(){\n		            $scope.realtimeStatus = 'Connected';\n		            //hide the progress bar\n		            $('#progress_bar').slideToggle();\n		            //load the message history from PubNub\n		            $scope.history();\n		        });\n		    }\n	    })   \n	}])\n	.directive('loadingScreen', ['$rootScope', '$parse', function($rootScope, $parse) {\n		return {\n			restrict: 'E',\n			scope: {\n				show: '='\n			},\n			template: '<div class=\"label label-info\">Info</div>',\n			link: function($scope, $elem, attrs) {\n				// $scope.$watch( 'showLoading', function(newValue, oldValue){\n				// 	console.log($scope.show);\n				// 	if ($scope.show) {\n				// 		$elem.show();\n				// 	} else {\n				// 		$elem.hide();\n				// 	}\n				// }, true);\n			}\n		}\n	}])\n	.directive('coolFade', function() {\n	    return {\n	      compile: function(elm) {\n	        //console.log('compiling');\n	        $(elm).css('opacity', 0);\n	        return function(scope, elm, attrs) {\n	         // console.log('animating');\n	          $(elm).animate({ opacity : 1.0 }, 1000 );\n	        };\n	      }\n	    };\n  	})\n	.directive('chat', ['$rootScope', '$parse', function($rootScope, $parse) {\n		return {\n			restrict: 'E',\n			scope: {\n\n			},\n			template:\n		}\n	}])\n\n  	.filter('gravatarHash', [function(){\n  		return function(text){\n  			return hex_md5(text.toLowerCase().trim())\n  		};\n  	}])\n",
+			"file": "public/scripts/controllers.js",
+			"file_size": 7722,
+			"file_write_time": 129944382843647901,
+			"settings":
+			{
+				"buffer_size": 7633,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/views/scripts/ticketsystem/eingang.phtml",
+			"settings":
+			{
+				"buffer_size": 3955,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/views/scripts/ticketsystem/ausgang.phtml",
+			"settings":
+			{
+				"buffer_size": 17,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/Css3Essentials/index.html",
+			"settings":
+			{
+				"buffer_size": 1436,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/Css3Essentials/style.css",
+			"settings":
+			{
+				"buffer_size": 2370,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/controllers/IndexController.php",
+			"settings":
+			{
+				"buffer_size": 1604,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/controllers/TicketsystemController.php",
+			"settings":
+			{
+				"buffer_size": 359,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/controllers/RequestController.php",
+			"settings":
+			{
+				"buffer_size": 13705,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/layouts/scripts/layout.phtml",
+			"settings":
+			{
+				"buffer_size": 2507,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/scripts/tsuebersicht.js",
+			"settings":
+			{
+				"buffer_size": 21942,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: html"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/xampp/htdocs/SmgSupportCenter/application/models/RequestModel.php",
+		"/C/xampp/htdocs/SmgSupportCenter/application/controllers/RequestController.php",
+		"/C/xampp/htdocs/SmgSupportCenter/application/controllers/EingangController.php",
+		"/C/xampp/htdocs/SmgSupportCenter/bootstrap/css/bootstrap.css",
+		"/C/xampp/htdocs/SmgSupportCenter/bootstrap/css/superhero__bootstrap.min.css",
+		"/C/xampp/htdocs/SmgSupportCenter/bootstrap/css/bootstrap.min.css",
+		"/C/xampp/htdocs/SmgSupportCenter/supportcenter.sublime-project",
+		"/C/Users/Fiyahkid/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Fiyahkid/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/Fiyahkid/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Fiyahkid/AppData/Roaming/Sublime Text 2/Packages/User/Distraction Free.sublime-settings",
+		"/C/Users/Fiyahkid/AppData/Roaming/Sublime Text 2/Packages/User/HTML.sublime-settings",
+		"/C/Users/Fiyahkid/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/xampp/htdocs/SmgSupportCenter/my-theme.sublime-project",
+		"/C/xampp/htdocs/SmgSupportCenter/application/views/scripts/index/ticketsystem.phtml",
+		"/C/xampp/htdocs/SmgSupportCenter/public/index.php",
+		"/C/xampp/htdocs/Zend/library/Zend/Application.php",
+		"/C/xampp/htdocs/support_center/js/sc_index.js",
+		"/C/xampp/htdocs/SmgSupportCenter/public/scripts/json/ts_table_th.json",
+		"/C/xampp/htdocs/SmgSupportCenter/public/scripts/json/test.json",
+		"/C/xampp/htdocs/SmgSupportCenter/public/scripts/tsuebersicht.js",
+		"/C/xampp/htdocs/SmgSupportCenter/application/views/scripts/request/ticketOverview.phtml",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/xampp/htdocs/SupportCenter2012/index.php",
+		"/C/xampp/__htdocs/index.php",
+		"/C/xampp/__htdocs/index.html",
+		"/C/xampp/__htdocs/xampp/index.php",
+		"/C/xampp/apache/conf/extra/httpd-vhosts.conf",
+		"/C/xampp/apache/conf/httpd.conf",
+		"/F/_Webdesign/xampp/apache/conf/extra/httpd-vhosts.conf",
+		"/F/Web-Design/xampp/apache/conf/extra/httpd-vhosts.conf",
+		"/F/xampp/apache/conf/extra/httpd-vhosts.conf"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"css",
+			"20px",
+			"right",
+			"60",
+			"40px",
+			"myApp",
+			"30px",
+			";\"",
+			"btn",
+			"999",
+			"style",
+			"Antworten",
+			"li",
+			"200px",
+			"0",
+			"false",
+			"searchsubmit",
+			"10",
+			"padding",
+			"true",
+			"style",
+			"class",
+			"btn",
+			"href",
+			"\"></",
+			"Bla",
+			"tab",
+			"collapseOne",
+			"50px",
+			"1",
+			"1px",
+			"btn",
+			"5s",
+			"top",
+			"bottom",
+			"left",
+			"8",
+			"1",
+			"4",
+			"20px",
+			"2",
+			"2s",
+			"></",
+			"2",
+			"white",
+			"rgba(0, 0, 0, 1)",
+			"1px",
+			"20px",
+			"5px",
+			"10px",
+			"btn-mini",
+			"btn-inverse",
+			"\"btn\"",
+			"btn",
+			">. ",
+			"application",
+			"defined",
+			"efined",
+			"defined",
+			"APPLICATION_ENV",
+			"Application"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "public/styles/style.css",
+					"settings":
+					{
+						"buffer_size": 12904,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11947,
+								11947
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 8096.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "application/views/scripts/index/index.phtml",
+					"settings":
+					{
+						"buffer_size": 7151,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4848,
+								4848
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1305.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "application/views/scripts/index/get-list.phtml",
+					"settings":
+					{
+						"buffer_size": 1068,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								145,
+								145
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "application/views/scripts/index/ticketsystem.phtml",
+					"settings":
+					{
+						"buffer_size": 528,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								364,
+								364
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "public/scripts/controllers.js",
+					"settings":
+					{
+						"buffer_size": 7633,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6698,
+								6670
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2790.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "application/views/scripts/ticketsystem/eingang.phtml",
+					"settings":
+					{
+						"buffer_size": 3955,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1568,
+								1568
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "application/views/scripts/ticketsystem/ausgang.phtml",
+					"settings":
+					{
+						"buffer_size": 17,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10,
+								10
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/C/xampp/htdocs/Css3Essentials/index.html",
+					"settings":
+					{
+						"buffer_size": 1436,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1265,
+								1265
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/C/xampp/htdocs/Css3Essentials/style.css",
+					"settings":
+					{
+						"buffer_size": 2370,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1812,
+								1812
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 990.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "application/controllers/IndexController.php",
+					"settings":
+					{
+						"buffer_size": 1604,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								693,
+								693
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "application/controllers/TicketsystemController.php",
+					"settings":
+					{
+						"buffer_size": 359,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								289,
+								289
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "application/controllers/RequestController.php",
+					"settings":
+					{
+						"buffer_size": 13705,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "application/layouts/scripts/layout.phtml",
+					"settings":
+					{
+						"buffer_size": 2507,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "public/scripts/tsuebersicht.js",
+					"settings":
+					{
+						"buffer_size": 21942,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								17804,
+								17804
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 6388.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"layout",
+				"Support Center/application/layouts/scripts/layout.phtml"
+			],
+			[
+				"request",
+				"Support Center/application/controllers/RequestController.php"
+			],
+			[
+				"style.css",
+				"public/styles/style.css"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 254.0,
+	"status_bar_visible": true
+}

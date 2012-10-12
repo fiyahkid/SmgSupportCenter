@@ -1,0 +1,40 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				".buildpath",
+				".gitignore",
+				".project",
+				".zfproject.xml",
+				"application/configs/classmap-SmgSupportCenter-conf.php",
+				"application/configs/SmgSupportCenter-conf.php",
+				"application/controllers/ErrorController.php",
+				"public/.htaccess",
+				"public/index.php"
+			],
+			"folder_exclude_patterns":
+			[
+				".settings",
+				"build",
+				"docs",
+				"library",
+				"nbproject",
+				"tests",
+				"public/scripts/development-bundle",
+				"public/img"
+			],
+			"name": "Support Center",
+			"path": "/C/xampp/htdocs/SmgSupportCenter"
+		},
+		{
+			"name": "CSS3 Essentials # tutsplus-course",
+			"path": "/C/xampp/htdocs/Css3Essentials"
+		}
+	],
+	"settings": {
+		"default_line_ending": "LF",
+		"highlight_line": true
+	}
+}

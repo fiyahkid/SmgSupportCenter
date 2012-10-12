@@ -1,0 +1,101 @@
+<div class="well well-small" style="width:97.5%; color:#222; max-height: 400px;" ng-controller="GetListCtrl">
+	<div class="loading label label-info label-inverse" ng-show="showLoading" style="position: absolute; 
+																				   z-index: 1000; 
+																				   width: 400px; 
+																				   left: 33%; 
+																				   margin-top: 180px;
+																		   			
+																		   		   max-height: 20px;
+
+																		   	   	   box-shadow: 0px 0px 50px rgba(0, 0, 0, .5);
+			   		   														  -moz-box-shadow: 0px 0px 50px rgba(0, 0, 0, .5);
+																		   -webkit-box-shadow: 0px 0px 50px rgba(0, 0, 0, .5);
+																				   ">
+																				   	<div class="progress progress-striped active">
+																				   		<div class="bar" style="width: 100%;"><p style="margin-top: 2px;">Loading...</p></div>
+																				   	</div>
+																				   </div>
+	<div class="accordion" id="accordion2" ng-repeat="result in results" style="margin: 0; height: 40px; min-height: 40px; max-height: 40px;">
+	  <div class="accordion-group">
+	    <div class="accordion-heading" ng-class="{'alert-info' : (currentMsg == result)}">
+	      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{result.IdTicketsystem}}" ng-click="showMessage($index)">
+	       	<script type="text/javascript">
+	  			console.log();
+	  		</script>
+	       	
+	       	<strong>{{result.Fehlermeldung}}</strong>
+
+	       	<span class="pull-right">{{result.Datum}}</span>
+	      </a>
+	    </div>
+	    <!--
+	    <div id="collapse{{result.IdTicketsystem}}" class="accordion-body collapse">
+	      <div class="accordion-inner">
+			<blockquote>
+				<p>{{result.Fehlertext}}</p>
+				<small>{{result.Datum}}</small>
+			</blockquote>
+	      </div>
+	    </div>
+	-->
+	  </div>
+	</div>
+
+	<div style="position: absolute; width: 97.5%;">
+		<ul class="pager">
+		  <li class="previous"  ng-show="page > 1">
+		    <a href="" ng-click="getNewer()">&larr; Newer</a>
+		  </li>
+		  <div >
+		  	
+		  </div>
+		  <li class="next">
+		    <a href="" ng-click="getOlder()">Older &rarr;</a>
+		  </li>
+		</ul>
+	</div>
+
+	<br class="clearfix " />
+
+<div class="tabbable">
+	<ul class="nav nav-tabs" style="margin-left: 150px; width: 700px;">
+		<li style="height: 30px;" class="btn"><a href="#tab1" data-toggle="tab" style="color: #333; margin-top: -5px; ">Original Ticket</a></li>
+		<li style="height: 30px;" class="btn"><a href="#tab2" data-toggle="tab" style="color: #333; margin-top: -5px; ">Antworten</a></li>
+		<li style="height: 30px;" class="btn"><a href="#tab3" data-toggle="tab" style="color: #333; margin-top: -5px; ">Weiterleiten</a></li>
+		<li style="height: 30px;" class="btn"><a href="#tab4" data-toggle="tab" style="color: #333; margin-top: -5px; ">Verlauf &Uuml;bersicht</a></li>
+		<li style="height: 30px;" class="btn btn-inverse"><a href="#tab5" data-toggle="tab" style=" margin-top: -5px; color: #999;">PDF</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active" id="tab1">
+			
+			<div class="well well-small" style="margin-left: -10px; margin-top: -22px; width: 97.5%; max-height: 400px; position: absolute;" ng-show="currentMsg">
+				<div class="well well-small" style="height: 20px; max-height: 20px;">
+					<p class="pull-left"><span>Betreff: </span>{{currentMsg.Debitor}} // {{currentMsg.Produkt}} // {{currentMsg.Fehlermeldung}}</p>
+					<p class="pull-right"><span>Ticket-ID: </span>{{currentMsg.IdTicketsystem}}</p>
+				</div>
+				<div class="well well-small" style="height: 280px; max-height: 280px">
+					<blockquote>
+						<p>{{currentMsg.Fehlertext}}</p>
+						<small>{{currentMsg.Datum}}</small>
+
+
+						<script type="text/javascript">
+							console.log('bla');
+
+						</script>	
+					</blockquote>
+				</div>
+			</div>
+
+		</div>
+		<div class="tab-pane" id="tab2"><p>bla2</p></div>
+		<div class="tab-pane" id="tab3"><p>bla3</p></div>
+	</div>
+</div>
+
+
+
+
+	
+
+</div>

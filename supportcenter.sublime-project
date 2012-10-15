@@ -26,12 +26,15 @@
 				"public/img"
 			],
 			"name": "Support Center",
-			"path": "/C/xampp/htdocs/SmgSupportCenter"
-		},
+			"path": "/opt/lampp/htdocs/SmgSupportCenter"
+			//"path": "/C/xampp/htdocs/SmgSupportCenter"
+		}
+		/*
 		{
 			"name": "CSS3 Essentials # tutsplus-course",
 			"path": "/C/xampp/htdocs/Css3Essentials"
 		}
+		*/
 	],
 	"settings": {
 		"default_line_ending": "LF",

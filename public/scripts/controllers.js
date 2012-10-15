@@ -197,6 +197,16 @@ angular.module('SmgSupportCenter', [])
 		    }
 	    })   
 	}])
+	.directive('chat', ['$scope', '$rootScope', '$parse', function($scope, $rootScope, $parse) {
+		return {
+			restrict: 'E',
+			scope: {
+				name: 'bind'
+			},
+			templateUrl: 'partials/chat.html'
+
+		}
+	}])
 	.directive('loadingScreen', ['$rootScope', '$parse', function($rootScope, $parse) {
 		return {
 			restrict: 'E',

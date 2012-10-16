@@ -97,10 +97,16 @@
 
 					<div class="dropdown pull-right" style="right: 30px;" ng-controller="ChatWindowCtrl">
 						<button class="btn btn-success dropdown-toggle" data-toggle="dropdown" style="width: 96px;">
-							Chat <a href="" ng-click="chatWindow()"><span class="caret"></span></a>
+							Chat <a href="#" ng-click="chatWindow()"><span class="caret"></span></a>
 						</button>
-						<div>
-							<chat name="Support Chat Center" style="position: absolute; right: 0; top: 0;"></chat>
+						<div class="dropdown-menu well">
+							<chat name="Support Chat Center" 
+								 pub-key="pub-a22fbc92-a78f-4420-8c01-0dd18fafdd6d" 
+								 sub-key="sub-dc04a400-1322-11e2-bae3-17e29d4769dd" 
+								 ssl="off" 
+								 origin="pubsub.pubnub.com" 
+								 id="pubnub" style="position:static !important;"></chat>
+							<script type="text/javascript" src="http://cdn.pubnub.com/pubnub-3.1.min.js"></script>
 						</div>
 					</div>
 				</div>

@@ -117,7 +117,7 @@ angular.module('SmgSupportCenter', [])
 	}])
 	.controller('ChatWindowCtrl', ['$rootScope', '$scope', '$http', function ChatWindowCtrl($rootScope, $scope, $http) {
 		$scope.chatWindow = function (){
-			$('#chat').show();
+			$('#pubnub').show();
 			console.log('testchatwindow');
 		}
 	}])
@@ -197,14 +197,16 @@ angular.module('SmgSupportCenter', [])
 		    }
 	    })   
 	}])
-	.directive('chat', ['$scope', '$rootScope', '$parse', function($scope, $rootScope, $parse) {
+	.directive('chat', [function() {
 		return {
 			restrict: 'E',
+			replace: true,
 			/*
 			scope: {
 				name: '@'
 			},
 			*/
+			controller: 'ChatCtrl',
 			templateUrl: 'partials/chat.html'
 
 		}

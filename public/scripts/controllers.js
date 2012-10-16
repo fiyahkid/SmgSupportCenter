@@ -122,93 +122,120 @@ angular.module('SmgSupportCenter', [])
 		}
 	}])
 	.controller('ChatCtrl', ['$rootScope', '$scope', '$http', function ChatCtrl($rootScope, $scope, $http) {
-		$scope.messages = [];
-		$scope.realtimeStatus = "Connecting...";
-		$scope.channel = "pubnub_chat";
-		$scope.limit = 20;
+
 
 		//publish a chat message
-		$scope.publish = function(){
-		    
-		    //toggle the progress bar
-		    $('#progress_bar').slideToggle();
-		    
-		     PUBNUB.publish({
-		            channel : $scope.channel,
-		            message : $scope.message
-		        })
-		         
-		    //reset the message text
-		   $scope.message.text = "";
-		}
-		    
-		//gets the messages history   
-		$scope.history = function(){
-		    PUBNUB.history( {
-		        channel : $scope.channel,
-		        limit   : $scope.limit
-		    }, function(messages) {
-		        // Shows All Messages
-		        $scope.$apply(function(){
-		            $scope.messages = messages.reverse();          
-		            
-		        });
-		    } );
-		 }
-		     
-
-		//we'll leave these ones as is so that pubnub can
-		//automagically trigger the events
-		PUBNUB.subscribe({
-		    channel    : $scope.channel,
-		    restore    : false,
-
-		    callback   : function(message) {
-		        
-		        //toggle the progress_bar
-		        $('#progress_bar').slideToggle();         
-		     
-		        $scope.$apply(function(){
-		            $scope.messages.unshift(message);          
-		            
-		        });
-		    },
-
-		    disconnect : function() {   
-		        $scope.$apply(function(){
-		            $scope.realtimeStatus = 'Disconnected';
-		        });
-		    },
-
-		    reconnect  : function() {   
-		        $scope.$apply(function(){
-		            $scope.realtimeStatus = 'Connected';
-		        });
-		    },
-
-		    connect    : function() {  
-		        $scope.$apply(function(){
-		            $scope.realtimeStatus = 'Connected';
-		            //hide the progress bar
-		            $('#progress_bar').slideToggle();
-		            //load the message history from PubNub
-		            $scope.history();
-		        });
-		    }
-	    })   
+  
 	}])
 	.directive('chat', [function() {
+		function linkFn ($scope, elem, attr) {
+			$scope.messages = [];
+			$scope.realtimeStatus = "Connecting...";
+			$scope.channel = "pubnub_chat";
+			$scope.limit = 20;
+			$scope.pinned = false;
+
+			$scope.$watch( function() {return !!window.PUBNUB}, function(isSet){
+				if (isSet) {
+						$scope.publish = function(){
+						    //toggle the progress bar
+						    $('#progress_bar').slideToggle();
+						    
+						     PUBNUB.publish({
+						            channel : $scope.channel,
+						            message : $scope.message
+						        })
+						         
+						    //reset the message text
+						   $scope.message.text = "";
+						}
+						    
+						//gets the messages history   
+						$scope.history = function(){
+						    PUBNUB.history( {
+						        channel : $scope.channel,
+						        limit   : $scope.limit
+						    }, function(messages) {
+						        // Shows All Messages
+						        $scope.$apply(function(){
+						            $scope.messages = messages.reverse();          
+						            
+						        });
+						    } );
+						 }
+						     
+
+						//we'll leave these ones as is so that pubnub can
+						//automagically trigger the events
+						PUBNUB.subscribe({
+						    channel    : $scope.channel,
+						    restore    : false,
+
+						    callback   : function(message) {
+						        
+						        //toggle the progress_bar
+						        $('#progress_bar').slideToggle();         
+						     
+						        $scope.$apply(function(){
+						            $scope.messages.unshift(message);          
+						            
+						        });
+						    },
+
+						    disconnect : function() {   
+						        $scope.$apply(function(){
+						            $scope.realtimeStatus = 'Disconnected';
+						        });
+						    },
+
+						    reconnect  : function() {   
+						        $scope.$apply(function(){
+						            $scope.realtimeStatus = 'Connected';
+						        });
+						    },
+
+						    connect    : function() {  
+						        $scope.$apply(function(){
+						            $scope.realtimeStatus = 'Connected';
+						            //hide the progress bar
+						            $('#progress_bar').slideToggle();
+						            //load the message history from PubNub
+						            $scope.history();
+						        });
+						    }
+					    }) 
+				}
+			}, true);
+
+			$scope.pin = function(e) {
+				var $elem = $(e.target),
+					dropdown = $elem.parent().parent().parent().parent();
+				dropdown.removeClass('dropdown-menu').css({
+					'position' : 'absolute',
+					'right' : -207,
+					'top' : 40,
+					'width' : 215 
+				}).parent().removeClass('open');
+				$scope.pinned = true;
+				e.preventDefault();
+				e.stopPropagation();
+			}
+
+			$scope.unpin = function(e) {
+				var $elem = $(e.target),
+					dropdown = $elem.parent().parent().parent().parent();
+				dropdown.addClass('dropdown-menu').removeAttr('style');
+				$scope.pinned = false;
+				e.preventDefault();
+				e.stopPropagation();
+			}
+
+		}
+
 		return {
 			restrict: 'E',
-			replace: true,
-			/*
-			scope: {
-				name: '@'
-			},
-			*/
-			controller: 'ChatCtrl',
-			templateUrl: 'partials/chat.html'
-
+			templateUrl: 'partials/chat.html',
+			link: linkFn
 		}
 	}])
 	.directive('loadingScreen', ['$rootScope', '$parse', function($rootScope, $parse) {

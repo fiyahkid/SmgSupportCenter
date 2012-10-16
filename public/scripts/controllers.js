@@ -200,9 +200,11 @@ angular.module('SmgSupportCenter', [])
 	.directive('chat', ['$scope', '$rootScope', '$parse', function($scope, $rootScope, $parse) {
 		return {
 			restrict: 'E',
+			/*
 			scope: {
-				name: 'bind'
+				name: '@'
 			},
+			*/
 			templateUrl: 'partials/chat.html'
 
 		}
